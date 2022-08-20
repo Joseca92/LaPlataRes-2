@@ -4,9 +4,9 @@ import logo from '../asset/logo.png'
 
 const Nav = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#">
+        <Link className="navbar-brand d-flex align-items-center text-white" to="#">
           <img src={logo} alt="logo la plata restaurante" width="64" height="64" className="d-inline-block align-text-top" />
           <h4>La Plata restaurante</h4>
         </Link>
