@@ -1,0 +1,26 @@
+:root{
+    --color-logo: white;
+    --facebook: #1877F2;
+    --youtube: #FF0000;
+    --instagram:#E4405F;
+}
+.logo img{
+   width: 64px;
+   height: 64px; 
+}
+svg {
+    width: 32px;
+    height: 32px;
+}
+#facebook, #instagram, #youtube{
+    fill: var(--color-logo);
+}
+#facebook:hover{
+ fill: var(--facebook);
+}
+#instagram:hover{
+    fill: var(--instagram);
+}
+#youtube:hover{
+    fill: var(--youtube);
+}
