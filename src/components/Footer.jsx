@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-12 col-md-4 logo">
                         <Link className="navbar-brand text-white d-flex align-items-center justify-content-center " to="#">
-                            <img src={logo} alt="logo la plata restaurante" class="d-inline-block align-text-top" />
+                            <img src={logo} alt="logo la plata restaurante" className="d-inline-block align-text-top" />
                             <h5>La Plata restaurante</h5>
                         </Link>
                     </div>
