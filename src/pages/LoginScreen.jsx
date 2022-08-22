@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postAuth } from "../helpers/fetchApp";
+// import { postAuth } from "../helpers/fetchApp";
 import Registro from "./RegistroScreen";
+import '../css/login.css'
 
 const LoginScreen = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(null);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [message, setMessage] = useState(null);
 
-  const validarDatos = () => {
-    const datos = {
-      email,
-      password,
-    };
-    postAuth(datos).then((respuesta) => {
-      console.log(respuesta);
-      if (respuesta?.token) {
-        setMessage({ ok: true, msg: "Login ok" });
-        localStorage.setItem("token", JSON.stringify(respuesta.token));
-        navigate("/");
-      } else {
-        setMessage(respuesta);
-      }
-    });
-  };
+  // const validarDatos = () => {
+  //   const datos = {
+  //     email,
+  //     password,
+  //   };
+  //   postAuth(datos).then((respuesta) => {
+  //     console.log(respuesta);
+  //     if (respuesta?.token) {
+  //       setMessage({ ok: true, msg: "Login ok" });
+  //       localStorage.setItem("token", JSON.stringify(respuesta.token));
+  //       navigate("/");
+  //     } else {
+  //       setMessage(respuesta);
+  //     }
+  //   });
+  // };
 
   return (
     <div className="container mt-5">
@@ -43,7 +44,7 @@ const LoginScreen = () => {
               <br />
               <input
                 type="text"
-                value={email}
+                // value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <br />
@@ -52,23 +53,23 @@ const LoginScreen = () => {
               <br />
               <input
                 type="password"
-                value={password}
+                // value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="card-footer d-flex justify-content-evenly">
-              <button className="btn btn-outline-dark btn-lg" onClick={validarDatos}>
+              <button className="btn btn-outline-dark btn-lg" /*onClick={validarDatos}*/>
                 Iniciar Sesion
               </button>
               
-              <button className="btn btn-outline-dark btn-lg" onClick={Registro}>
+              <button className="btn btn-outline-dark btn-lg" /*onClick={Registro}*/>
                 Registrarse
               </button>
             </div>
             
             
           </div>
-          {message && (
+          {/* {message && (
             <div
               className={
                 message?.ok
@@ -79,7 +80,7 @@ const LoginScreen = () => {
             >
               {message.msg}
             </div>
-          )}
+          )} */}
           {/* {message &&
             
               <div
