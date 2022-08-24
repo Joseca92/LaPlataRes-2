@@ -8,6 +8,7 @@ function App() {
       <Nav/>
       <Routes>
         <Route path='/home' element={<HomeScreen/>}/>
+        <Route path='/menu' element={<MenuScreen/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
