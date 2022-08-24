@@ -7,6 +7,7 @@ import RegistroScreen from "./pages/RegistroScreen";
 import './css/btn.css'
 import './css/fondo.css'
 import './css/bg-login-reg.css'
+import MenuScreen from "./pages/MenuScreen";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
         <Route path='/home' element={<HomeScreen/>}/>
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen/>} />
+        <Route path='/menu' element={<MenuScreen/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
