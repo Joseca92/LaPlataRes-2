@@ -2,23 +2,13 @@
     width: 100px;
     height: 100px; 
  }
-.bgFondo{
-    height: 100vh;
-    background: url(../asset/login_reg.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 .form-control{
     background-color: transparent !important;
 }
 .form-control::placeholder{
-    color: white !important;
+    color: black !important;
 }
 .card-body hr{
     height: 2px !important;
-    background-color: white !important;
+    background-color: black !important;
 } 
-.fondo{
-    background: #000  !important;
-}

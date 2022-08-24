@@ -5,16 +5,18 @@ import Footer from "./components/Footer";
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import './css/btn.css'
+import './css/fondo.css'
+import './css/bg-login-reg.css'
 function App() {
   return (
     <BrowserRouter>
-      {/* <Nav/> */}
+      <Nav/>
       <Routes>
         <Route path='/home' element={<HomeScreen/>}/>
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen/>} />
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </BrowserRouter>
   );
 }
