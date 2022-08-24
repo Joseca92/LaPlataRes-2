@@ -1,11 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RoutesDos from "./routes/Routes";
+
+import Navbar  from "./components/NavBar";
+
 function App() {
   return (
+    <>
+    <h1>Intro app</h1>
     <BrowserRouter>
-      <Routes>
-        
-      </Routes>
+    <Navbar/>
+    <RoutesDos/>
     </BrowserRouter>
+    </>
   );
 }
 
