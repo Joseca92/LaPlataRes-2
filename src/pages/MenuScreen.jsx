@@ -1,8 +1,68 @@
-/*import React,{useEffect,usestate}from'react'
+import React,{useEffect,usestate}from'react'
 import React from 'react'
 import Swal from 'sweetalert2'
 import Axios from 'axios'
 
+const MenuScreen = () => {
+return(
+<>
+
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col">
+            <h1>Administración de Menú</h1>
+            <hr />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12 col-md-6 offset-md-3 form_curso">
+            <h3>Crear nuevo menú</h3>
+            <form id="formulario">
+              <label>Nombre</label>
+              <input id="titulo" class="form-control" type="text" required />
+              <label>Descripción</label>
+              <textarea id="desc" class="form-control" required></textarea>
+              <label>Imagen</label>
+              <input
+                id="imagen"
+                class="form-control"
+                type="text"
+                placeholder="Ingrese una url"
+                required
+              />
+              <label>Estado</label>
+              <select id="estado" class="form-control" required>
+                <option selected>Seleccione</option>
+                <option value="Disponible">disponible</option>
+                <option value="No disponible">No disponible</option>
+              </select>
+              <label>Categoria</label>
+              <select id="estado" class="form-control" required>
+                <option selected>Seleccione</option>
+                <option value="Categoria 1">Categoria 1</option>
+                <option value="Categoria 2">Categoria 2</option>
+                <option value="Categoria 3">Categoria 3</option>
+              </select>
+              <label>Precio</label>
+              <input
+                id="precio"
+                class="form-control"
+                type="number"
+                value="0"
+                required
+              />
+              <button class="btn btn-primary mt-3 float-end">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      </>
+)
+}
+export default MenuScreen
+
+/*
 export default function RegistrarMenu(){
   const[nombre,setNombre]=useState=('')
   const[estadoMenu,setEstadoMenu]=useState=([])
