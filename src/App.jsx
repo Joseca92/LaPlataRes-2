@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "./pages/HomeScreen";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import MenuScreen from "./pages/MenuScreen";
 function App() {
   return (
     <BrowserRouter>

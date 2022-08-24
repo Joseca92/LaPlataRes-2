@@ -1,7 +1,5 @@
-import React,{useEffect,usestate}from'react'
 import React from 'react'
-import Swal from 'sweetalert2'
-import Axios from 'axios'
+
 
 const MenuScreen = () => {
 return(
@@ -56,7 +54,26 @@ return(
             </form>
           </div>
         </div>
-      </div>
+      
+        <div class="row">
+          <div class="col">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Precio</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
       </>
 )
 }
