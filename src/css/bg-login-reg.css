@@ -1,0 +1,7 @@
+.bgFondo{
+    height: 100vh;
+    background: url(../asset/login_reg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import './css/btn.css'
+import './css/fondo.css'
+import './css/bg-login-reg.css'
 function App() {
   return (
     <BrowserRouter>
