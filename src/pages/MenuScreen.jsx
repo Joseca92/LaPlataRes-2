@@ -1,8 +1,57 @@
 import React from 'react'
-
+import {postMenu} from "../helpers/fetchApp";
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 const MenuScreen = () => {
-return(
+  const[nombre,setNombre]=useState=('')
+  const[estadoMenu,setEstadoMenu]=useState=([])
+  const[estadoMenuSelect,setEstadoMenuSelect]=useState=([1])
+  const[precio,setPrecio]=useState=('')
+  const[categoria,setCategoria]=useState=([1])
+  const[categoriaSelect,setCategoriaSelect]=useState-([])
+  
+  useEffect(()=>{
+    setEstadoMenu(['Disponible','No disponible'])
+     setEstadoMenuSelect('Seleccione')
+     setCategoria(['Menú del día','Postre'])
+     setCategoriaSelect('Seleccione')
+  },[])
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const datos = {
+      nombre,
+      estadoMenu,
+      estadoMenuSelect,
+      detalle,
+      precio,
+      categoria,
+      categoriaSelect,
+    };
+
+    postMenu(datos).then((respuesta) => {
+      console.log(respuesta.errors);
+      if (respuesta?.errors) {
+        setMensaje(respuesta.errors);
+      } else {
+        setMensaje([{ msg: "Nuevo Menú creado!" }]);
+      }
+      setNombre("");
+      setEstadoMenu("");
+      setEstadoMenuSelect("");
+      setdetalle("");
+      setPrecio("");
+      setCategoria("");
+      setCategoriaSelect("");
+      setTimeout(() => {
+        setMensaje("");
+      }, 3000);
+    });
+  };
+  
+  return(
 <>
 
       <div class="container">
@@ -16,7 +65,7 @@ return(
         <div class="row mb-3">
           <div class="col-12 col-md-6 offset-md-3 form_curso">
             <h3>Crear nuevo menú</h3>
-            <form id="formulario">
+            <form id="formulario" onSubmit={handleSubmit}>
               <label>Nombre</label>
               <input id="titulo" class="form-control" type="text" required />
               <label>Descripción</label>
@@ -52,6 +101,25 @@ return(
               />
               <button class="btn btn-primary mt-3 float-end">Guardar</button>
             </form>
+            {mensaje.length > 0 && (
+              <div className="my-3">
+                {mensaje.map((item, index) => (
+                  <div
+                    className={
+                      item?.param ? "alert alert-danger" : "alert alert-primary"
+                    }
+                    role="alert"
+                    key={index}
+                  >
+                    {item.msg}
+                  </div>
+                ))}
+              </div>
+            )}
+            <div>
+              <p>Preview</p>
+              <ReactMarkdown>{body}</ReactMarkdown>
+            </div>
           </div>
         </div>
       
@@ -75,10 +143,10 @@ return(
           </div>
         </div>
       </>
-)
+  )
 }
-export default MenuScreen
 
+export default MenuScreen
 /*
 export default function RegistrarMenu(){
   const[nombre,setNombre]=useState=('')

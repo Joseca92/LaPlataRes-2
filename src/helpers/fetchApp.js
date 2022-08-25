@@ -15,7 +15,7 @@ export const validarToken = async () => {
 };
 
 //Crear nuevo menu
-export const postUsuario = async (datos) => {
+export const postMenu = async (datos) => {
   const resp = await fetch(`${url}/menu`, {
     method: "POST",
     body: JSON.stringify(datos),
