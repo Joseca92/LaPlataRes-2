@@ -13,6 +13,25 @@ export const getPedido = async (registro = 0) => {
   
     return data;
   };
+
+  export const putPedido = async (datos) => {
+    const resp = await fetch(`${url}/pedido`, {
+      method: "PUT",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  
+    const data = await resp.json();
+  
+    return data;
+  };
+
+
+
+
+
   //Traer una entrada de menu por su id
 export const getMenuById = async (id) => {
   const resp = await fetch(`${url}/menu/${id}`, {

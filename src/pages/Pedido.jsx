@@ -15,10 +15,11 @@ const Pedido = () => {
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
   
+  
   useEffect(() => {
     
     getPedido(registro).then((respuesta) => {
-    
+      console.log(respuesta);
       if (respuesta?.msg) {
         setMensaje(respuesta.msg);
       } else {
@@ -26,12 +27,15 @@ const Pedido = () => {
           pedido: respuesta.pedido,
           total: respuesta.total,
         });
-       
-        setActualizar(mostrarP);
+      
+    /*     setActualizar(mostrarP); */
         setLoading(false);
     }});
     
-  }, [registro, actualizar]);
+    
+
+  }, [registro]);
+
 
   
   const nextPage = () => {
@@ -80,7 +84,7 @@ const Pedido = () => {
                         <div className="col">
                            <h5>Cliente</h5>
                         </div>
-                        <div className="col-3">
+                        <div className="col-2">
                            <h5>Menu/s</h5>
                         </div>
                         <div className="col">

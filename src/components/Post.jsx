@@ -5,6 +5,7 @@ import { getMenuById } from "../helpers/fetchApp";
 
 const Post = ({ post }) => {
     let envio="";
+   
   const { usuario, menu, entrega, nPedido, date } = post;
 
   if (entrega){
@@ -27,6 +28,8 @@ const Post = ({ post }) => {
         
          })
    });
+
+
   console.log(menus);
   }, []);
   
@@ -36,33 +39,55 @@ const Post = ({ post }) => {
     
 
 
-    <div className="container dPedidos  ">
-         <div className="row">
-           <div className="col-1 d-flex justify-content-center">
+    <div className="container dPedidos ">
+         <div className="row columnas">
+           <div className="col-1 d-flex ">
              <p>{nPedido}</p>
            </div>
            <div className="col">
               <p>{usuario.nombre}</p>
            </div>
-           <div className="col-3 menusP d-flex align-items'-center">
-              <div>
-                <p>{menus}</p>
-              </div>
-              <div>
-                <p>ver mas</p>
-              </div>
-           
+           <div className="col-2">
+            
+           <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#verMenus">Ver menus</button>
+        
            </div>
            <div className="col">
            <p>{moment(date).format("LT l")}</p>
            </div>
-           <div className="col">
+           <div className="col colEntrega">
            <p>{envio}</p>
-           </div>
+           <div class="form-check check">
+              <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault"/>
+
+            </div>
+          </div>
          </div>
-         
 
     </div>
+
+  
+    
+    
+    <div className="modal fade" id="verMenus"  aria-labelledby="verMenusLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="verMenusLabel">Modal title</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+        {menus}
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
        
     
     </>

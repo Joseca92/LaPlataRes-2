@@ -6,10 +6,19 @@
 }
 .dPedidos{
     width: 70%;
+  
+    
 }
 .menusP p{
     height: 2rem;
     font-size: 0.8rem;
     overflow: hidden;
     
+}
+.colEntrega{
+    display: flex;
+    flex-direction: row;
+}
+.check{
+    padding-right: 1px;
 }
