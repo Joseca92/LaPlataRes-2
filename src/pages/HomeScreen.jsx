@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../css/homeScreen.css'
 import logo from '../asset/logo.png'
 const HomeScreen = () => {
+  useEffect(()=>{
+    getMenu().then((respuesta)=>{
+      console.log(respuesta)
+    });
+  },[])
   return (
     <>
       <div className="bgPresentation">

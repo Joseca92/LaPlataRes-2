@@ -1,15 +1,14 @@
-import React from 'react'
 import {postMenu} from "../helpers/fetchApp";
 import React, { useState } from "react";
-import ReactMarkdown from "react-markdown";
+//import ReactMarkdown from "react-markdown";
 
 const MenuScreen = () => {
-  const[nombre,setNombre]=useState=('')
-  const[estadoMenu,setEstadoMenu]=useState=([])
-  const[estadoMenuSelect,setEstadoMenuSelect]=useState=([1])
+  const[nombre,setNombre] = useState("")
+  const[estadoMenu,setEstadoMenu]=useState([])
+  const[estadoMenuSelect,setEstadoMenuSelect]=useState([1])
   const[precio,setPrecio]=useState=('')
-  const[categoria,setCategoria]=useState=([1])
-  const[categoriaSelect,setCategoriaSelect]=useState-([])
+  const[categoria,setCategoria]=useState([1])
+  const[categoriaSelect,setCategoriaSelect]=useState([])
   
   useEffect(()=>{
     setEstadoMenu(['Disponible','No disponible'])
