@@ -81,7 +81,7 @@ const Post = ({ post }) => {
            <div className="col colEntrega">
            <p>{envio}</p>
            <div className="form-check check">
-              <input className="form-check-input checkEntrega " type="checkbox" value="" id="flexCheckDefault" checked={false} onClick={pedidoR}/>
+              <input className="form-check-input checkEntrega " type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
 
             </div>
           </div>
