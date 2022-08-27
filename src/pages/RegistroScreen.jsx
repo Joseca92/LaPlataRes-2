@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import { postUsuario } from "../helpers/fetchApp";
-import logo from "../asset/logo.png";
+import logo from "../asset/logoBlack.png";
 import "../css/registro.css";
 
 const Registro = () => {
@@ -45,58 +45,60 @@ const Registro = () => {
   return (
     <div className="container-fluid bgFondo">
       <div className="row ">
-        <div className="col-12 d-flex justify-content-center align-items-center">
-          <div className="card m-5 fondo p-3 ">
-            <div className="col-12 text-center">
-              <img className="logo" src={logo} alt="Logo de la Plata" />
+        <div className="col-12 d-flex justify-content-center">
+          <div className="card mt-5 fondo3 p-3 ">
+            <div className="card-body">
+              <div className="col-12 text-center">
+                <img className="logo" src={logo} alt="Logo de la Plata" />
+              </div>
+              <form /*onSubmit={handleSubmit}*/>
+                <div className="form-group">
+                  <div className="card-body text-center">
+                    <input
+                      type="text"
+                      className="form-control border-0 text-white"
+                      name="nombre"
+                      placeholder="Nombre"
+                      // value={formValues.nombre}
+                      // onChange={handleChange}
+                      required
+                    />
+                    <hr />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <div className="card-body text-center">
+                    <input
+                      type="email"
+                      className="form-control border-0 text-white"
+                      name="email"
+                      placeholder="Correo electrónico"
+                      // value={formValues.email}
+                      // onChange={handleChange}
+                      required
+                    />
+                    <hr />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <div className="card-body text-center">
+                    <input
+                      type="password"
+                      className="form-control border-0 text-white"
+                      name="password"
+                      placeholder="Contraseña"
+                      // value={formValues.password}
+                      // onChange={handleChange}
+                      required
+                    />
+                    <hr />
+                  </div>
+                </div>
+                <div className="d-grid">
+                  <button className="btnGral fw-bold p-2">Registrarme</button>
+                </div>
+              </form>
             </div>
-            <form /*onSubmit={handleSubmit}*/>
-              <div className="form-group">
-                <div className="card-body text-center">
-                  <input
-                    type="text"
-                    className="form-control border-0 text-white"
-                    name="nombre"
-                    placeholder="Nombre"
-                    // value={formValues.nombre}
-                    // onChange={handleChange}
-                    required
-                  />
-                  <hr />
-                </div>
-              </div>
-              <div className="form-group">
-                <div className="card-body text-center">
-                  <input
-                    type="email"
-                    className="form-control border-0 text-white"
-                    name="email"
-                    placeholder="Correo electrónico"
-                    // value={formValues.email}
-                    // onChange={handleChange}
-                    required
-                  />
-                  <hr />
-                </div>
-              </div>
-              <div className="form-group">
-                <div className="card-body text-center">
-                  <input
-                    type="password"
-                    className="form-control border-0 text-white"
-                    name="password"
-                    placeholder="Contraseña"
-                    // value={formValues.password}
-                    // onChange={handleChange}
-                    required
-                  />
-                  <hr />
-                </div>
-              </div>
-              <div className="d-grid">
-                <button className="btnGral fw-bold p-2">Registrarme</button>
-              </div>
-            </form>
           </div>
         </div>
         {/* {message.length > 0 &&

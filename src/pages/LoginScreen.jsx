@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { postAuth } from "../helpers/fetchApp";
 import Registro from "./RegistroScreen";
-import '../css/login.css'
+import "../css/login.css";
+import logo from "../asset/logoBlack.png";
 
 const LoginScreen = () => {
   // const navigate = useNavigate();
@@ -29,45 +30,57 @@ const LoginScreen = () => {
   // };
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-12 col-md-6 offset-md-3">
-          <div className="card mt-5">
-            <div className="card-header text-center">
-              <h2>
-                <i className="fa fa-user-circle-o me-3" aria-hidden="true"></i>
-                Iniciar Sesion
-              </h2>
+    <div className="container-fluid  bgFondo">
+      <div className="row d-flex justify-content-center">
+        <div className="col-12 col-md-4 mt-5">
+          <div class="card fondo3">
+            <div class="card-body">
+              <div className="col-12 text-center">
+                <img className="logo" src={logo} alt="Logo de la Plata" />
+              </div>
+              <form /*onSubmit={handleSubmit}*/>
+                <div className="form-group"></div>
+                <div className="form-group">
+                  <div className="card-body text-center">
+                    <input
+                      type="email"
+                      className="form-control border-0"
+                      name="email"
+                      placeholder="Correo electrónico"
+                      // value={email}
+                      // onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <hr />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <div className="card-body text-center">
+                    <input
+                      type="password"
+                      className="form-control border-0"
+                      name="password"
+                      placeholder="Contraseña"
+                      // value={password}
+                      //onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                    <hr />
+                    <a href="#" class="link-dark">
+                      Olvidé mi contraseña
+                    </a>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-6 d-flex justify-content-center ">
+                    <button className="btnGral fw-bold p-2" /*onClick={validarDatos}*/>Iniciar Sesión</button>
+                  </div>
+                  <div className="col-6 d-flex justify-content-center ">
+                    <button className="btnGral fw-bold p-2" /*onClick={Registro}*/>Registrarse</button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div className="card-body text-center">
-              <label className="me-3">Usuario</label>
-              <br />
-              <input
-                type="text"
-                // value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <br />
-              <br />
-              <label>Contraseña</label>
-              <br />
-              <input
-                type="password"
-                // value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="card-footer d-flex justify-content-evenly">
-              <button className="btn btn-outline-dark btn-lg" /*onClick={validarDatos}*/>
-                Iniciar Sesion
-              </button>
-              
-              <button className="btn btn-outline-dark btn-lg" /*onClick={Registro}*/>
-                Registrarse
-              </button>
-            </div>
-            
-            
           </div>
           {/* {message && (
             <div
