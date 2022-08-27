@@ -1,12 +1,12 @@
 const url = "http://localhost:8080/api";
 
 //traer menu
-export const validarToken = async () => {
+export const getMenu = async () => {
   const resp = await fetch(`${url}/menu`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
+      //"x-token": JSON.parse(localStorage.getItem("token")),
     },
   });
   const data = await resp.json();
