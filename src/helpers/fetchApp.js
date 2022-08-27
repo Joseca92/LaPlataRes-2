@@ -30,11 +30,11 @@ export const postMenu = async (datos) => {
 };
 
 export const getCategoria = async () => {
-  const resp = await fetch(`${url}/usuarios/usuarios`, {
+  const resp = await fetch(`${url}/categoria`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
+     
     },
   });
   const data = await resp.json();

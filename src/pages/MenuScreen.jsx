@@ -9,8 +9,8 @@ const MenuScreen = () => {
   const[estadoMenu,setEstadoMenu]=useState(true)
   const[detalle,setDetalle] = useState("")
   const[precio,setPrecio]=useState(0)
-  const[categoria,setCategoria]=useState([0])
- 
+  const[categoria,setCategoria]=useState({})
+  const[categorias,setCategorias]=useState([])
   const[imagen,setImagen]=useState('')
   
  /*  useEffect(()=>{
@@ -52,7 +52,13 @@ const MenuScreen = () => {
       }, 3000);
     });
   };
-  
+  useEffect(()=>{
+    getCategoria().then((respuesta)=>{
+      console.log(respuesta);
+      setCategorias(respuesta.categoria);
+    })
+    
+  },[])
  
 
   return(
@@ -95,7 +101,7 @@ const MenuScreen = () => {
                value={estadoMenu}
                onChange={(e) => setEstadoMenu(e.target.value)}
               >
-                <option selected>Seleccione</option>
+               {/*  {<option selected>Seleccione</option>} */}
                 <option value= "true">disponible</option>
                 <option value="false">No disponible</option>
               </select>
@@ -104,11 +110,17 @@ const MenuScreen = () => {
               value={categoria}
               onChange={(e) => setCategoria(e.target.value)}
               >
-                <option selected>Seleccione</option>
-          
-                <option defaultValue="Parrilla">Parrilla</option>
+               <option selected value= {0}>Seleccione</option>
                 
-                <option defaultValue="Categoria 3">Categoria 3</option>
+                {
+                  categorias.map((c)=>{
+                    <option value={c.categoria}>{c.categoria}</option>
+
+                  })
+
+                }
+          
+              
               </select>
               <label>Precio</label>
               <input
