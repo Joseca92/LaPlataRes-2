@@ -1,20 +1,22 @@
+import React, { useState, useEffect } from "react";
 import {postMenu} from "../helpers/fetchApp";
-import React, { useState } from "react";
 //import ReactMarkdown from "react-markdown";
 
+
 const MenuScreen = () => {
+  const[mensaje,setMensaje] = useState([])
   const[nombre,setNombre] = useState("")
   const[estadoMenu,setEstadoMenu]=useState([])
-  const[estadoMenuSelect,setEstadoMenuSelect]=useState([1])
-  const[precio,setPrecio]=useState=('')
-  const[categoria,setCategoria]=useState([1])
+  const[estadoMenuSelect,setEstadoMenuSelect]=useState([0])
+  const[precio,setPrecio]=useState('')
+  const[categoria,setCategoria]=useState([0])
   const[categoriaSelect,setCategoriaSelect]=useState([])
   
   useEffect(()=>{
     setEstadoMenu(['Disponible','No disponible'])
-     setEstadoMenuSelect('Seleccione')
+     setEstadoMenuSelect(['Seleccione'])
      setCategoria(['Menú del día','Postre'])
-     setCategoriaSelect('Seleccione')
+     setCategoriaSelect(['Seleccione'])
   },[])
   
   const handleSubmit = (e) => {
@@ -53,52 +55,52 @@ const MenuScreen = () => {
   return(
 <>
 
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col">
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col">
             <h1>Administración de Menú</h1>
             <hr />
           </div>
         </div>
 
-        <div class="row mb-3">
-          <div class="col-12 col-md-6 offset-md-3 form_curso">
+        <div className="row mb-3">
+          <div className="col-12 col-md-6 offset-md-3 form_curso">
             <h3>Crear nuevo menú</h3>
             <form id="formulario" onSubmit={handleSubmit}>
               <label>Nombre</label>
-              <input id="titulo" class="form-control" type="text" required />
+              <input id="titulo" className="form-control" type="text" required />
               <label>Descripción</label>
-              <textarea id="desc" class="form-control" required></textarea>
+              <textarea id="desc" className="form-control" required></textarea>
               <label>Imagen</label>
               <input
                 id="imagen"
-                class="form-control"
+                className="form-control"
                 type="text"
                 placeholder="Ingrese una url"
                 required
               />
               <label>Estado</label>
-              <select id="estado" class="form-control" required>
+              <select id="estado" className="form-control" required>
                 <option selected>Seleccione</option>
-                <option value="Disponible">disponible</option>
-                <option value="No disponible">No disponible</option>
+                <option defaultValue="Disponible">disponible</option>
+                <option defaultValue="No disponible">No disponible</option>
               </select>
               <label>Categoria</label>
-              <select id="estado" class="form-control" required>
+              <select id="estado" className="form-control" required>
                 <option selected>Seleccione</option>
-                <option value="Categoria 1">Categoria 1</option>
-                <option value="Categoria 2">Categoria 2</option>
-                <option value="Categoria 3">Categoria 3</option>
+                <option defaultValue="Categoria 1">Categoria 1</option>
+                <option defaultValue="Categoria 2">Categoria 2</option>
+                <option defaultValue="Categoria 3">Categoria 3</option>
               </select>
               <label>Precio</label>
               <input
                 id="precio"
-                class="form-control"
+                className="form-control"
                 type="number"
-                value="0"
+                defaultValue="0"
                 required
               />
-              <button class="btn btn-primary mt-3 float-end">Guardar</button>
+              <button className="btn btn-primary mt-3 float-end">Guardar</button>
             </form>
             {mensaje.length > 0 && (
               <div className="my-3">
@@ -115,16 +117,16 @@ const MenuScreen = () => {
                 ))}
               </div>
             )}
-            <div>
+         {/*  <div>
               <p>Preview</p>
               <ReactMarkdown>{body}</ReactMarkdown>
-            </div>
+                  </div>*/}
           </div>
         </div>
       
-        <div class="row">
-          <div class="col">
-            <table class="table">
+        <div className="row">
+          <div className="col">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -225,8 +227,8 @@ return(
               <input type="text" className='form-control required' />
             </div>
             <br />
-            <button type="submit" class="btn btn-outline-info">
-              <span class="fa fa-save"></span> Crear nuevo menú
+            <button type="submit" className="btn btn-outline-info">
+              <span className="fa fa-save"></span> Crear nuevo menú
             </button>
           </form>
         </div>
