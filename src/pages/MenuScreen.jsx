@@ -1,35 +1,36 @@
 import React, { useState, useEffect } from "react";
-import {postMenu} from "../helpers/fetchApp";
+import {getCategoria, postMenu} from "../helpers/fetchApp";
 //import ReactMarkdown from "react-markdown";
 
 
 const MenuScreen = () => {
   const[mensaje,setMensaje] = useState([])
   const[nombre,setNombre] = useState("")
-  const[estadoMenu,setEstadoMenu]=useState([])
-  const[estadoMenuSelect,setEstadoMenuSelect]=useState([0])
-  const[precio,setPrecio]=useState('')
+  const[estadoMenu,setEstadoMenu]=useState(true)
+  const[detalle,setDetalle] = useState("")
+  const[precio,setPrecio]=useState(0)
   const[categoria,setCategoria]=useState([0])
-  const[categoriaSelect,setCategoriaSelect]=useState([])
+ 
+  const[imagen,setImagen]=useState('')
   
-  useEffect(()=>{
+ /*  useEffect(()=>{
     setEstadoMenu(['Disponible','No disponible'])
      setEstadoMenuSelect(['Seleccione'])
      setCategoria(['Menú del día','Postre'])
      setCategoriaSelect(['Seleccione'])
-  },[])
+  },[]) */
   
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const datos = {
       nombre,
+      imagen,
       estadoMenu,
-      estadoMenuSelect,
       detalle,
       precio,
       categoria,
-      categoriaSelect,
+   
     };
 
     postMenu(datos).then((respuesta) => {
@@ -41,17 +42,19 @@ const MenuScreen = () => {
       }
       setNombre("");
       setEstadoMenu("");
-      setEstadoMenuSelect("");
+     ;
       setdetalle("");
-      setPrecio("");
+      setEstadoMenu(true);
+      setPrecio(0);
       setCategoria("");
-      setCategoriaSelect("");
       setTimeout(() => {
         setMensaje("");
       }, 3000);
     });
   };
   
+ 
+
   return(
 <>
 
@@ -68,9 +71,15 @@ const MenuScreen = () => {
             <h3>Crear nuevo menú</h3>
             <form id="formulario" onSubmit={handleSubmit}>
               <label>Nombre</label>
-              <input id="titulo" className="form-control" type="text" required />
+              <input id="titulo" className="form-control" type="text" required
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}             
+              />
               <label>Descripción</label>
-              <textarea id="desc" className="form-control" required></textarea>
+              <textarea id="desc" className="form-control" required
+              value={detalle}
+              onChange={(e) => setDetalle(e.target.value)} 
+              ></textarea>
               <label>Imagen</label>
               <input
                 id="imagen"
@@ -78,18 +87,27 @@ const MenuScreen = () => {
                 type="text"
                 placeholder="Ingrese una url"
                 required
+                src={imagen}
+              onChange={(e) => setImagen(e.target.value)} 
               />
               <label>Estado</label>
-              <select id="estado" className="form-control" required>
+              <select id="estado" className="form-control" required
+               value={estadoMenu}
+               onChange={(e) => setEstadoMenu(e.target.value)}
+              >
                 <option selected>Seleccione</option>
-                <option defaultValue="Disponible">disponible</option>
-                <option defaultValue="No disponible">No disponible</option>
+                <option value= "true">disponible</option>
+                <option value="false">No disponible</option>
               </select>
               <label>Categoria</label>
-              <select id="estado" className="form-control" required>
+              <select id="estado" className="form-control" required
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
+              >
                 <option selected>Seleccione</option>
-                <option defaultValue="Categoria 1">Categoria 1</option>
-                <option defaultValue="Categoria 2">Categoria 2</option>
+          
+                <option defaultValue="Parrilla">Parrilla</option>
+                
                 <option defaultValue="Categoria 3">Categoria 3</option>
               </select>
               <label>Precio</label>
@@ -97,8 +115,10 @@ const MenuScreen = () => {
                 id="precio"
                 className="form-control"
                 type="number"
-                defaultValue="0"
+               
                 required
+                value={precio}
+              onChange={(e) => setPrecio(e.target.value)}
               />
               <button className="btn btn-primary mt-3 float-end">Guardar</button>
             </form>
