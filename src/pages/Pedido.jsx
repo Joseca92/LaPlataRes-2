@@ -16,6 +16,7 @@ const Pedido = () => {
   const [mensaje, setMensaje] = useState("");
   
   
+  
   useEffect(() => {
     
     getPedido(registro).then((respuesta) => {
@@ -28,16 +29,16 @@ const Pedido = () => {
           total: respuesta.total,
         });
       
-    /*     setActualizar(mostrarP); */
+    
         setLoading(false);
+    
     }});
-    
-    
+    setInterval(() => {
+      setActualizar(mostrarP)
+    }, 7000);
+  }, [actualizar]);
 
-  }, []);
-
-
-  
+ 
   const nextPage = () => {
     if (mostrarP.total - registro > 5) {
       console.log("OK");
@@ -97,10 +98,11 @@ const Pedido = () => {
                     </div>
               <div>
                 {mostrarP.pedido.map((mostrar) => (
-                  <Post post={mostrar} key={mostrar.uid} />
+                  <Post  post={mostrar} key={mostrar.uid} />
                   
 
                 ))}
+                
 
               </div>
             

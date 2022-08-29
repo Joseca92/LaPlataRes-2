@@ -3,23 +3,27 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { getMenuById, putPedido } from "../helpers/fetchApp";
 
-const Post = ({ post }) => {
+
+const Post = ({post }) => {
     let envio="";
    
   const {uid, usuario, menu, entrega, nPedido, date, estado } = post;
-  let check= document.querySelectorAll('checkEntrega');
+  
+
   if (entrega){
     envio= "Realizado";
-    check.checked= true;
+
   }
   else{
     envio ="Pendiente";
-    check.checked= false;
   }
- const [menus, setMenus] = useState("");
+ const [menus, setMenus] = useState([]);
+ /* const ocultarB= document.getElementsByClassName(".ocultarB") */
+  
 
-  useEffect(() => {
-    let arreglo=[];
+ 
+ useEffect(() => {
+  let arreglo=[];
     menu.forEach((m)=>{
     getMenuById(m).then((respuesta)=>{
         
@@ -29,31 +33,24 @@ const Post = ({ post }) => {
         setMenus([...arreglo]);    
         
          })
-   });
+  })
 
-
-  console.log(menus);
-  }, []);
+},[])
   
-  const [realizado, setRealizado] = useState(false);
   const pedidoR=()=>{
+    putPedido(uid).then((respuesta)=>{
+      console.log(respuesta.msg);
+      }) 
     
-      /* if(entrega){
-        check.checked= false;
-        console.log(check.checked);
-        putPedido(uid).then((respuesta)=>{
-        console.log(respuesta.msg);
-        }) 
-      }else{
-        console.log("es falsp");
-        
-      } */
+  
+  }
 
-      
+   
+ 
 
      
 
-  }
+  
 
 
  
@@ -71,9 +68,11 @@ const Post = ({ post }) => {
               <p>{usuario.nombre}</p>
            </div>
            <div className="col-2">
-            
-           <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#verMenus" >Ver menus</button>
-        
+           
+           {/* <button type="button" className="btn btn-success" id="show-element" onClick={mostrarM} >+Menus</button>
+           <button type="button" className="btn btn-danger ocultarB"  onClick={mostrarM} >-Menus</button> */}
+         
+
            </div>
            <div className="col">
            <p>{moment(date).format("LT l")}</p>
@@ -90,25 +89,7 @@ const Post = ({ post }) => {
     </div>
 
   
-    
-    
-    <div className="modal fade" id="verMenus"  aria-labelledby="verMenusLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="verMenusLabel">Modal title</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        {menus}
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+  
     
 
        
