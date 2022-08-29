@@ -13,13 +13,9 @@ function App() {
     <BrowserRouter>
       <Nav/>
       <Routes>
-<<<<<<< HEAD
         <Route path='/home' element={<HomeScreen/>}/>
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen/>} />
-=======
-        <Route path='/' element={<HomeScreen/>}/>
->>>>>>> 34bf57d10eac22f5ce0fc4f261bb471b970c854a
         <Route path='/menu' element={<MenuScreen/>}/>
       </Routes>
       <Footer/>
