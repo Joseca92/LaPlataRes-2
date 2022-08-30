@@ -7,8 +7,8 @@ const MenuScreen = () => {
   const[estadoMenu,setEstadoMenu]=useState(true)
   const[detalle,setDetalle] = useState("")
   const[precio,setPrecio]=useState(0)
-  const[categoria,setCategoria]=useState({})
-  const[categorias,setCategorias]=useState([])
+  const[categoria,setCategoria]=useState([])
+ // const[categorias,setCategorias]=useState([])
   const[imagen,setImagen]=useState('')
    
   const handleSubmit = (e) => {
@@ -31,7 +31,6 @@ const MenuScreen = () => {
         setMensaje([{ msg: "¡Nuevo Menú creado!" }]);
       }
       setNombre("");
-      setEstadoMenu("");
       setdetalle("");
       setEstadoMenu(true);
       setPrecio(0);
@@ -44,7 +43,7 @@ const MenuScreen = () => {
   useEffect(()=>{
     getCategoria().then((respuesta)=>{
       console.log(respuesta);
-      setCategorias(respuesta.categoria);
+      setCategoria(respuesta.categoria);
     })
     
   },[])
@@ -67,12 +66,12 @@ const MenuScreen = () => {
             <form id="formulario" onSubmit={handleSubmit}>
               <label>Nombre</label>
               <input id="titulo" className="form-control" type="text" required
-              value={nombre}
+              defaultValue={nombre}
               onChange={(e) => setNombre(e.target.value)}             
               />
               <label>Descripción</label>
               <textarea id="desc" className="form-control" required
-              value={detalle}
+              defaultValue={detalle}
               onChange={(e) => setDetalle(e.target.value)} 
               ></textarea>
               <label>Imagen</label>
@@ -87,23 +86,23 @@ const MenuScreen = () => {
               />
               <label>Estado</label>
               <select id="estado" className="form-control" required
-               value={estadoMenu}
+               defaultValue={estadoMenu}
                onChange={(e) => setEstadoMenu(e.target.value)}
               >
                {/*  {<option selected>Seleccione</option>} */}
-                <option value= "true">disponible</option>
-                <option value="false">No disponible</option>
+                <option defaultValue= "true">disponible</option>
+                <option defaultValue="false">No disponible</option>
               </select>
               <label>Categoria</label>
               <select id="estado" className="form-control" required
-              value={categoria}
+              defaultValue={categoria}
               onChange={(e) => setCategoria(e.target.value)}
               >
-               <option selected value= {0}>Seleccione</option>
+               <option selected defaultValue= {0}>Seleccione</option>
                 
                 {
-                  categorias.map((c)=>{
-                    <option value={c.categoria}>{c.categoria}</option>
+                  categoria.map((c)=>{
+                    <option defaultValue={c.categoria}>{c.categoria}</option>
 
                   })
 
@@ -118,7 +117,7 @@ const MenuScreen = () => {
                 type="number"
                
                 required
-                value={precio}
+                defaultValue={precio}
               onChange={(e) => setPrecio(e.target.value)}
               />
               <button className="btn btn-primary mt-3 float-end">Guardar</button>
