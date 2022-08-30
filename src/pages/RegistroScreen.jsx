@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import logo from "../asset/logoBlack.png";
 import "../css/registro.css";
 
-const Registro = () => {
+const RegistroScreen = () => {
   // const [formValues, setFormValues] = useState({
   //   nombre: "",
   //   email: "",
@@ -120,4 +120,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default RegistroScreen;

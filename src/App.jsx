@@ -14,7 +14,11 @@ import './css/btn.css'
 
 import './css/fondo.css'
 import './css/bg-login-reg.css'
+<<<<<<< HEAD
 
+=======
+import MenuScreen from "./pages/MenuScreen";
+>>>>>>> f186ae32ca2e50c420561929ba9a93d6b946cb68
 function App() {
   return (
     <BrowserRouter>
@@ -25,7 +29,11 @@ function App() {
         <Route path="/PedidoScreen" element={<PedidoScreen/>} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen/>} />
+<<<<<<< HEAD
 
+=======
+        <Route path='/menu' element={<MenuScreen/>}/>
+>>>>>>> f186ae32ca2e50c420561929ba9a93d6b946cb68
       </Routes>
       <Footer/>
     </BrowserRouter>
