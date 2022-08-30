@@ -28,7 +28,7 @@ const MenuScreen = () => {
       if (respuesta?.errors) {
         setMensaje(respuesta.errors);
       } else {
-        setMensaje([{ msg: "Nuevo Menú creado!" }]);
+        setMensaje([{ msg: "¡Nuevo Menú creado!" }]);
       }
       setNombre("");
       setEstadoMenu("");
