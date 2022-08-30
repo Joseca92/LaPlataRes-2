@@ -1,11 +1,21 @@
-.col{
+#contenedorP{
+    position: relative;
+    margin: 6rem;
+    
+    
+}
+.pedidosB{
     background-color: rgba(169, 169, 169, 0.493);
+ 
 }
 .contenedor{
     width: 70%;
+    background-color: rgba(14, 13, 13, 0.322);
 }
 .dPedidos{
     width: 70%;
+    border: 2px solid rgba(0, 0, 0, 0.788);
+
   
     
 }
@@ -18,7 +28,28 @@
 .colEntrega{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
-.check{
-    padding-right: 1px;
+.pedidosB p{
+    margin-right: 1rem;
+    
+    text-align: center;
+}
+.col h5{
+    text-align: center;
+}
+.tituloP{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    position: relative;
+    left: 3rem;
+}
+
+
+
+
+.headPedido{
+    display: flex;
+    justify-content: center;
 }

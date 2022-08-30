@@ -58,29 +58,29 @@ const Post = ({post }) => {
     <>
     
 
-
+    <br></br>
     <div className="container dPedidos ">
          <div className="row columnas">
-           <div className="col-1 d-flex ">
+           <div className="col-1 d-flex pedidosB">
              <p>{nPedido}</p>
            </div>
-           <div className="col">
+           <div className="col-2 pedidosB">
               <p>{usuario.nombre}</p>
            </div>
-           <div className="col-2">
-           
+           <div className="col-4 pedidosB">
+           <p>{menus}</p>
            {/* <button type="button" className="btn btn-success" id="show-element" onClick={mostrarM} >+Menus</button>
            <button type="button" className="btn btn-danger ocultarB"  onClick={mostrarM} >-Menus</button> */}
          
 
            </div>
-           <div className="col">
+           <div className="col-2 pedidosB">
            <p>{moment(date).format("LT l")}</p>
            </div>
-           <div className="col colEntrega">
+           <div className="col-3 colEntrega pedidosB">
            <p>{envio}</p>
            <div className="form-check check">
-              <input className="form-check-input checkEntrega " type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
+              <input className="form-check-input checkEntrega" type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
 
             </div>
           </div>

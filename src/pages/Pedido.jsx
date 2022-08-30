@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {getPedido} from "../helpers/fetchApp";
 import { Link } from "react-router-dom";
 import Post from "../components/Post";
-
+import '../css/pedido.css'
 
 const Pedido = () => {
   const [mostrarP, setMostrarP] = useState({
@@ -10,24 +10,27 @@ const Pedido = () => {
     total: 0,
   });
 
-  const [registro, setRegistro] = useState(0);
+  const [realizado, setRealizado] = useState("");
   const [actualizar, setActualizar] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
   
-  
+  let verP= false;
   
   useEffect(() => {
     
-    getPedido(registro).then((respuesta) => {
+    getPedido().then((respuesta) => {
       console.log(respuesta);
       if (respuesta?.msg) {
         setMensaje(respuesta.msg);
       } else {
-        setMostrarP({
+        
+          setMostrarP({
           pedido: respuesta.pedido,
           total: respuesta.total,
         });
+        
+        
       
     
         setLoading(false);
@@ -38,27 +41,19 @@ const Pedido = () => {
     }, 7000);
   }, [actualizar]);
 
- 
-  const nextPage = () => {
-    if (mostrarP.total - registro > 5) {
-      console.log("OK");
-      setRegistro(registro + 5);
-    }
-  };
-
-  const prevPage = () => {
-    if (registro > 0) {
-      console.log("OK");
-      setRegistro(registro - 5);
-    }
-  };
-
-
   return (
-    <div className="container">
+    <>
+    <div className="container" id="contenedorP">
       <div className="row">
         <div className="col">
-          <h1 className="text-center">Bienvenido al ABM de Pedidos!</h1>
+          <div className="headPedido">
+      
+              <h3 className="text-center">Bienvenido al ABM de Pedidos!</h3>  
+            </div>
+
+
+         
+          
 
           <hr />
 
@@ -82,35 +77,39 @@ const Pedido = () => {
                         <div className="col-1">
                           <h5>N°</h5>
                         </div>
-                        <div className="col">
+                        <div className="col-2">
                            <h5>Cliente</h5>
                         </div>
-                        <div className="col-2">
+                        <div className="col-4">
                            <h5>Menu/s</h5>
                         </div>
-                        <div className="col">
+                        <div className="col-2">
                           <h5>Fecha</h5>
                         </div>
-                        <div className="col">
+                        <div className="col-3">
                           <h5>Entrega</h5>
                         </div>
                       </div>
                     </div>
               <div>
-                {mostrarP.pedido.map((mostrar) => (
-                  <Post  post={mostrar} key={mostrar.uid} />
-                  
-
-                ))}
+                {
+                mostrarP.pedido.map((mostrar) => (
+                  <Post  post={mostrar} key={mostrar.uid} />     
+                  ))
+    
+                }
                 
 
               </div>
             
             </>
           )}
+          
+   
         </div>
       </div>
     </div>
+    </>
   );
 }
 
