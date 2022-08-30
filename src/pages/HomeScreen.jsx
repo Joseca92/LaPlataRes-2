@@ -5,7 +5,7 @@ const HomeScreen = () => {
   return (
     <>
       <div className="bgPresentation">
-        <div className="container-fluid m-0 p-0 fondo">
+        <div className="container-fluid m-0 p-0 fondo1">
           <div className='row text-center text-white p-5 mx-5'>
             <div className="col-12 logoBox">
               <img src={logo} alt="Logo" className='logo' />
