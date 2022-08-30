@@ -8,12 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "bootstrap": "5.1",
-=======
-    "bootstrap": "^5.2.0",
     "moment": "^2.29.4",
->>>>>>> b0c33c24c3a4331cbb20c37a23c914fe115403f9
     "react": "^18.0.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.0.0",

@@ -1,6 +1,6 @@
 const url = "http://localhost:8080/api";
 
-<<<<<<< HEAD
+
 //traer menu
 export const getMenu = async () => {
   const resp = await fetch(`${url}/menu`, {
@@ -41,34 +41,7 @@ export const getCategoria = async () => {
   const data = await resp.json();
 
   return data;
-<<<<<<< HEAD
-<<<<<<< HEAD
-};
-
-export const postBlog = async (datos) => {
-  const resp = await fetch(`${url}/blogs`, {
-    method: "POST",
-    body: JSON.stringify(datos),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
-    },
-  });
-
-  const data = await resp.json();
-
-  return data;
-};
-
-//Buscar blog por título--------------
-export const buscarBlog = async (termino) => {
-  const resp = await fetch(`${url}/buscarb?search=${termino}`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
-=======
-
+}
 export const getPedido = async (registro = 0) => {
     const resp = await fetch(`${url}/pedido?desde=${registro}`, {
       method: "GET",
@@ -106,7 +79,6 @@ export const getMenuById = async (id) => {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
       /* "x-token": JSON.parse(localStorage.getItem("token")), */
->>>>>>> b0c33c24c3a4331cbb20c37a23c914fe115403f9
     },
   });
   const data = await resp.json();
@@ -114,7 +86,6 @@ export const getMenuById = async (id) => {
   return data;
 };
 
-<<<<<<< HEAD
 //-------------------------------------------------------------------------------
 // export const getPosts = async () => {
 //   const resp = await fetch("http://localhost:8080/posts");
@@ -142,13 +113,4 @@ export const getMenuById = async (id) => {
 //   const data = await resp.json();
 
 //   return data;
-// };*/
-=======
-  
->>>>>>> b0c33c24c3a4331cbb20c37a23c914fe115403f9
-=======
-};
->>>>>>> 7cab3935f05b21c8b19170a754e64c12d4bc9503
-=======
-};
->>>>>>> 73a6b3de1431837ea0475752768c1eb24a5f1f82
+// };

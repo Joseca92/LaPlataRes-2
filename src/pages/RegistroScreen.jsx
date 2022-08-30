@@ -119,10 +119,5 @@ const RegistroScreen = () => {
     </div>
   );
 };
-<<<<<<< HEAD
 
 export default RegistroScreen;
-=======
-export default RegistroScreen;
-
->>>>>>> 73a6b3de1431837ea0475752768c1eb24a5f1f82
