@@ -24,18 +24,20 @@ const Post = ({ post }) => {
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { getMenuById } from "../helpers/fetchApp";
+import { getMenuById, putPedido } from "../helpers/fetchApp";
 
 const Post = ({ post }) => {
     let envio="";
    
-  const { usuario, menu, entrega, nPedido, date } = post;
-
+  const {uid, usuario, menu, entrega, nPedido, date, estado } = post;
+  let check= document.querySelectorAll('checkEntrega');
   if (entrega){
     envio= "Realizado";
+    check.checked= true;
   }
   else{
     envio ="Pendiente";
+    check.checked= false;
   }
  const [menus, setMenus] = useState("");
 
@@ -56,6 +58,27 @@ const Post = ({ post }) => {
   console.log(menus);
   }, []);
   
+  const [realizado, setRealizado] = useState(false);
+  const pedidoR=()=>{
+    
+      /* if(entrega){
+        check.checked= false;
+        console.log(check.checked);
+        putPedido(uid).then((respuesta)=>{
+        console.log(respuesta.msg);
+        }) 
+      }else{
+        console.log("es falsp");
+        
+      } */
+
+      
+
+     
+
+  }
+
+
  
   return (
     <>
@@ -72,7 +95,7 @@ const Post = ({ post }) => {
            </div>
            <div className="col-2">
             
-           <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#verMenus">Ver menus</button>
+           <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#verMenus" >Ver menus</button>
         
            </div>
            <div className="col">
@@ -80,8 +103,8 @@ const Post = ({ post }) => {
            </div>
            <div className="col colEntrega">
            <p>{envio}</p>
-           <div class="form-check check">
-              <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault"/>
+           <div className="form-check check">
+              <input className="form-check-input checkEntrega " type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
 
             </div>
           </div>

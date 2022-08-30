@@ -81,10 +81,9 @@ export const getPedido = async (registro = 0) => {
     return data;
   };
 
-  export const putPedido = async (datos) => {
-    const resp = await fetch(`${url}/pedido`, {
+  export const putPedido = async (id) => {
+    const resp = await fetch(`${url}/pedido/${id}`, {
       method: "PUT",
-      body: JSON.stringify(datos),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
