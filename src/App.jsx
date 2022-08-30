@@ -16,6 +16,8 @@ import './css/fondo.css'
 import './css/bg-login-reg.css'
 function App() {
   return (
+    <>
+    <h1>Intro app</h1>
     <BrowserRouter>
       <Nav/>
       <Routes>
@@ -27,6 +29,7 @@ function App() {
       </Routes>
       <Footer/>
     </BrowserRouter>
+    </>
   );
 }
 
