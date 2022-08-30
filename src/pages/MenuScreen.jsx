@@ -1,35 +1,26 @@
 import React, { useState, useEffect } from "react";
-import {postMenu} from "../helpers/fetchApp";
-//import ReactMarkdown from "react-markdown";
-
+import {getCategoria, postMenu} from "../helpers/fetchApp";
 
 const MenuScreen = () => {
   const[mensaje,setMensaje] = useState([])
   const[nombre,setNombre] = useState("")
-  const[estadoMenu,setEstadoMenu]=useState([])
-  const[estadoMenuSelect,setEstadoMenuSelect]=useState([0])
-  const[precio,setPrecio]=useState('')
-  const[categoria,setCategoria]=useState([0])
-  const[categoriaSelect,setCategoriaSelect]=useState([])
-  
-  useEffect(()=>{
-    setEstadoMenu(['Disponible','No disponible'])
-     setEstadoMenuSelect(['Seleccione'])
-     setCategoria(['Menú del día','Postre'])
-     setCategoriaSelect(['Seleccione'])
-  },[])
-  
+  const[estadoMenu,setEstadoMenu]=useState(true)
+  const[detalle,setDetalle] = useState("")
+  const[precio,setPrecio]=useState(0)
+  const[categoria,setCategoria]=useState({})
+  const[categorias,setCategorias]=useState([])
+  const[imagen,setImagen]=useState('')
+   
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const datos = {
       nombre,
+      imagen,
       estadoMenu,
-      estadoMenuSelect,
       detalle,
       precio,
       categoria,
-      categoriaSelect,
     };
 
     postMenu(datos).then((respuesta) => {
@@ -37,21 +28,28 @@ const MenuScreen = () => {
       if (respuesta?.errors) {
         setMensaje(respuesta.errors);
       } else {
-        setMensaje([{ msg: "Nuevo Menú creado!" }]);
+        setMensaje([{ msg: "¡Nuevo Menú creado!" }]);
       }
       setNombre("");
       setEstadoMenu("");
-      setEstadoMenuSelect("");
       setdetalle("");
-      setPrecio("");
+      setEstadoMenu(true);
+      setPrecio(0);
       setCategoria("");
-      setCategoriaSelect("");
       setTimeout(() => {
         setMensaje("");
       }, 3000);
     });
   };
-  
+  useEffect(()=>{
+    getCategoria().then((respuesta)=>{
+      console.log(respuesta);
+      setCategorias(respuesta.categoria);
+    })
+    
+  },[])
+ 
+
   return(
 <>
 
@@ -68,9 +66,15 @@ const MenuScreen = () => {
             <h3>Crear nuevo menú</h3>
             <form id="formulario" onSubmit={handleSubmit}>
               <label>Nombre</label>
-              <input id="titulo" className="form-control" type="text" required />
+              <input id="titulo" className="form-control" type="text" required
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}             
+              />
               <label>Descripción</label>
-              <textarea id="desc" className="form-control" required></textarea>
+              <textarea id="desc" className="form-control" required
+              value={detalle}
+              onChange={(e) => setDetalle(e.target.value)} 
+              ></textarea>
               <label>Imagen</label>
               <input
                 id="imagen"
@@ -78,27 +82,44 @@ const MenuScreen = () => {
                 type="text"
                 placeholder="Ingrese una url"
                 required
+                src={imagen}
+              onChange={(e) => setImagen(e.target.value)} 
               />
               <label>Estado</label>
-              <select id="estado" className="form-control" required>
-                <option selected>Seleccione</option>
-                <option defaultValue="Disponible">disponible</option>
-                <option defaultValue="No disponible">No disponible</option>
+              <select id="estado" className="form-control" required
+               value={estadoMenu}
+               onChange={(e) => setEstadoMenu(e.target.value)}
+              >
+               {/*  {<option selected>Seleccione</option>} */}
+                <option value= "true">disponible</option>
+                <option value="false">No disponible</option>
               </select>
               <label>Categoria</label>
-              <select id="estado" className="form-control" required>
-                <option selected>Seleccione</option>
-                <option defaultValue="Categoria 1">Categoria 1</option>
-                <option defaultValue="Categoria 2">Categoria 2</option>
-                <option defaultValue="Categoria 3">Categoria 3</option>
+              <select id="estado" className="form-control" required
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
+              >
+               <option selected value= {0}>Seleccione</option>
+                
+                {
+                  categorias.map((c)=>{
+                    <option value={c.categoria}>{c.categoria}</option>
+
+                  })
+
+                }
+          
+              
               </select>
               <label>Precio</label>
               <input
                 id="precio"
                 className="form-control"
                 type="number"
-                defaultValue="0"
+               
                 required
+                value={precio}
+              onChange={(e) => setPrecio(e.target.value)}
               />
               <button className="btn btn-primary mt-3 float-end">Guardar</button>
             </form>
@@ -117,10 +138,6 @@ const MenuScreen = () => {
                 ))}
               </div>
             )}
-         {/*  <div>
-              <p>Preview</p>
-              <ReactMarkdown>{body}</ReactMarkdown>
-                  </div>*/}
           </div>
         </div>
       
@@ -148,92 +165,3 @@ const MenuScreen = () => {
 }
 
 export default MenuScreen
-/*
-export default function RegistrarMenu(){
-  const[nombre,setNombre]=useState=('')
-  const[estadoMenu,setEstadoMenu]=useState=([])
-  const[estadoMenuSelect,setEstadoMenuSelect]=useState=([1])
- const[detalle,setdetalle]=useState=('')
- const[precio,setPrecio]=useState=('')
-  const[categoria,setCategoria]=useState=([])
-  const[categoriaSelect,setCategoriaSelect]=useState-([])
- 
-  useEffect(()=>{
-   setEstadoMenu(['Disponible','No disponible'])
-    setEstadoMenuSelect('Seleccione')
-    setCategoria(['Menú del día','Postre'])
-    setCategoriaSelect('Seleccione')
- },[])
- 
- const guardar= async(e)=>{
-    e.preventDefault()
-     const usuario={
-      nombre,
-      estadoMenu:estadoMenuSelect, 
-      detalle,
-      precio,
-      categoria:categoriaSelect,
-        }
-
-      if(guardar===''){
-        Swal.fire({
-          icon:'error',
-          title:'debe escribir un nombre',
-          showconfirmButton:false,
-          timer:1500
-        })
-      }
-      else
-      {
-        const token = sessionStorage.getItem('token')
-        const respuesta = await Axios.post('/') //falta la ruta
-      }
-                           }                       I
-return(
-  <div className="container mt-4">
-    <div className="row">
-      <div className="col-md-7 mx-auto">
-       <div className="card">
-        <div className="conteiner text center fa-5x">
-          <i className="fas fa-user-plus"></i>
-        </div>
-        <div className="card-header bg-info text-center">
-          <h4>Crear nuevo menú</h4>
-        </div>
-        <div className="card-body">
-          <form onSubmit={"guardar"}>
-            <div className="col-md-6">
-              <label>Nombre</label>
-              <input type="text" className='form-control required' />
-            </div>
-
-            <div className="col-md-6">
-              <label>Estado</label>
-              <input type="text" className='form-control required' />
-            </div>
-
-            <div className="col-md-6">
-              <label>Detalle</label>
-              <input type="text" className='form-control required' />
-            </div>
-
-            <div className="col-md-6">
-              <label>Precio</label>
-              <input type="text" className='form-control required' />
-            </div>
-
-            <div className="col-md-6">
-              <label>Categoria</label>
-              <input type="text" className='form-control required' />
-            </div>
-            <br />
-            <button type="submit" className="btn btn-outline-info">
-              <span className="fa fa-save"></span> Crear nuevo menú
-            </button>
-          </form>
-        </div>
-       </div>
-      </div>
-    </div>
-  </div>
-*/
