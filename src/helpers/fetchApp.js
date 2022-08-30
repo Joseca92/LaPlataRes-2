@@ -42,6 +42,7 @@ export const getCategoria = async () => {
 
   return data;
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
 
 export const postBlog = async (datos) => {
@@ -148,3 +149,6 @@ export const getMenuById = async (id) => {
 =======
 };
 >>>>>>> 7cab3935f05b21c8b19170a754e64c12d4bc9503
+=======
+};
+>>>>>>> 73a6b3de1431837ea0475752768c1eb24a5f1f82
