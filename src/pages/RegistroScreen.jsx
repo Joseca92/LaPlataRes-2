@@ -119,5 +119,5 @@ const Registro = () => {
     </div>
   );
 };
+export default RegistroScreen;
 
-export default Registro;
