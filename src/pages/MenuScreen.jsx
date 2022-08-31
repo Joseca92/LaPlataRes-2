@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import {getCategoria, postMenu} from "../helpers/fetchApp";
 import MenuCard from "../components/MenuCard";
 
-const MenuScreen = () => {
+const MenuScreen = (props) => {
   const[mensaje,setMensaje] = useState([])
   const[nombre,setNombre] = useState("")
   const[estadoMenu,setEstadoMenu]=useState(true)
   const[detalle,setDetalle] = useState("")
   const[precio,setPrecio]=useState(0)
   const[categoria,setCategoria]=useState([])
- // const[categorias,setCategorias]=useState([])
+  const[categorias,setCategorias]=useState([])
   const[imagen,setImagen]=useState('')
 
   //traer lo menus
@@ -58,7 +58,7 @@ const MenuScreen = () => {
   useEffect(()=>{
     getCategoria().then((respuesta)=>{
       console.log(respuesta);
-      setCategoria(respuesta.categoria);
+      setCategorias(respuesta.categoria);
     })
     
   },[])
@@ -80,13 +80,13 @@ const MenuScreen = () => {
             <h3>Crear nuevo menú</h3>
             <form id="formulario" onSubmit={handleSubmit}>
               <label>Nombre</label>
-              <input id="titulo" className="form-control" type="text" required
-              defaultValue={nombre}
+              <input id="nombre" className="form-control" type="text" required
+              value={nombre}
               onChange={(e) => setNombre(e.target.value)}             
               />
               <label>Descripción</label>
               <textarea id="desc" className="form-control" required
-              defaultValue={detalle}
+              value={detalle}
               onChange={(e) => setDetalle(e.target.value)} 
               ></textarea>
               <label>Imagen</label>
@@ -99,31 +99,27 @@ const MenuScreen = () => {
                 src={imagen}
               onChange={(e) => setImagen(e.target.value)} 
               />
-              <label>Estado</label>
-              <select id="estado" className="form-control" required
-               defaultValue={estadoMenu}
+              {/*<label>Estado</label>
+              {/*<select id="estado" className="form-control" required
+               value={estadoMenu}
                onChange={(e) => setEstadoMenu(e.target.value)}
               >
                {/*  {<option selected>Seleccione</option>} */}
-                <option defaultValue= "true">disponible</option>
-                <option defaultValue="false">No disponible</option>
-              </select>
+               {/*</form>* <option value= "true">disponible</option>
+                <option value="false">No disponible</option>
+              </select>*/}
               <label>Categoria</label>
-              <select id="estado" className="form-control" required
-              defaultValue={categoria}
+              <select 
+              id="categoria" 
+              className="form-select"
+              aria-label="default select example" 
               onChange={(e) => setCategoria(e.target.value)}
               >
-               <option selected defaultValue= {0}>Seleccione</option>
-                
-                {
-                  categoria.map((c)=>{
-                    <option defaultValue={c.categoria}>{c.categoria}</option>
+               <option value="">Seleccione</option>
+                {categorias.map((category)=>(
+                    <option key = {category._id} value={category._id}>{category.categoria}</option>
 
-                  })
-
-                }
-          
-              
+                  ))}
               </select>
               <label>Precio</label>
               <input
@@ -132,10 +128,11 @@ const MenuScreen = () => {
                 type="number"
                
                 required
-                defaultValue={precio}
+                value={precio}
               onChange={(e) => setPrecio(e.target.value)}
               />
               <button className="btn btn-primary mt-3 float-end">Guardar</button>
+            
             </form>
             {mensaje.length > 0 && (
               <div className="my-3">
@@ -200,5 +197,4 @@ const MenuScreen = () => {
       </>
   )
 }
-
 export default MenuScreen
