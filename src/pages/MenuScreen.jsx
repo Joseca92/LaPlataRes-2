@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {getCategoria, postMenu} from "../helpers/fetchApp";
+import MenuCard from "../components/MenuCard";
 
 const MenuScreen = (props) => {
   const[mensaje,setMensaje] = useState([])
@@ -10,6 +11,20 @@ const MenuScreen = (props) => {
   const[categoria,setCategoria]=useState([])
   const[categorias,setCategorias]=useState([])
   const[imagen,setImagen]=useState('')
+
+  //traer lo menus
+  const [menus, setMenus] = useState([]);
+  useEffect(() => {
+    getMenu().then((respuesta) => {
+      console.log(respuesta);
+      if (respuesta?.msg) {
+        setMensaje(respuesta.msg);
+      } else {
+        setMenus(respuesta.menu);
+      }
+      setLoading(false);
+    });
+  }, []);
    
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -137,8 +152,8 @@ const MenuScreen = (props) => {
           </div>
         </div>
       
-        <div className="row">
-          <div className="col">
+        <div className="row border border-dark border-2 p-3 mt-5 d-flex justify-content-center">
+          {/* <div className="col">
             <table className="table">
               <thead>
                 <tr>
@@ -153,7 +168,30 @@ const MenuScreen = (props) => {
               <tbody id="table_body">
               </tbody>
             </table>
-          </div>
+          </div> */}
+          <div className="col-12 col-md-8 p-3">
+                    {menus.map((menu) => (
+                      <tr>
+                        <td>
+                          <MenuCard
+                            key={menu._id}
+                            precio={menu.precio}
+                            nombre={menu.nombre}
+                            img={menu.img}
+                            detalle={menu.detalle}
+                          />
+                        </td>
+                        <td>
+                          <button
+                            key={menu._id}
+                            className="btnGral fw-bold p-2 mx-2"
+                          >
+                            +
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </div>
           </div>
         </div>
       </>
