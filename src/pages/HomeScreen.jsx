@@ -75,7 +75,7 @@ const HomeScreen = () => {
                       <tbody>
                   {menus.map((menu) => (
                       <tr key={menu._id}>
-                      <td >
+                      <td>
                         <MenuCard
                           precio={menu.precio}
                           nombre={menu.nombre}
