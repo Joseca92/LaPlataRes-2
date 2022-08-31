@@ -70,37 +70,38 @@ const HomeScreen = () => {
               </div>
             ) : (
               <>
-                  <div className="col-12 col-md-8 p-3">
-                    {menus.map((menu) => (
-                      <tr>
-                        <td>
-                          <MenuCard
-                            key={menu._id}
-                            precio={menu.precio}
-                            nombre={menu.nombre}
-                            img={menu.img}
-                            detalle={menu.detalle}
-                          />
-                        </td>
-                        <td>
-                          <button
-                            key={menu._id}
-                            className="btnGral fw-bold p-2 mx-2"
-                          >
-                            +
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </div>
+                <div className="col-12 col-md-8 p-3">
+                    <table>
+                      <tbody>
+                  {menus.map((menu) => (
+                      <tr key={menu._id}>
+                      <td >
+                        <MenuCard
+                          precio={menu.precio}
+                          nombre={menu.nombre}
+                          img={menu.img}
+                          detalle={menu.detalle}
+                        />
+                      </td>
+                      <td>
+                        <button
+                        key={menu._id}
+                          className="btnGral fw-bold p-2 mx-2"
+                        >
+                          +
+                        </button>
+                      </td>
+                  </tr>
+                  ))}
+                    </tbody>
+                  </table>
+                </div>
               </>
             )}
           </div>
           <div className="col-12 col-md-12 d-flex aling-items-center justify-content-center">
-                    <button className="btnGral fw-bold p-2 m-2">
-                      Ver pedido : $
-                    </button>
-                  </div>
+            <button className="btnGral fw-bold p-2 m-2">Ver pedido : $</button>
+          </div>
         </div>
       </div>
     </>
