@@ -14,8 +14,7 @@ const HomeScreen = () => {
       if (respuesta?.msg) {
         setMensaje(respuesta.msg);
       } else {
-        setMenus(
-          respuesta.menu);
+        setMenus(respuesta.menu);
       }
       setLoading(false);
     });
@@ -49,7 +48,7 @@ const HomeScreen = () => {
             <button className="btnGral fw-bold p-2 mx-2">Buscar</button>
           </div>
           <div className="col-12 mt-5 categoria"></div>
-          <div className="row menu border border-dark border-2 p-3 my-5 d-flex justify-content-center">
+          <div className="row overflow-auto menu border border-dark border-2 p-3 mt-5 d-flex justify-content-center">
             {loading ? (
               <div className="col-12 col-md-8 loading">
                 <lottie-player
@@ -71,13 +70,37 @@ const HomeScreen = () => {
               </div>
             ) : (
               <>
-                {menus.map((menu) => (
-                    <MenuCard key={menu._id} precio={menu.precio} nombre={menu.nombre} img={menu.img} detalle={menu.detalle}/>
-                ))}
+                  <div className="col-12 col-md-8 p-3">
+                    {menus.map((menu) => (
+                      <tr>
+                        <td>
+                          <MenuCard
+                            key={menu._id}
+                            precio={menu.precio}
+                            nombre={menu.nombre}
+                            img={menu.img}
+                            detalle={menu.detalle}
+                          />
+                        </td>
+                        <td>
+                          <button
+                            key={menu._id}
+                            className="btnGral fw-bold p-2 mx-2"
+                          >
+                            +
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </div>
               </>
             )}
-            <button className="btnGral fw-bold p-2 mx-2">Ver pedido : $</button>
           </div>
+          <div className="col-12 col-md-12 d-flex aling-items-center justify-content-center">
+                    <button className="btnGral fw-bold p-2 m-2">
+                      Ver pedido : $
+                    </button>
+                  </div>
         </div>
       </div>
     </>
