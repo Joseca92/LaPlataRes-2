@@ -1,8 +1,6 @@
 import React from 'react'
 
 const MenuCard = ({precio, nombre, img, detalle} /*{menu}*/) => {
-  // const {precio, nombre, img, detalle} = menu;
-  console.log("llegue a menu")
   return (
    
       <div className="col-12 cards">
