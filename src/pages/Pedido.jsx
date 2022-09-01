@@ -54,7 +54,7 @@ const Pedido = () => {
 
 
   return (
-    <div className="container">
+    <div className="container boxContainer">
       <div className="row">
         <div className="col">
           <h1 className="text-center">Bienvenido al ABM de Pedidos!</h1>

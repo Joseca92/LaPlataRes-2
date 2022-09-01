@@ -43,7 +43,7 @@ const RegistroScreen = () => {
   };
 
   return (
-    <div className="container-fluid bgFondo">
+    <div className="container-fluid boxContainer bgFondo">
       <div className="row ">
         <div className="col-12 d-flex justify-content-center">
           <div className="card mt-5 fondo3 p-3 ">
