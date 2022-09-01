@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../css/homeScreen.css";
 import { getMenu } from "../helpers/fetchApp";
+import { Link } from "react-router-dom";
 import logo from "../asset/logo.png";
 import MenuCard from "../components/MenuCard";
+import "../css/homeScreen.css";
 
 const HomeScreen = () => {
   const [menus, setMenus] = useState([]);
