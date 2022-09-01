@@ -21,21 +21,6 @@ export const postAuth = async (datos) => {
       "Content-type": "application/json; charset=UTF-8",
     },
   });
-
-  const data = await resp.json();
-
-  return data;
-};
-
-export const postUsuario = async (datos) => {
-  const resp = await fetch(`${url}/usuarios`, {
-    method: "POST",
-    body: JSON.stringify(datos),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  });
-
   const data = await resp.json();
 
   return data;
@@ -108,10 +93,6 @@ export const getPedido = async (registro = 0) => {
     return data;
   };
 
-
-
-
-
   //Traer una entrada de menu por su id
 export const getMenuById = async (id) => {
   const resp = await fetch(`${url}/menu/${id}`, {
@@ -125,6 +106,7 @@ export const getMenuById = async (id) => {
 
   return data;
 };
+
 
 //-------------------------------------------------------------------------------
 // export const getPosts = async () => {

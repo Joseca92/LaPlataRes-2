@@ -1,33 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { postAuth } from "../helpers/fetchApp";
+import { postAuth } from "../helpers/fetchApp";
 import Registro from "./RegistroScreen";
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
+import RegistroScreen from "./RegistroScreen";
 
 const LoginScreen = () => {
-  // const navigate = useNavigate();
+  
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(null);
 
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [message, setMessage] = useState(null);
+  const validarDatos = () => {
+    const datos = {
+      email,
+      password,
+    };
 
-  // const validarDatos = () => {
-  //   const datos = {
-  //     email,
-  //     password,
-  //   };
-  //   postAuth(datos).then((respuesta) => {
-  //     console.log(respuesta);
-  //     if (respuesta?.token) {
-  //       setMessage({ ok: true, msg: "Login ok" });
-  //       localStorage.setItem("token", JSON.stringify(respuesta.token));
-  //       navigate("/");
-  //     } else {
-  //       setMessage(respuesta);
-  //     }
-  //   });
-  // };
+
+    postAuth(datos).then((respuesta) => {
+      console.log(respuesta);
+      if (respuesta?.token) {
+        setMessage({ ok: true, msg: "Login ok" });
+        localStorage.setItem("token", JSON.stringify(respuesta.token));
+        navigate("/");
+      } else {
+        setMessage(respuesta);
+      }
+    });
+  };
 
   return (
     <div className="container-fluid boxContainer bgFondo">
@@ -38,7 +41,7 @@ const LoginScreen = () => {
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
-              <form /*onSubmit={handleSubmit}*/>
+              <form>
                 <div className="form-group"></div>
                 <div className="form-group">
                   <div className="card-body text-center">
@@ -47,8 +50,8 @@ const LoginScreen = () => {
                       className="form-control border-0"
                       name="email"
                       placeholder="Correo electrónico"
-                      // value={email}
-                      // onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                     <hr />
@@ -61,28 +64,28 @@ const LoginScreen = () => {
                       className="form-control border-0"
                       name="password"
                       placeholder="Contraseña"
-                      // value={password}
-                      //onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       required
                     />
                     <hr />
-                    <a href="#" class="link-dark">
+                    <a href="#" className="link-dark">
                       Olvidé mi contraseña
                     </a>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-6 d-flex justify-content-center ">
-                    <button className="btnGral fw-bold p-2" /*onClick={validarDatos}*/>Iniciar Sesión</button>
+                    <button className="btnGral fw-bold p-2" onClick={validarDatos}>Iniciar Sesión</button>
                   </div>
                   <div className="col-6 d-flex justify-content-center ">
-                    <button className="btnGral fw-bold p-2" /*onClick={Registro}*/>Registrarse</button>
+                    <button  className="btnGral fw-bold p-2" onClick={RegistroScreen}>Registrarse</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
-          {/* {message && (
+          {message && (
             <div
               className={
                 message?.ok
@@ -93,8 +96,8 @@ const LoginScreen = () => {
             >
               {message.msg}
             </div>
-          )} */}
-          {/* {message &&
+          )} 
+          {/* { {message &&
             
               <div
                 className={
