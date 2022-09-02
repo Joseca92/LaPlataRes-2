@@ -6,7 +6,9 @@
   import ErrorScreen from "../pages/ErrorScreen"
 
   import MenuScreen from "../pages/MenuScreen";
-import Pedido from "../pages/Pedido";
+import LoginScreen from "../pages/LoginScreen";
+import RegistroScreen from "../pages/RegistroScreen";
+
 
 const RoutesGral = () => {
    return (
@@ -15,8 +17,10 @@ const RoutesGral = () => {
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
         <Route path="*" element={<ErrorScreen/>}/>
-        <Route path="/pedido" element={<PedidoScreen/>} />
+        <Route path="/login" element={<LoginScreen/>}/>
+        <Route path="/registro" element={<RegistroScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
+        <Route path="/home" element={<HomeScreen/>}/>
       </Routes>
      </>
    );
