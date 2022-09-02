@@ -12,6 +12,7 @@ function App() {
            
               <RoutesGral />
           </BrowserRouter>
+          
   );
 }
 

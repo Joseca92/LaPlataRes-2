@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/api";
+ const url = "http://localhost:8080/api";
+// const url = "https://restaurantelp.herokuapp.com"
 //traer un usuario
 export const validarToken = async () => {
   const resp = await fetch(`${url}/usuarios`, {
