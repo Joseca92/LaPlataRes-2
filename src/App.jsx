@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
-import ProtectedRoutes from "./routes/PotectedRoutes";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
 import RoutesGral from "./routes/RoutesGral";
 import './css/btn.css'
 import './css/fondo.css'

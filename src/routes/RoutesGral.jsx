@@ -13,7 +13,7 @@ const RoutesGral = () => {
     <Nav/>
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
-        <Route path="/*" element={<ErrorScreen/>}/>
+        <Route path="*" element={<ErrorScreen/>}/>
         <Route path="/pedido" element={<PedidoScreen/>} />
         <Route path='/menu' element={<MenuScreen/>}/>
       </Routes>

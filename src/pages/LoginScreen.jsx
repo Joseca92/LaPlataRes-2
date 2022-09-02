@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postAuth } from "../helpers/fetchApp";
-import Registro from "./RegistroScreen";
+import { Link } from "react-router-dom";
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
-import RegistroScreen from "./RegistroScreen";
+
 
 const LoginScreen = () => {
   
@@ -36,8 +36,8 @@ const LoginScreen = () => {
     <div className="container-fluid boxContainer bgFondo">
       <div className="row d-flex justify-content-center">
         <div className="col-12 col-md-4 mt-5">
-          <div class="card fondo3">
-            <div class="card-body">
+          <div className="card fondo3">
+            <div className="card-body">
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
@@ -79,7 +79,7 @@ const LoginScreen = () => {
                     <button className="btnGral fw-bold p-2" onClick={validarDatos}>Iniciar Sesión</button>
                   </div>
                   <div className="col-6 d-flex justify-content-center ">
-                    <button  className="btnGral fw-bold p-2" onClick={RegistroScreen}>Registrarse</button>
+                  <Link className="btn btn-primary" to="/Registro">Registrarse</Link>
                   </div>
                 </div>
               </form>
