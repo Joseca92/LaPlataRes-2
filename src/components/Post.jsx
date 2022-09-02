@@ -80,15 +80,15 @@ const Post = ({post }) => {
           <div className="col-2 pedidosB">
            <p>{moment(date).format("LT l")}</p>
            </div>
-           <div className="col-3 colEntrega pedidosB">
+           <div className="col-2 colEntrega pedidosB">
            <p>{envio}</p>
            <div className="form-check check">
               <input className="form-check-input checkEntrega" type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
 
             </div>
           </div>
-          <div className="col pedidosB">
-            <img src={borradoP} alt="estado visual false" />
+          <div className="col-1 pedidosB">
+            <img src={borradoP} alt="estado visual false" onClick={pedidoE}/>
 
           </div> 
          </div>
