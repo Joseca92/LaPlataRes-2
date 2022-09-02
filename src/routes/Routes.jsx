@@ -11,6 +11,7 @@ const RoutesDos = () => {
       <Routes>
       <Route path="/" element={<HomeScreen/>} />
       <Route path="/pedido" element={<Pedido/>} />
+      <Route path="/usuarios" element={<UsuariosScreen/>} />
       </Routes>
     </>
   );

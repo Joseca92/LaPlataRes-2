@@ -10,7 +10,7 @@ const Pedido = () => {
     total: 0,
   });
 
-  const [realizado, setRealizado] = useState("");
+  
   const [actualizar, setActualizar] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
@@ -47,6 +47,11 @@ const Pedido = () => {
       <div className="row">
         <div className="col">
           <div className="headPedido">
+            
+              <Link className="btn btn-primary" to="/login">
+                ABM Usuarios
+              </Link>
+            
       
               <h3 className="text-center">Bienvenido al ABM de Pedidos!</h3>  
             </div>
@@ -98,9 +103,8 @@ const Pedido = () => {
                   ))
     
                 }
-                
-
               </div>
+
             
             </>
           )}
