@@ -26,6 +26,19 @@ export const getPedido = async (registro = 0) => {
   
     return data;
   };
+  
+  export const deletePedido = async (id) => {
+    const resp = await fetch(`${url}/pedido/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  
+    const data = await resp.json();
+  
+    return data;
+  };
 
 
 

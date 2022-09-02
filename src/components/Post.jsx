@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { getMenuById, putPedido } from "../helpers/fetchApp";
+import { deletePedido, getMenuById, putPedido } from "../helpers/fetchApp";
+import borradoP from "../asset/borradoP.png";
 
 
 const Post = ({post }) => {
@@ -27,7 +28,7 @@ const Post = ({post }) => {
     menu.forEach((m)=>{
     getMenuById(m).then((respuesta)=>{
         
-       /*  console.log(respuesta.menu.nombre); */
+       console.log(respuesta);
    
         arreglo.push(respuesta.menu.nombre,", ");
         setMenus([...arreglo]);    
@@ -41,11 +42,13 @@ const Post = ({post }) => {
     putPedido(uid).then((respuesta)=>{
       console.log(respuesta.msg);
       }) 
-    
-  
   }
 
-   
+  const pedidoE=()=>{
+    deletePedido(uid).then((respuesta)=>{
+      console.log(respuesta.msg);
+    })
+  }
  
 
      
@@ -74,7 +77,7 @@ const Post = ({post }) => {
          
 
            </div>
-           <div className="col-2 pedidosB">
+          <div className="col-2 pedidosB">
            <p>{moment(date).format("LT l")}</p>
            </div>
            <div className="col-3 colEntrega pedidosB">
@@ -84,6 +87,10 @@ const Post = ({post }) => {
 
             </div>
           </div>
+          <div className="col pedidosB">
+            <img src={borradoP} alt="estado visual false" />
+
+          </div> 
          </div>
 
     </div>

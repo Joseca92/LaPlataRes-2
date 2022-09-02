@@ -10,7 +10,7 @@ const Pedido = () => {
     total: 0,
   });
 
-  const [realizado, setRealizado] = useState("");
+ 
   const [actualizar, setActualizar] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
