@@ -4,8 +4,9 @@
   import Nav from "../components/Nav";
   import HomeScreen from "../pages/HomeScreen";
   import ErrorScreen from "../pages/ErrorScreen"
-  import PedidoScreen from "../pages/PedidoScreen";
+
   import MenuScreen from "../pages/MenuScreen";
+import Pedido from "../pages/Pedido";
 
 const RoutesGral = () => {
    return (
