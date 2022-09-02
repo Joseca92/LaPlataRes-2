@@ -4,8 +4,9 @@
   import Nav from "../components/Nav";
   import HomeScreen from "../pages/HomeScreen";
   import ErrorScreen from "../pages/ErrorScreen"
-  import PedidoScreen from "../pages/PedidoScreen";
+
   import MenuScreen from "../pages/MenuScreen";
+import Pedido from "../pages/Pedido";
 
 const RoutesGral = () => {
    return (
@@ -14,7 +15,7 @@ const RoutesGral = () => {
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
         <Route path="/*" element={<ErrorScreen/>}/>
-        <Route path="/pedido" element={<PedidoScreen/>} />
+        <Route path="/pedido" element={<Pedido/>} />
         <Route path='/menu' element={<MenuScreen/>}/>
       </Routes>
      </>
