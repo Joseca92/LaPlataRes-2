@@ -92,7 +92,7 @@ const LoginScreen = () => {
   // };
 
   return (
-    <div className="container-fluid  bgFondo">
+    <div className="container-fluid boxContainer bgFondo">
       <div className="row d-flex justify-content-center">
         <div className="col-12 col-md-4 mt-5">
           <div className="card fondo3">

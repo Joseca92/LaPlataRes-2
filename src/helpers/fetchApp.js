@@ -1,8 +1,7 @@
 const url = "http://localhost:8080/api";
-
-//traer usuarios
+//REgistrar un usuario
 export const validarToken = async () => {
-  const resp = await fetch(`${url}/usuarios`, {
+  const resp = await fetch(`${url}/usuarios/validar`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -13,22 +12,6 @@ export const validarToken = async () => {
 
   return data;
 };
-
-//Registrar un usuario
-export const postUsuario = async (datos) => {
-  const resp = await fetch(`${url}/usuarios`, {
-    method: "POST",
-    body: JSON.stringify(datos),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  });
-
-  const data = await resp.json();
-
-  return data;
-};
-
 //Login de usuario
 export const postAuth = async (datos) => {
   const resp = await fetch(`${url}/auth/login`, {
@@ -38,7 +21,6 @@ export const postAuth = async (datos) => {
       "Content-type": "application/json; charset=UTF-8",
     },
   });
-
   const data = await resp.json();
 
   return data;
