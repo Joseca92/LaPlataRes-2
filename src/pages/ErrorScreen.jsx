@@ -1,6 +1,8 @@
 import React from "react";
 import notfound from "../asset/img/notfound.jpg";
 import "../css/error.css";
+import { Link } from "react-router-dom";
+
 
 const Error404 = () => {
   return (
@@ -10,7 +12,7 @@ const Error404 = () => {
             <img className="rounded mx-auto d-block" src={notfound} />
         </div>
         <div className="col-12 col-md-6 d-flex justify-content-center align-items-center mt-5">
-          <button className="btnGral fw-bold p-2 m-2" to="/login">Volver</button>
+          <Link className="btnGral fw-bold p-2 m-2" to="/Home" >Volver</Link>
         </div>
       </div>
     </div>

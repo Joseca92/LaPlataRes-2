@@ -33,10 +33,7 @@ const HomeScreen = () => {
             </div>
             <div className=" col-12 mt-5">
               <h4 className="fw-normal">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto error dignissimos quibusdam doloribus tenetur et
-                unde, alias ad quam possimus qui culpa praesentium perferendis
-                commodi! Quod at quam atque laudantium.
+                la mejor cocina mediterranea del NOA
               </h4>
             </div>
           </div>

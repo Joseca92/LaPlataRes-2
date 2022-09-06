@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/api";
+ const url = "http://localhost:8080/api";
+// const url = "https://restaurantelp.herokuapp.com"
 //traer un usuario
 export const validarToken = async () => {
   const resp = await fetch(`${url}/usuarios`, {
@@ -12,7 +13,8 @@ export const validarToken = async () => {
 
   return data;
 };
-//Registrar un usuario
+
+//REgistrar un usuario
 export const postUsuario = async (datos) => {
   const resp = await fetch(`${url}/usuarios`, {
     method: "POST",
@@ -26,6 +28,8 @@ export const postUsuario = async (datos) => {
 
   return data;
 };
+
+
 //Login de usuario
 export const postAuth = async (datos) => {
   const resp = await fetch(`${url}/auth/login`, {
@@ -46,7 +50,7 @@ export const getMenu = async () => {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      //"x-token": JSON.parse(localStorage.getItem("token")),
+      "x-token": JSON.parse(localStorage.getItem("token")),
     },
   });
   const data = await resp.json();
@@ -86,7 +90,7 @@ export const getPedido = async (registro = 0) => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-       /*  "x-token": JSON.parse(localStorage.getItem("token")), */
+         "x-token": JSON.parse(localStorage.getItem("token")), 
       },
     });
     const data = await resp.json();
@@ -113,40 +117,10 @@ export const getMenuById = async (id) => {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      /* "x-token": JSON.parse(localStorage.getItem("token")), */
+      "x-token": JSON.parse(localStorage.getItem("token")), 
     },
   });
   const data = await resp.json();
 
   return data;
 };
-
-
-//-------------------------------------------------------------------------------
-// export const getPosts = async () => {
-//   const resp = await fetch("http://localhost:8080/posts");
-//   const data = await resp.json();
-
-//   return data;
-// };
-
-// export const getPostById = async (id) => {
-//   const resp = await fetch(`http://localhost:8080/posts/${id}`);
-//   const data = await resp.json();
-
-//   return data;
-// };
-
-// export const addPost = async (datos) => {
-//   const resp = await fetch("http://localhost:8080/posts", {
-//     method: "POST",
-//     body: JSON.stringify(datos),
-//     headers: {
-//       "Content-type": "application/json; charset=UTF-8",
-//     },
-//   });
-
-//   const data = await resp.json();
-
-//   return data;
-// };

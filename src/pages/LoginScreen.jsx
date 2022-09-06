@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { postAuth } from "../helpers/fetchApp";
+import { Link } from "react-router-dom";
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
-import RegistroScreen from "./RegistroScreen";
+
 
 const LoginScreen = () => {
   
@@ -78,8 +79,7 @@ const LoginScreen = () => {
                     <button className="btnGral fw-bold p-2" onClick={validarDatos}>Iniciar Sesión</button>
                   </div>
                   <div className="col-6 d-flex justify-content-center ">
-                    {/* <button  className="btnGral fw-bold p-2" NavLink to="/registro">Registrarse</button> */}
-                    <NavLink to="/registro"> <button  className="btnGral fw-bold p-2">Registrarse</button></NavLink>
+                  <Link className="btn btn-primary" to="/Registro">Registrarse</Link>
                   </div>
                 </div>
               </form>
