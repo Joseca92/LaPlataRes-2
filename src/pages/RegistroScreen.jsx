@@ -51,7 +51,7 @@ const RegistroScreen = () => {
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
-              <form onSubmit={handleSubmit}>
+              <form>
                 <div className="form-group">
                   <div className="card-body text-center">
                     <input

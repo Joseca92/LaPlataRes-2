@@ -1,48 +1,106 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState , useEffect} from "react";
+// import { useNavigate } from "react-router-dom";
 import { postAuth } from "../helpers/fetchApp";
-import Registro from "./RegistroScreen";
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
 import RegistroScreen from "./RegistroScreen";
+import  useHistory  from "react-router-dom";
 
 const LoginScreen = () => {
-  
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(null);
-
-  const validarDatos = () => {
-    const datos = {
-      email,
-      password,
-    };
-
-
-    postAuth(datos).then((respuesta) => {
-      console.log(respuesta);
-      if (respuesta?.token) {
-        setMessage({ ok: true, msg: "Login ok" });
-        localStorage.setItem("token", JSON.stringify(respuesta.token));
-        navigate("/");
-      } else {
-        setMessage(respuesta);
-      }
+  const Alertsucces = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Inicio de sesion exitoso!",
+      showConfirmButton: false,
+      timer: 900,
     });
   };
+
+  const Alerterror=() =>{
+      Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'DNI o contraseña incorrecta',
+          showConfirmButton: false,
+          timer: 1500
+        })
+  }
+  const history = useHistory();
+
+  const [formValue, setFormValue] = useState({
+    email: "",
+    contraseña: "",
+  });
+
+  const handleChange = ({ target }) => {
+    setFormValue({
+      ...formValue,
+      [target.name]: target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, contraseña } = formValue;
+
+    if (email && contraseña) {
+      postAuth(formValue).then((respuesta) => {
+        setLogin(respuesta);
+        console.log(respuesta.msg)
+        if(respuesta.msg){
+          Alerterror()
+        }
+      });
+    }
+  };
+
+  const [login, setLogin] = useState({});
+
+  useEffect(() => {
+    if (login.token) {
+      Alertsucces();
+      localStorage.setItem("auth", JSON.stringify(login));
+      setTimeout(() => {
+        history.push("/");
+      }, 1000);
+    }
+  }, [login, history]);
+
+  // const navigate = useNavigate();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [message, setMessage] = useState(null);
+
+  // const validarDatos = () => {
+  //   const datos = {
+  //     email,
+  //     password,
+  //   };
+
+
+  //   postAuth(datos).then((respuesta) => {
+  //     console.log(respuesta);
+  //     if (respuesta?.token) {
+  //       setMessage({ ok: true, msg: "Login ok" });
+  //       localStorage.setItem("token", JSON.stringify(respuesta.token));
+  //       navigate("/");
+  //     } else {
+  //       setMessage(respuesta);
+  //     }
+  //   });
+  // };
 
   return (
     <div className="container-fluid  bgFondo">
       <div className="row d-flex justify-content-center">
         <div className="col-12 col-md-4 mt-5">
-          <div class="card fondo3">
-            <div class="card-body">
+          <div className="card fondo3">
+            <div className="card-body">
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
-              <form>
-                <div className="form-group"></div>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <div className="card-body text-center">
                     <input
@@ -51,7 +109,7 @@ const LoginScreen = () => {
                       name="email"
                       placeholder="Correo electrónico"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={handleChange => setEmail(handleChange.target.value)}
                       required
                     />
                     <hr />
@@ -65,11 +123,11 @@ const LoginScreen = () => {
                       name="password"
                       placeholder="Contraseña"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={handleChange => setPassword(handleChange.target.value)}
                       required
                     />
                     <hr />
-                    <a href="#" className="link-dark">
+                    <a href="http://localhost:3000/*" className="link-dark">
                       Olvidé mi contraseña
                     </a>
                   </div>
