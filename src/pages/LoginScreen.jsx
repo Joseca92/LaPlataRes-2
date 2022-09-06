@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { postAuth } from "../helpers/fetchApp";
 import { Link } from "react-router-dom";
 import "../css/login.css";
@@ -13,24 +13,26 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
 
+
   const validarDatos = () => {
     const datos = {
       email,
       password,
     };
-
-
     postAuth(datos).then((respuesta) => {
       console.log(respuesta);
+      console.log("entro a la funcion auth")
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
         navigate("/");
+        console.log("paso por el navigate")
       } else {
         setMessage(respuesta);
       }
     });
   };
+
 
   return (
     <div className="container-fluid boxContainer bgFondo">
@@ -41,9 +43,9 @@ const LoginScreen = () => {
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
-              <form>
-                <div className="form-group"></div>
-                <div className="form-group">
+              
+                
+               
                   <div className="card-body text-center">
                     <input
                       type="email"
@@ -56,8 +58,8 @@ const LoginScreen = () => {
                     />
                     <hr />
                   </div>
-                </div>
-                <div className="form-group">
+               
+                
                   <div className="card-body text-center">
                     <input
                       type="password"
@@ -73,7 +75,7 @@ const LoginScreen = () => {
                       Olvidé mi contraseña
                     </a>
                   </div>
-                </div>
+               
                 <div className="row">
                   <div className="col-6 d-flex justify-content-center ">
                     <button className="btnGral fw-bold p-2" onClick={validarDatos}>Iniciar Sesión</button>
@@ -82,7 +84,7 @@ const LoginScreen = () => {
                   <Link className="btn btn-primary" to="/Registro">Registrarse</Link>
                   </div>
                 </div>
-              </form>
+            
             </div>
           </div>
           {message && (

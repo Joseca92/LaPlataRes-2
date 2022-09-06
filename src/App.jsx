@@ -4,14 +4,28 @@ import RoutesGral from "./routes/RoutesGral";
 import './css/btn.css'
 import './css/fondo.css'
 import './css/bg-login-reg.css'
+import LoginScreen from "./pages/LoginScreen";
+import RegistroScreen from "./pages/RegistroScreen";
+
 function App() {
   return (
-    <BrowserRouter>
-     
-      
-           
+    <BrowserRouter>    
+    <Routes>
+        <Route
+          path="/*"
+          element={
+          
               <RoutesGral />
-          </BrowserRouter>
+        
+          }
+        />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/registro" element={<RegistroScreen />} />
+      </Routes>   
+    
+
+    
+    </BrowserRouter>
           
   );
 }
