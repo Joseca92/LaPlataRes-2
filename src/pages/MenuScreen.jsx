@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getCategoria, postMenu, getMenu } from "../helpers/fetchApp";
-import MenuCard from "../components/MenuCard";
-import { Link } from "react-router-dom";
+// import MenuCard from "../components/MenuCard";
+//import { Link } from "react-router-dom";
 import "../css/menuScreen.css"
+import Axios from 'axios'
 
-const MenuScreen = (props) => {
+const MenuScreen = () => {
   const [mensaje, setMensaje] = useState([]);
-  const [mensajes, setMensajes] = useState("");
+ // const [mensajes, setMensajes] = useState("");
   const [nombre, setNombre] = useState("");
   const [estadoMenu, setEstadoMenu] = useState(true);
   const [detalle, setDetalle] = useState("");
@@ -14,50 +15,108 @@ const MenuScreen = (props) => {
   const [categoria, setCategoria] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [imagen, setImagen] = useState("");
-  const [loading, setLoading] = useState(true);
+ // const [loading, setLoading] = useState(true);
 
-  //traer lo menus
-  const [menus, setMenus] = useState([]);
-  useEffect(() => {
-    getMenu().then((respuesta) => {
-      console.log(respuesta);
-      if (respuesta?.msg) {
-        setMensajes(respuesta.msg);
-      } else {
-        setMenus(respuesta.menu);
-      }
-      setLoading(false);
-    });
-  }, []);
+  // //traer lo menus
+  // const [menus, setMenus] = useState([]);
+  // useEffect(() => {
+  //   getMenu().then((respuesta) => {
+  //     console.log(respuesta);
+  //     if (respuesta?.msg) {
+  //       setMensajes(respuesta.msg);
+  //     } else {
+  //       setMenus(respuesta.menu);
+  //     }
+  //     setLoading(false);
+  //   });
+  // }, []);
 
-  const handleSubmit = (e) => {
+  const guardar = async(e) => {
     e.preventDefault();
-
     const datos = {
       nombre,
+      detalle,
       imagen,
       estadoMenu,
-      detalle,
-      precio,
       categoria,
+      precio,
     };
 
-    postMenu(datos).then((respuesta) => {
-      console.log(respuesta.errors);
-      if (respuesta?.errors) {
-        setMensaje(respuesta.errors);
-      } else {
-        setMensaje([{ msg: "¡Nuevo Menú creado!" }]);
+    if(nombre===""){
+      Swal.fire({
+        icon:'error',
+        title:'Debe escribir un nombre',
+        showConfirmButton:false,
+        timer:1500
+      })
+    }
+      if(detalle===""){
+        Swal.fire({
+          icon:'error',
+          title:'Debe escribir un detalle',
+          showConfirmButton:false,
+          timer:1500
+        })
       }
+        if(imagen===""){
+          Swal.fire({
+            icon:'error',
+            title:'Debe colocar una imagen',
+            showConfirmButton:false,
+            timer:1500
+          })
+        }
+          if(precio===""){
+            Swal.fire({
+              icon:'error',
+              title:'Debe especificar el precio',
+              showConfirmButton:false,
+              timer:1500
+            })
+
+    }
+    else{
+      const token = sessionStorage.getItem('token')
+      const respuesta = await Axios.post('/menu',datos,{
+        headers:{'autorizacion':token}
+      })
+
+      const mensaje = respuesta.data.mensaje
+      console.log(mensaje)
+      Swal.fire({
+        icon:'success',
+        title:mensaje,
+        showConfirmButton:false,
+        timer:1500
+      })
+
+      e.target.reset();
       setNombre("");
       setdetalle("");
       setEstadoMenu(true);
       setPrecio(0);
-      setCategoria("");
+      setCategoria([0]);
       setTimeout(() => {
         setMensaje("");
       }, 3000);
-    });
+    };
+
+    // postMenu(datos).then((respuesta) => {
+    //   console.log(respuesta.errors);
+    //   if (respuesta?.errors) {
+    //     setMensaje(respuesta.errors);
+    //   } else {
+    //     setMensaje([{ msg: "¡Nuevo Menú creado!" }]);
+    //   }
+    //   setNombre("");
+    //   setdetalle("");
+    //   setEstadoMenu(true);
+    //   setPrecio(0);
+    //   setCategoria("");
+    //   setTimeout(() => {
+    //     setMensaje("");
+    //   }, 3000);
+    // });
   };
   useEffect(() => {
     getCategoria().then((respuesta) => {
@@ -88,70 +147,6 @@ const MenuScreen = (props) => {
           Nuevo Menú
         </button>
           </div>
-
-        </div>
-        <div className="row overflow-auto border mb-5 menu border-dark border-2 p-3 mt-3 d-flex justify-content-center">
-        {loading ? (
-              <div className="col-12 col-md-8 loading">
-                <lottie-player
-                  src="https://assets7.lottiefiles.com/packages/lf20_zakgeffb.json"
-                  background="transparent"
-                  speed="1"
-                  loop
-                  autoplay
-                ></lottie-player>
-              </div>
-            ) : mensajes ? (
-              <div className="col-12 col-md-6 offset-md-3">
-                <div className="alert alert-danger" role="alert">
-                  {mensajes}
-                </div>
-                <Link className="btn btn-primary" to="/login">
-                  Volver
-                </Link>
-              </div>
-            ) : (
-              <>
-                <div className="col-12 col-md-8 p-3">
-                    <table>
-                      <tbody>
-                  {menus.map((menu) => (
-                      <tr key={menu._id}>
-                      <td>
-                        <MenuCard
-                          precio={menu.precio}
-                          nombre={menu.nombre}
-                          img={menu.img}
-                          detalle={menu.detalle}
-                        />
-                      </td>
-                      <td>
-                        <button
-                        key={menu._id}
-                          className="btnGral fw-bold p-2 mx-2"
-                        >
-                          O
-                        </button>
-                        
-                      </td>
-                      <td>
-                        <button
-                        key={menu._id}
-                          className="btnGral fw-bold p-2 mx-2"
-                        >
-                          X
-                        </button>
-                        
-                      </td>
-                  </tr>
-                  ))}
-                    </tbody>
-                  </table>
-                </div>
-              </>
-            )}
-        </div>
-      </div>
       {/* modal */}
       <div
           className="modal fade"
@@ -174,7 +169,7 @@ const MenuScreen = (props) => {
                 ></button>
               </div>
               <div className="modal-body">
-                <form id="formulario" onSubmit={handleSubmit}>
+                <form id="formulario" onSubmit={guardar}>
                   <label>Nombre</label>
                   <input
                     id="nombre"
@@ -202,15 +197,17 @@ const MenuScreen = (props) => {
                     src={imagen}
                     onChange={(e) => setImagen(e.target.value)}
                   />
-                  {/*<label>Estado</label>
-              {/*<select id="estado" className="form-control" required
-               value={estadoMenu}
-               onChange={(e) => setEstadoMenu(e.target.value)}
-              >
-               {/*  {<option selected>Seleccione</option>} */}
-                  {/*</form>* <option value= "true">disponible</option>
-                <option value="false">No disponible</option>
-              </select>*/}
+                  <label>Estado</label>
+                  <select
+                    id="estado"
+                    className="form-select"
+                    aria-label="default select example"
+                    onChange={(e) => setEstadoMenu(e.target.value)}
+                  >
+                    <option value="">Seleccione</option>
+                    <option value= "true">Disponible</option>
+                    <option value="false">No disponible</option>
+                  </select>
                   <label>Categoria</label>
                   <select
                     id="categoria"
@@ -234,11 +231,23 @@ const MenuScreen = (props) => {
                     value={precio}
                     onChange={(e) => setPrecio(e.target.value)}
                   />
+                   <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button type="submit" className="btn btn-primary">
+                  Crear Menú
+                </button>
+                  </div>
                   {/* <button className="btn btn-primary mt-3 float-end">
                     Guardar
                   </button> */}
                 </form>
-                {mensaje.length > 0 && (
+                {/* {mensaje.length > 0 && (
                   <div className="my-3">
                     {mensaje.map((item, index) => (
                       <div
@@ -254,9 +263,9 @@ const MenuScreen = (props) => {
                       </div>
                     ))}
                   </div>
-                )}
+                )} */}
               </div>
-              <div className="modal-footer">
+              {/* <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
@@ -267,12 +276,15 @@ const MenuScreen = (props) => {
                 <button type="button" className="btn btn-primary">
                   Crear Menú
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
+        </div>
+        </div>
         </div>
     </>
     
   );
 };
+
 export default MenuScreen;
