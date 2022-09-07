@@ -65,6 +65,7 @@ export const postMenu = async (datos) => {
     body: JSON.stringify(datos),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
+      "x-token": JSON.parse(localStorage.getItem("token")),
     },
   });
 
