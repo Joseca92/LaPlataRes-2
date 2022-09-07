@@ -25,6 +25,7 @@ const LoginScreen = () => {
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
+        localStorage.setItem("role", JSON.stringify(respuesta.usuario.role));
         navigate("/");
         console.log("paso por el navigate")
       } else {
@@ -43,9 +44,7 @@ const LoginScreen = () => {
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
-              
-                
-               
+         
                   <div className="card-body text-center">
                     <input
                       type="email"
