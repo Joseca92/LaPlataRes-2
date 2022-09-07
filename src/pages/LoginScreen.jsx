@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from "react";
 // import { useNavigate } from "react-router-dom";
 import { postAuth } from "../helpers/fetchApp";
+<<<<<<< HEAD
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
 import RegistroScreen from "./RegistroScreen";
@@ -90,6 +91,40 @@ const LoginScreen = () => {
   //     }
   //   });
   // };
+=======
+import { Link } from "react-router-dom";
+import "../css/login.css";
+import logo from "../asset/logoBlack.png";
+
+
+const LoginScreen = () => {
+  
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(null);
+
+
+  const validarDatos = () => {
+    const datos = {
+      email,
+      password,
+    };
+    postAuth(datos).then((respuesta) => {
+      console.log(respuesta);
+      console.log("entro a la funcion auth")
+      if (respuesta?.token) {
+        setMessage({ ok: true, msg: "Login ok" });
+        localStorage.setItem("token", JSON.stringify(respuesta.token));
+        navigate("/");
+        console.log("paso por el navigate")
+      } else {
+        setMessage(respuesta);
+      }
+    });
+  };
+
+>>>>>>> df6d79b4e7da82ec55d74d5b99f6827637510821
 
   return (
     <div className="container-fluid boxContainer bgFondo">
@@ -100,8 +135,14 @@ const LoginScreen = () => {
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
+<<<<<<< HEAD
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
+=======
+              
+                
+               
+>>>>>>> df6d79b4e7da82ec55d74d5b99f6827637510821
                   <div className="card-body text-center">
                     <input
                       type="email"
@@ -114,8 +155,8 @@ const LoginScreen = () => {
                     />
                     <hr />
                   </div>
-                </div>
-                <div className="form-group">
+               
+                
                   <div className="card-body text-center">
                     <input
                       type="password"
@@ -131,16 +172,16 @@ const LoginScreen = () => {
                       Olvidé mi contraseña
                     </a>
                   </div>
-                </div>
+               
                 <div className="row">
                   <div className="col-6 d-flex justify-content-center ">
                     <button className="btnGral fw-bold p-2" onClick={validarDatos}>Iniciar Sesión</button>
                   </div>
                   <div className="col-6 d-flex justify-content-center ">
-                    <button  className="btnGral fw-bold p-2" onClick={RegistroScreen}>Registrarse</button>
+                  <Link className="btn btn-primary" to="/Registro">Registrarse</Link>
                   </div>
                 </div>
-              </form>
+            
             </div>
           </div>
           {message && (

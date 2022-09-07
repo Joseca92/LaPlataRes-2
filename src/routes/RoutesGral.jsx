@@ -1,11 +1,13 @@
-//Aqui van las rutas de las paginas
+//Aqui van las rutas de las paginas/////
   import React from "react";
   import { Routes, Route } from "react-router-dom";
   import Nav from "../components/Nav";
   import HomeScreen from "../pages/HomeScreen";
   import ErrorScreen from "../pages/ErrorScreen"
-  import PedidoScreen from "../pages/PedidoScreen";
+
   import MenuScreen from "../pages/MenuScreen";
+
+
 
 const RoutesGral = () => {
    return (
@@ -13,9 +15,9 @@ const RoutesGral = () => {
     <Nav/>
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
-        <Route path="/*" element={<ErrorScreen/>}/>
-        <Route path="/pedido" element={<PedidoScreen/>} />
+        <Route path="*" element={<ErrorScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
+
       </Routes>
      </>
    );
