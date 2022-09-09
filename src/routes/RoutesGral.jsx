@@ -11,13 +11,12 @@
 
 const RoutesGral = () => {
    return (
-     <>
+    <>
     <Nav/>
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
         <Route path="*" element={<ErrorScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
-
       </Routes>
      </>
    );
