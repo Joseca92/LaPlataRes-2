@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { getMenu } from "../helpers/fetchApp";
 import { Link } from "react-router-dom";
 import logo from "../asset/logo.png";
 import MenuCard from "../components/MenuCard";
 import "../css/homeScreen.css";
+import { CartContext } from "../components/cardContext";
 
 const HomeScreen = () => {
+  const {addItemToCard} = useContext(CartContext)
   const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
@@ -45,8 +47,8 @@ const HomeScreen = () => {
             <input type="text" className="fs-5 p-2" placeholder="Buscar..." />
             <button className="btnGral fw-bold p-2 mx-2">Buscar</button>
           </div>
-          <div className="col-12 mt-5 categoria"></div>
-          <div className="row overflow-auto menu border border-dark border-2 p-3 mt-5 d-flex justify-content-center">
+          <div className="col-12 mt-5  categoria"></div>
+          <div className="row menu border border-dark border-2 p-3 mt-5 d-flex justify-content-center">
             {loading ? (
               <div className="col-12 col-md-8 loading">
                 <lottie-player
@@ -83,10 +85,10 @@ const HomeScreen = () => {
                       </td>
                       <td>
                         <button
-                        key={menu._id}
+                        key={menu._id} onClick={()=> addItemToCard(menu)}
                           className="btnGral fw-bold p-2 mx-2"
                         >
-                          +
+                          Agregar
                         </button>
                       </td>
                   </tr>
