@@ -7,10 +7,10 @@ import "../css/homeScreen.css";
 import { CartContext } from "../components/cardContext";
 
 const HomeScreen = () => {
-  const {addItemToCard} = useContext(CartContext)
   const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
+  const {addItemToCard} = useContext(CartContext)
   useEffect(() => {
     getMenu().then((respuesta) => {
       console.log(respuesta);
@@ -85,7 +85,8 @@ const HomeScreen = () => {
                       </td>
                       <td>
                         <button
-                        key={menu._id} onClick={()=> addItemToCard(menu)}
+                        key={menu._id}
+                        onClick={()=> addItemToCard(menu)}
                           className="btnGral fw-bold p-2 mx-2"
                         >
                           Agregar

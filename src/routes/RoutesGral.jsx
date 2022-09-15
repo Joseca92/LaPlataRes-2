@@ -6,6 +6,7 @@
   import ErrorScreen from "../pages/ErrorScreen"
 
   import MenuScreen from "../pages/MenuScreen";
+import { CartProvider } from "../components/cardContext";
 
 
 
@@ -14,7 +15,9 @@ const RoutesGral = () => {
     <>
     <Nav/>
       <Routes>
-        <Route path='/' element={<HomeScreen/>}/>
+        <Route path='/' element={
+            <HomeScreen/>
+        }/>
         <Route path="*" element={<ErrorScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
       </Routes>
