@@ -24,6 +24,7 @@ const LoginScreen = () => {
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
+        localStorage.setItem("user", JSON.stringify(respuesta.usuario));
         navigate("/");
         console.log("paso por el navigate")
       } else {
@@ -42,9 +43,7 @@ const LoginScreen = () => {
               <div className="col-12 text-center">
                 <img className="logo" src={logo} alt="Logo de la Plata" />
               </div>
-              
-                
-               
+         
                   <div className="card-body text-center">
                     <input
                       type="email"
@@ -70,9 +69,9 @@ const LoginScreen = () => {
                       required
                     />
                     <hr />
-                    <a href="#" className="link-dark">
+                    <Link to="/error" className="link-dark">
                       Olvidé mi contraseña
-                    </a>
+                    </Link>
                   </div>
                
                 <div className="row">
@@ -97,21 +96,7 @@ const LoginScreen = () => {
             >
               {message.msg}
             </div>
-          )} 
-          {/* { {message &&
-            
-              <div
-                className={
-                  item?.token
-                    ? "alert alert-success mt-3"
-                    : "alert alert-danger mt-3"
-                }
-                role="alert"
-                key={index}
-              >
-                {item.msg}
-              </div>
-            )} */}
+          )}
         </div>
       </div>
     </div>

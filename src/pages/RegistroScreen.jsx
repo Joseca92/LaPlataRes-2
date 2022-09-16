@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { postUsuario } from "../helpers/fetchApp";
 import logo from "../asset/logoBlack.png";
 import "../css/registro.css";
+import { useNavigate } from "react-router-dom";
 
 const RegistroScreen = () => {
+  const navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     nombre: "",
     email: "",
@@ -37,6 +39,7 @@ const RegistroScreen = () => {
         });
         setTimeout(() => {
           setMessage([]);
+          navigate("/login")
         }, 2000);
       }
     });
@@ -56,7 +59,7 @@ const RegistroScreen = () => {
                   <div className="card-body text-center">
                     <input
                       type="text"
-                      className="form-control border-0 text-white"
+                      className="form-control border-0"
                       name="nombre"
                       placeholder="Nombre"
                       value={formValues.nombre}
@@ -70,7 +73,7 @@ const RegistroScreen = () => {
                   <div className="card-body text-center">
                     <input
                       type="email"
-                      className="form-control border-0 text-white"
+                      className="form-control border-0"
                       name="email"
                       placeholder="Correo electrónico"
                       value={formValues.email}
@@ -84,7 +87,7 @@ const RegistroScreen = () => {
                   <div className="card-body text-center">
                     <input
                       type="password"
-                      className="form-control border-0 text-white"
+                      className="form-control border-0"
                       name="password"
                       placeholder="Contraseña"
                       value={formValues.password}
