@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
 
-
 const LoginScreen = () => {
   
   const navigate = useNavigate();

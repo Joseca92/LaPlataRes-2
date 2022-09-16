@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import logo from '../asset/logo.png'
 import '../css/navP.css'
 
+
 const Nav = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-black" id='navP' >
@@ -30,4 +31,6 @@ const Nav = () => {
   )
 }
 
+
 export default Nav
+
