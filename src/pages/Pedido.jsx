@@ -3,6 +3,7 @@ import {getPedido} from "../helpers/fetchApp";
 import { Link } from "react-router-dom";
 import Post from "../components/Post";
 import '../css/pedido.css'
+import SearchApp from "../components/SearchApp";
 
 const Pedido = () => {
   const [mostrarP, setMostrarP] = useState({
@@ -15,7 +16,8 @@ const Pedido = () => {
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
   
-  let verP= false;
+  
+ 
   
   useEffect(() => {
     
@@ -28,32 +30,34 @@ const Pedido = () => {
           setMostrarP({
           pedido: respuesta.pedido,
           total: respuesta.total,
-        });
-        
-        
-      
-    
+        }); 
         setLoading(false);
     
     }});
-    setInterval(() => {
-      setActualizar(mostrarP)
-    }, 7000);
+ 
   }, [actualizar]);
+
+  setInterval(()=>{
+    getPedido().then((respuesta)=>{
+      setActualizar(respuesta.total);
+    })
+  
+  },10000)
+
+  
 
   return (
     <>
+   
     <div className="container" id="contenedorP">
       <div className="row">
         <div className="col">
           <div className="headPedido">
       
               <h3 className="text-center">Bienvenido al ABM de Pedidos!</h3>  
-            </div>
+          </div>
+          <SearchApp />
 
-
-         
-          
 
           <hr />
 
@@ -92,9 +96,13 @@ const Pedido = () => {
                       </div>
                     </div>
               <div>
+               
                 {
                 mostrarP.pedido.map((mostrar) => (
-                  <Post  post={mostrar} key={mostrar.uid} />     
+                  
+                   <Post  post={mostrar} key={mostrar.uid} />
+                  
+                      
                   ))
     
                 }

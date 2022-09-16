@@ -8,12 +8,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap": "^5.2.0",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^5.2.1",
     "moment": "^2.29.4",
     "react": "^18.0.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "reactstrap": "^9.1.4",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

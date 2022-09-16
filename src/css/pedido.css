@@ -4,11 +4,17 @@
     
     
 }
-.pedidosB{
-    background-color: rgba(169, 169, 169, 0.493);
+.pedidosI{
+    display: flex;
+    justify-content: center;
+    align-items: center;
  
 }
-.pedidosB img{
+.pedidosI:hover{
+    background-color: #ff6961;
+}
+.pedidosI img{
+    cursor: pointer;
     width: 45%;
 }
 .contenedor{
@@ -61,5 +67,25 @@
 
 }
 #divEstado img{
-    width: 45%;
+    width: 30%;
+}
+
+.editar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.editar img{
+    cursor: pointer;
+    width: 50%;
+}
+.editar:hover{
+    background-color: #77dd77;
+}
+.headUsuario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
 }

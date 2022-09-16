@@ -1,4 +1,4 @@
-const url = "https://restaurantelp.herokuapp.com/";
+const url = "http://localhost:8080/api";
 
 
 export const getPedido = async (registro = 0) => {
@@ -6,7 +6,7 @@ export const getPedido = async (registro = 0) => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "x-token": JSON.parse(localStorage.getItem("token")),
+        /* "x-token": JSON.parse(localStorage.getItem("token")), */
       },
     });
     const data = await resp.json();
@@ -40,6 +40,19 @@ export const getPedido = async (registro = 0) => {
     return data;
   };
 
+  //Buscar pedido por título--------------
+export const buscarPedido = async (termino, terminoP) => {
+  const resp = await fetch(`${url}/buscarp?search=${termino}`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      /* "x-token": JSON.parse(localStorage.getItem("token")), */
+    },
+  });
+  const data = await resp.json();
+
+  return data;
+};
 
 
 
@@ -50,7 +63,7 @@ export const getMenuById = async (id) => {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
+      /* "x-token": JSON.parse(localStorage.getItem("token")), */
     },
   });
   const data = await resp.json();
@@ -58,29 +71,3 @@ export const getMenuById = async (id) => {
   return data;
 };
 
-//usuarios
-export const getUsuarios = async (registro = 0) => {
-  const resp = await fetch(`${url}/usuarios?desde=${registro}`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-     /*  "x-token": JSON.parse(localStorage.getItem("token")), */
-    },
-  });
-  const data = await resp.json();
-
-  return data;
-};
-
-export const deleteUsuario = async (id) => {
-  const resp = await fetch(`${url}/pedido/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  });
-
-  const data = await resp.json();
-
-  return data;
-};

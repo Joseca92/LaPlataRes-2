@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
-import {getUsuarios} from "../helpers/fetchApp";
+import {getUsuarios} from "../helpers/fetchUsuario";
 import { Link } from "react-router-dom";
-import Post from "../components/PostUsuarios";
+import SearchAppUsuarios from "../components/SearchAppUsuarios";
+import PostUsuarios from "../components/PostUsuarios";
 import '../css/pedido.css'
 
 const UsuariosABM = () => {
+  
   const [mostrarU, setMostrarU] = useState({
     usuario: [],
     total: 0,
   });
 
  
-  const [actualizar, setActualizar] = useState([]);
+  const [actualizar, setActualizar] = useState();
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
   
@@ -29,30 +31,32 @@ const UsuariosABM = () => {
           total: respuesta.total,
         });
         
-        
-      
     
         setLoading(false);
     
     }});
-    setInterval(() => {
-      setActualizar(mostrarU)
-    }, 7000);
+    
+
   }, [actualizar]);
+  
+  setInterval(()=>{
+    getUsuarios().then((respuesta)=>{
+      setActualizar(respuesta.total);
+    })
+  
+  },10000)
+
+  
 
   return (
     <>
     <div className="container" id="contenedorP">
       <div className="row">
         <div className="col">
-          <div className="headPedido">
-      
-              <h3 className="text-center">Bienvenido al ABM de Usuarios!</h3>  
-            </div>
-
-
-         
-          
+          <div className="headUsuario">       
+              <h3 className="text-center">Bienvenido al ABM de Usuarios!</h3> 
+              <SearchAppUsuarios /> 
+            </div>         
 
           <hr />
 
@@ -73,13 +77,13 @@ const UsuariosABM = () => {
             <>
             <div className="container contenedor">
                       <div className="row">
-                        <div className="col-1">
+                        <div className="col-3">
                           <h5>Nombre</h5>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                            <h5>Email</h5>
                         </div>
-                        <div className="col-4">
+                        <div className="col-2">
                            <h5>Rol</h5>
                         </div>
                         <div className="col-2">
@@ -90,7 +94,7 @@ const UsuariosABM = () => {
               <div>
                 {
                 mostrarU.usuario.map((mostrar) => (
-                  <Post  post={mostrar} key={mostrar.uid} />     
+                  <PostUsuarios  post={mostrar} key={mostrar.uid} />     
                   ))
     
                 }

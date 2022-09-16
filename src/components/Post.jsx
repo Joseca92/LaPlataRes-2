@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import swal from "sweetalert";
 import { deletePedido, getMenuById, putPedido } from "../helpers/fetchApp";
 import borradoP from "../asset/borradoP.png";
 
@@ -9,6 +10,8 @@ const Post = ({post }) => {
     let envio="";
    
   const {uid, usuario, menu, entrega, nPedido, date, estado } = post;
+
+
   
 
   if (entrega){
@@ -19,35 +22,62 @@ const Post = ({post }) => {
     envio ="Pendiente";
   }
  const [menus, setMenus] = useState([]);
- /* const ocultarB= document.getElementsByClassName(".ocultarB") */
-  
+
+
 
  
  useEffect(() => {
   let arreglo=[];
     menu.forEach((m)=>{
     getMenuById(m).then((respuesta)=>{
-        
+       
        console.log(respuesta);
    
         arreglo.push(respuesta.menu.nombre,", ");
         setMenus([...arreglo]);    
         
          })
+         
   })
-
-},[])
+  
+ 
+},[uid])
   
   const pedidoR=()=>{
     putPedido(uid).then((respuesta)=>{
       console.log(respuesta.msg);
-      }) 
+      })
+      swal({text: "El ha sido realizado!!",
+      icon:"success",
+      timer: 2000});
+      setTimeout(()=>{
+        window.location.href = window.location.href;
+      },3000); 
   }
 
   const pedidoE=()=>{
-    deletePedido(uid).then((respuesta)=>{
-      console.log(respuesta.msg);
-    })
+    swal({
+      title:"Eliminar Pedido",
+      text: "¿Esta seguro que quiere eliminar este Pedido?",
+      icon: "warning",
+      buttons:["No","Si"]
+
+    }).then((respuesta)=>{
+ 
+      if(respuesta){
+        deletePedido(uid).then((respuesta)=>{
+          console.log(respuesta.msg);
+          });
+        swal({text: "El Pedido a sido borrado con exito",
+        icon:"success",
+        timer:2000});
+        setTimeout(()=>{
+          window.location.href = window.location.href;
+        },2000);
+        
+      }
+    });
+
   }
  
 
@@ -69,11 +99,10 @@ const Post = ({post }) => {
            </div>
            <div className="col-2 pedidosB">
               <p>{usuario.nombre}</p>
+              
            </div>
            <div className="col-4 pedidosB">
            <p>{menus}</p>
-           {/* <button type="button" className="btn btn-success" id="show-element" onClick={mostrarM} >+Menus</button>
-           <button type="button" className="btn btn-danger ocultarB"  onClick={mostrarM} >-Menus</button> */}
          
 
            </div>
@@ -87,15 +116,14 @@ const Post = ({post }) => {
 
             </div>
           </div>
-          <div className="col-1 pedidosB">
-            <img src={borradoP} alt="estado visual false" onClick={pedidoE}/>
-
+          <div className="col-1 pedidosI " title="Eliminar Pedido">
+            <img src={borradoP} alt="Eliminar Pedido"  onClick={pedidoE}/>   
+          
           </div> 
          </div>
 
     </div>
 
-  
   
     
 
