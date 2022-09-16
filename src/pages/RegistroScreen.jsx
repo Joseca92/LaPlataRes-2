@@ -4,21 +4,12 @@ import logo from "../asset/logoBlack.png";
 import "../css/registro.css";
 
 const RegistroScreen = () => {
-<<<<<<< HEAD
-  // const [formValues, setFormValues] = useState({
-  //   nombre: "",
-  //   email: "",
-  //   password: "",
-  //   role: "USER_ROLE",
-  // });
-=======
   const [formValues, setFormValues] = useState({
     nombre: "",
     email: "",
     password: "",
     role: "USER_ROLE",
   });
->>>>>>> 0529ae5413799f7348241f4e153fb46b7833666c
 
   const [message, setMessage] = useState([]);
 

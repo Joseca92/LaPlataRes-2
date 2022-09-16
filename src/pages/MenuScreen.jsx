@@ -59,7 +59,7 @@ const MenuScreen = props => {
   };
   useEffect(() => {
     getCategoria().then(respuesta => {
-      //console.log(respuesta);
+      console.log(respuesta.categorias);
       setCategorias(respuesta.categoria);
     });
   }, []);
