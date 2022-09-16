@@ -1,44 +1,46 @@
 import React, { useEffect, useState } from "react";
-import {getPedido} from "../helpers/fetchApp";
+import {getUsuarios} from "../helpers/fetchUsuario";
 import { Link } from "react-router-dom";
-import Post from "../components/Post";
+import SearchAppUsuarios from "../components/SearchAppUsuarios";
+import PostUsuarios from "../components/PostUsuarios";
 import '../css/pedido.css'
-import SearchApp from "../components/SearchApp";
 
-const Pedido = () => {
-  const [mostrarP, setMostrarP] = useState({
-    pedido: [],
+const UsuariosABM = () => {
+  
+  const [mostrarU, setMostrarU] = useState({
+    usuario: [],
     total: 0,
   });
 
  
-  const [actualizar, setActualizar] = useState([]);
+  const [actualizar, setActualizar] = useState();
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
   
   
- 
-  
   useEffect(() => {
     
-    getPedido().then((respuesta) => {
+    getUsuarios().then((respuesta) => {
       console.log(respuesta);
       if (respuesta?.msg) {
         setMensaje(respuesta.msg);
       } else {
         
-          setMostrarP({
-          pedido: respuesta.pedido,
+          setMostrarU({
+          usuario: respuesta.usuario,
           total: respuesta.total,
-        }); 
+        });
+        
+    
         setLoading(false);
     
     }});
- 
-  }, [actualizar]);
+    
 
+  }, [actualizar]);
+  
   setInterval(()=>{
-    getPedido().then((respuesta)=>{
+    getUsuarios().then((respuesta)=>{
       setActualizar(respuesta.total);
     })
   
@@ -48,16 +50,13 @@ const Pedido = () => {
 
   return (
     <>
-   
     <div className="container" id="contenedorP">
       <div className="row">
         <div className="col">
-          <div className="headPedido">
-      
-              <h3 className="text-center">Bienvenido al ABM de Pedidos!</h3>  
-          </div>
-          <SearchApp />
-
+          <div className="headUsuario">       
+              <h3 className="text-center">Bienvenido al ABM de Usuarios!</h3> 
+              <SearchAppUsuarios /> 
+            </div>         
 
           <hr />
 
@@ -78,31 +77,24 @@ const Pedido = () => {
             <>
             <div className="container contenedor">
                       <div className="row">
-                        <div className="col-1">
-                          <h5>N°</h5>
+                        <div className="col-3">
+                          <h5>Nombre</h5>
+                        </div>
+                        <div className="col-3">
+                           <h5>Email</h5>
                         </div>
                         <div className="col-2">
-                           <h5>Cliente</h5>
-                        </div>
-                        <div className="col-4">
-                           <h5>Menu/s</h5>
+                           <h5>Rol</h5>
                         </div>
                         <div className="col-2">
-                          <h5>Fecha</h5>
-                        </div>
-                        <div className="col-2">
-                          <h5>Entrega</h5>
+                          <h5>Estado</h5>
                         </div>
                       </div>
                     </div>
               <div>
-               
                 {
-                mostrarP.pedido.map((mostrar) => (
-                  
-                   <Post  post={mostrar} key={mostrar.uid} />
-                  
-                      
+                mostrarU.usuario.map((mostrar) => (
+                  <PostUsuarios  post={mostrar} key={mostrar.uid} />     
                   ))
     
                 }
@@ -121,4 +113,4 @@ const Pedido = () => {
   );
 }
 
-export default Pedido;
+export default UsuariosABM;
