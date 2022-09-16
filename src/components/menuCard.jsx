@@ -13,7 +13,7 @@ const MenuCard = ({precio, nombre, img, detalle} /*{menu}*/) => {
                       <div className="card-body">
                         <h5 className="card-title">{nombre}</h5>
                         <p className="card-text">{detalle}</p>
-                        <p className="card-text">{precio}</p>
+                        <p className="card-text"> $ {precio}</p>
                       </div>
                     </div>
                   </div>
