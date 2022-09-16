@@ -110,6 +110,36 @@ export const getPedido = async (registro = 0) => {
   
     return data;
   };
+  
+  export const deletePedido = async (id) => {
+    const resp = await fetch(`${url}/pedido/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+  
+    const data = await resp.json();
+  
+    return data;
+  };
+
+  //Buscar pedido por título--------------
+export const buscarPedido = async (termino, terminoP) => {
+  const resp = await fetch(`${url}/buscarp?search=${termino}`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      /* "x-token": JSON.parse(localStorage.getItem("token")), */
+    },
+  });
+  const data = await resp.json();
+
+  return data;
+};
+
+
+
 
   //Traer una entrada de menu por su id
 export const getMenuById = async (id) => {

@@ -17,7 +17,11 @@ const RoutesGral = () => {
         <Route path='/' element={<HomeScreen/>}/>
         <Route path="*" element={<ErrorScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
-      </Routes>
+        <Route path="/pedido" element={<Pedido/>} />
+         <Route path="/usuarios" element={<UsuariosABM/>} />
+         <Route path="/search/:termino" element={<SearchPedido/>} />
+         <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />   
+        </Routes>
      </>
    );
  };
