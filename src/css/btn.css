@@ -1,0 +1,9 @@
+.btnGral{
+    background-color: #FFD600;
+    border: none;
+    border-radius: 10px;
+}
+.loading{
+    width: 200px;
+    height: 200px;
+}

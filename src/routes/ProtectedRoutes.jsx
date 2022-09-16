@@ -1,5 +1,4 @@
-//Rutas protegidas
-/*import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import React from "react";
 
 const ProtectedRoutes = ({ children }) => {
@@ -12,4 +11,4 @@ const ProtectedRoutes = ({ children }) => {
   }
 };
 
-export default ProtectedRoutes;*/
+export default ProtectedRoutes;

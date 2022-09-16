@@ -1,0 +1,30 @@
+.bgPresentation{
+    background: url(../asset/home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.bgPresentation{
+    background: url(../asset/home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.buscador input{
+    width: 70%;
+    border-radius: 10px;
+}
+.menu{
+    border-radius: 10px;
+    height: 60%px;
+}
+/* .cards{
+    width: 100%;
+} */
+
+
+

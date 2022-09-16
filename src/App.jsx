@@ -1,18 +1,35 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import RoutesDos from "./routes/Routes";
 
-import Navbar  from "./components/NavBar";
-import Footer from "./components/Footer";
+import RoutesGral from "./routes/RoutesGral";
+import './css/btn.css'
+import './css/fondo.css'
+import './css/bg-login-reg.css'
+import HomeScreen from "./pages/HomeScreen";
+import LoginScreen from "./pages/LoginScreen";
+import RegistroScreen from "./pages/RegistroScreen";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
 
 function App() {
   return (
-    <>
-    <BrowserRouter>
-    <Navbar/>
-    <RoutesDos/>
-    <Footer/>
+    <BrowserRouter>    
+    <Routes>
+        <Route
+          path="/*"
+          element={
+              <ProtectedRoutes>
+                <RoutesGral />
+              </ProtectedRoutes>
+        
+          }
+        />
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/registro" element={<RegistroScreen />} />
+      </Routes>   
+    
+
+    
     </BrowserRouter>
-    </>
+          
   );
 }
 
