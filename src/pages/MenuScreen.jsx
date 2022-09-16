@@ -59,7 +59,7 @@ const MenuScreen = props => {
   };
   useEffect(() => {
     getCategoria().then(respuesta => {
-      console.log(respuesta.categorias);
+      console.log(respuesta.categoria);
       setCategorias(respuesta.categoria);
     });
   }, []);
@@ -227,7 +227,7 @@ const MenuScreen = props => {
                 >
                   <option value="">Seleccione</option>
                   {categorias.map(category => (
-                    <option key={category._id} value={category._id}>
+                    <option key={category._id} value={category.categoria}>
                       {category.categoria}
                     </option>
                   ))}
