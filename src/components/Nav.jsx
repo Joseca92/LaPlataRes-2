@@ -1,8 +1,23 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../asset/logo.png'
 
 const Nav = () => {
+  const navigate = useNavigate()
+  const [user, setUser] = useState(null);
+  const token = JSON.parse(localStorage.getItem("token")) || null;
+  useEffect(()=>{
+    const datos = JSON.parse(localStorage.getItem("user"))
+    setUser(datos);
+  },[])
+  const logout = () => {
+    localStorage.clear();
+    setTimeout(() => {
+      navigate("/login")
+    }, 1000);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black">
       <div className="container-fluid">
@@ -16,11 +31,33 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="#">Home</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
             </li>
+            {
+            user?.role === "ADMIN_ROLE" && (
+                <li>
+                  <NavLink className="nav-link" aria-current="page" to="/admin">Administración</NavLink>
+                </li>
+                )}
+            {/* dropdown */}
+            {user !== undefined? <ul className="navbar-nav">
+              <li className="nav-item dropdown">
+              <Link className="nav-link dropdown-toogle" id="dropdown-basic" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i className="fa fa-user-circle-o" aria-hidden="true" /> Hola {user?.nombre}
+              </Link>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link className="dropdown-item"to="/" onClick={logout}>
+                    <i className="fa fa-sign-out" aria-hidden="true" /> Cerrar sesion
+                  </Link>
+                </li>
+              </ul>
+              </li>
+            </ul> :
             <li className="nav-item">
-              <Link className="nav-link" to="#">Hola Usuario</Link>
+              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
             </li>
+            }
           </ul>
         </div>
       </div>
