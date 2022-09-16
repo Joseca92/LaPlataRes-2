@@ -1,30 +1,34 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomeScreen from "./pages/HomeScreen";
-import ErrorScreen from "./pages/ErrorScreen"
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import MenuScreen from "./pages/MenuScreen";
-import PedidoScreen from "./pages/PedidoScreen";
-import LoginScreen from "./pages/LoginScreen";
-import RegistroScreen from "./pages/RegistroScreen";
+import RoutesGral from "./routes/RoutesGral";
 import './css/btn.css'
 import './css/fondo.css'
 import './css/bg-login-reg.css'
+import LoginScreen from "./pages/LoginScreen";
+import RegistroScreen from "./pages/RegistroScreen";
+//import axios from 'axios'
+
+//axios.defaults.baseURL= "http://localhost:8080/api";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav/>
-      <Routes>
-        <Route path='/home' element={<HomeScreen/>}/>
-        <Route path="/*" element={<ErrorScreen/>}/>
-        <Route path="/PedidoScreen" element={<PedidoScreen/>} />
+    <BrowserRouter>    
+    <Routes>
+        <Route
+          path="/*"
+          element={
+          
+              <RoutesGral />
+        
+          }
+        />
         <Route path="/login" element={<LoginScreen />} />
-        <Route path="/registro" element={<RegistroScreen/>} />
-        <Route path='/menu' element={<MenuScreen/>}/>
-      </Routes>
-      <Footer/>
+        <Route path="/registro" element={<RegistroScreen />} />
+      </Routes>   
+    
+
+    
     </BrowserRouter>
+          
   );
 }
 
