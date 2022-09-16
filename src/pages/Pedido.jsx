@@ -12,8 +12,10 @@ const Pedido = () => {
   });
 
  
+  const [actualizar, setActualizar] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [mensaje, setMensaje] = useState("");
   
-  let verP= false;
   
  
   
@@ -107,7 +109,6 @@ const Pedido = () => {
                 
 
               </div>
-
             
             </>
           )}

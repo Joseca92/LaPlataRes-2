@@ -6,6 +6,11 @@
   import ErrorScreen from "../pages/ErrorScreen"
 
   import MenuScreen from "../pages/MenuScreen";
+  import Pedido from "../pages/Pedido";
+ 
+  import UsuariosABM from "../pages/UsuariosABM";
+  import SearchPedido from "../pages/SearchPedido";
+  import SearchUsuarios from "../pages/SearchUsuarios";
 
 
 
