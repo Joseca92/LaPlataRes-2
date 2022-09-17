@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../asset/logo.png'
+import '../css/navP.css'
 
 const Nav = () => {
   const navigate = useNavigate()
@@ -19,8 +20,8 @@ const Nav = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black"  >
+      <div className="container-fluid navP">
         <Link className="navbar-brand d-flex align-items-center text-white" to="#">
           <img src={logo} alt="logo la plata restaurante" width="64" height="64" className="d-inline-block align-text-top" />
           <h4>La Plata restaurante</h4>

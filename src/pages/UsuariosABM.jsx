@@ -50,7 +50,7 @@ const UsuariosABM = () => {
 
   return (
     <>
-    <div className="container" id="contenedorP">
+    <div className="container " id="contenedorP">
       <div className="row">
         <div className="col">
           <div className="headUsuario">       
@@ -75,6 +75,7 @@ const UsuariosABM = () => {
             </div>
           ) : (
             <>
+          <div className="contenedorGeneral">
             <div className="container contenedor">
                       <div className="row">
                         <div className="col-3">
@@ -101,7 +102,7 @@ const UsuariosABM = () => {
                 
 
               </div>
-            
+            </div>
             </>
           )}
           

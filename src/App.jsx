@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import RoutesGral from "./routes/RoutesGral";
 import './css/btn.css'
 import './css/fondo.css'
@@ -7,7 +6,13 @@ import './css/bg-login-reg.css'
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
+<<<<<<< HEAD
 import { CartProvider } from "./context/cardContext";
+=======
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import { CartProvider } from "./components/cardContext";
+>>>>>>> fa4603071147c161302b9b4e266b10fdfa03fad3
 
 function App() {
   return (
@@ -17,8 +22,11 @@ function App() {
         <Route
           path="/*"
           element={
+            
               <ProtectedRoutes>
+                <Nav/>
                 <RoutesGral />
+                <Footer/>
               </ProtectedRoutes>
         
           }

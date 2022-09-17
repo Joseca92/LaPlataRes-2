@@ -6,7 +6,6 @@ import "../css/login.css";
 import logo from "../asset/logoBlack.png";
 import cake from "../asset/bgLogin_reg.mp4"
 
-
 const LoginScreen = () => {
   
   const navigate = useNavigate();

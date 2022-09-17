@@ -1,9 +1,12 @@
 #contenedorP{
     position: relative;
-    margin: 6rem;
-    
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
     
 }
+
 .pedidosI{
     display: flex;
     justify-content: center;
@@ -17,16 +20,26 @@
     cursor: pointer;
     width: 45%;
 }
+.contenedorGeneral{
+    
+    width: 100%;
+    max-width: 870px;
+
+    height: 20rem;
+    overflow: auto;
+
+
+}
+
 .contenedor{
     width: 70%;
-    background-color: rgba(14, 13, 13, 0.322);
+    background-color: rgba(13, 14, 13, 0.322);
 }
 .dPedidos{
     width: 70%;
     border: 2px solid rgba(0, 0, 0, 0.788);
-
-  
-    
+   
+ 
 }
 .menusP p{
     height: 2rem;
@@ -44,6 +57,7 @@
     
     text-align: center;
 }
+
 .col h5{
     text-align: center;
 }
@@ -89,3 +103,11 @@
     flex-direction: column;
    
 }
+
+
+/* #contenedorPost::-webkit-scrollbar{
+    width: 7px;
+}
+#contenedorPost::-webkit-scrollbar-thumb{
+    background-color: #77dd77;
+} */

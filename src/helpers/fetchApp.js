@@ -1,12 +1,12 @@
- const url = "http://localhost:8080/api";
+const url = 'http://localhost:8080/api';
 // const url = "https://restaurantelp.herokuapp.com"
 //traer un usuario
 export const validarToken = async () => {
   const resp = await fetch(`${url}/usuarios`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
+      'Content-type': 'application/json; charset=UTF-8',
+      'x-token': JSON.parse(localStorage.getItem('token')),
     },
   });
   const data = await resp.json();
@@ -15,12 +15,12 @@ export const validarToken = async () => {
 };
 
 //REgistrar un usuario
-export const postUsuario = async (datos) => {
+export const postUsuario = async datos => {
   const resp = await fetch(`${url}/usuarios`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(datos),
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
+      'Content-type': 'application/json; charset=UTF-8',
     },
   });
 
@@ -29,14 +29,13 @@ export const postUsuario = async (datos) => {
   return data;
 };
 
-
 //Login de usuario
-export const postAuth = async (datos) => {
+export const postAuth = async datos => {
   const resp = await fetch(`${url}/auth/login`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(datos),
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
+      'Content-type': 'application/json; charset=UTF-8',
     },
   });
   const data = await resp.json();
@@ -47,10 +46,10 @@ export const postAuth = async (datos) => {
 //traer menu
 export const getMenu = async () => {
   const resp = await fetch(`${url}/menu`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "x-token": JSON.parse(localStorage.getItem("token")),
+      'Content-type': 'application/json; charset=UTF-8',
+     /*  'x-token': JSON.parse(localStorage.getItem('token')), */
     },
   });
   const data = await resp.json();
@@ -59,23 +58,22 @@ export const getMenu = async () => {
 };
 
 //Crear nuevo menu
-export const postMenu = async (datos) => {
+export const postMenu = async datos => {
   const resp = await fetch(`${url}/menu`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(datos),
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
+      'Content-type': 'application/json; charset=UTF-8',
+      //'x-token': JSON.parse(localStorage.getItem('token')),
     },
   });
-
   const data = await resp.json();
-
   return data;
 };
 
 export const getCategoria = async () => {
   const resp = await fetch(`${url}/categoria`, {
-    method: "GET",
+    method: 'GET',
     headers: {
       "Content-type": "application/json; charset=UTF-8",
      
