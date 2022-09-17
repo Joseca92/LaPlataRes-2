@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../asset/logo.png";
 import MenuCard from "../components/MenuCard";
 import "../css/homeScreen.css";
-import { CartContext } from "../components/cardContext";
+import { CartContext } from "../context/cardContext";
 
 const HomeScreen = () => {
   const [menus, setMenus] = useState([]);

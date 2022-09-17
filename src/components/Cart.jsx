@@ -19,8 +19,8 @@ const Cart = () => {
       <lord-icon
         src="https://cdn.lordicon.com/gtcqrwnh.json"
         trigger="hover"
-        colors="primary:#eee966"
-        style="width:250px;height:250px"
+        colors="primary:#ffffff"
+        // style="width:250px;height:250px"
       ></lord-icon>
     </div>
   );

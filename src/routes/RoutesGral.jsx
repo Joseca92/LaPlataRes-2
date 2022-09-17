@@ -10,11 +10,13 @@
   import UsuariosABM from "../pages/UsuariosABM";
   import SearchPedido from "../pages/SearchPedido";
   import SearchUsuarios from "../pages/SearchUsuarios";
+  import NavBar from "../components/NavBar";
+  import Footer from "../components/Footer"
 
 const RoutesGral = () => {
    return (
     <>
-    
+    <NavBar/>
       <Routes>
         <Route path='/' element={
             <HomeScreen/>
@@ -26,6 +28,7 @@ const RoutesGral = () => {
          <Route path="/search/:termino" element={<SearchPedido/>} />
          <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />   
         </Routes>
+        <Footer/>
      </>
    );
  };
