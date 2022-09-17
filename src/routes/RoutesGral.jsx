@@ -16,7 +16,9 @@ const RoutesGral = () => {
     <>
     
       <Routes>
-        <Route path='/' element={<HomeScreen/>}/>
+        <Route path='/' element={
+            <HomeScreen/>
+        }/>
         <Route path="*" element={<ErrorScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
         <Route path="/pedido" element={<Pedido/>} />
