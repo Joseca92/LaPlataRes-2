@@ -4,6 +4,7 @@ import { postAuth } from "../helpers/fetchApp";
 import { Link } from "react-router-dom";
 import "../css/login.css";
 import logo from "../asset/logoBlack.png";
+import cake from "../asset/bgLogin_reg.mp4"
 
 const LoginScreen = () => {
   
