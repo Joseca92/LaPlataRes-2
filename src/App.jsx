@@ -7,7 +7,7 @@ import './css/bg-login-reg.css'
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
-import { CartProvider } from "./components/cardContext";
+import { CartProvider } from "./context/cardContext";
 
 function App() {
   return (
