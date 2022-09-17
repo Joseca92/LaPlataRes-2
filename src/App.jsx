@@ -7,6 +7,8 @@ import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,8 +17,11 @@ function App() {
         <Route
           path="/*"
           element={
+            
               <ProtectedRoutes>
+                <Nav/>
                 <RoutesGral />
+                <Footer/>
               </ProtectedRoutes>
         
           }

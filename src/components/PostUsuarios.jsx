@@ -84,15 +84,15 @@ const Post = ({post }) => {
           icon:"success",
           timer: 3000});
           modificarU();
-         
+          setTimeout(()=>{
+          window.location.href = window.location.href;
+        },3000);
         }
         if(respuesta== null){
           modificarU();
           
         }
-        setTimeout(()=>{
-          window.location.href = window.location.href;
-        },3000);
+       
         
         
       });
@@ -119,7 +119,7 @@ const Post = ({post }) => {
     
 
     <br></br>
-    <div className="container dPedidos ">
+    <div className="container dPedidos " id="contenedorPost">
          <div className="row columnas">
            <div className="col-3 d-flex pedidosB">
              <p>{nombre}</p>
