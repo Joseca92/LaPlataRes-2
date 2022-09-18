@@ -6,6 +6,7 @@
   import ErrorScreen from "../pages/ErrorScreen"
   import MenuScreen from "../pages/MenuScreen";
   import Pedido from "../pages/Pedido";
+  import CarritoScreen from "../pages/CarritoScreen"
  
   import UsuariosABM from "../pages/UsuariosABM";
   import SearchPedido from "../pages/SearchPedido";
@@ -24,7 +25,8 @@ const RoutesGral = () => {
         <Route path="/pedido" element={<Pedido/>} />
          <Route path="/usuarios" element={<UsuariosABM/>} />
          <Route path="/search/:termino" element={<SearchPedido/>} />
-         <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />   
+         <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />  
+         <Route path="/carrito" element={<CarritoScreen/>}/> 
         </Routes>
      </>
    );

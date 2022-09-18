@@ -5,6 +5,7 @@ import logo from "../asset/logo.png";
 import MenuCard from "../components/MenuCard";
 import "../css/homeScreen.css";
 import { CartContext } from "../components/cardContext";
+import CarritoScreen from "../pages/CarritoScreen"
 
 const HomeScreen = () => {
   const [menus, setMenus] = useState([]);
@@ -24,6 +25,7 @@ const HomeScreen = () => {
   }, []);
   return (
     <>
+    <CarritoScreen/>
       <div className="bgPresentation">
         <div className="container-fluid m-0 p-0 fondo1">
           <div className="row text-center text-white p-5 mx-5">

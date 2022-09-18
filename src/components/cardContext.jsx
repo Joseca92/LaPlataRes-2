@@ -20,6 +20,7 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
   /*Agregamos producto al carrito*/
   const addItemToCard = (product) => {
+    
     const inCart = cartItems.find(
       (productInCart) => productInCart._id === product._id
     );
