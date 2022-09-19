@@ -3,10 +3,12 @@
     height: 50px;
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    z-index: 10;
     
    }
    .buttonCartContainer {
-    position: absolute;
+    position: fixed;
     margin-top: 10px;
     margin-right: 20px;
     cursor: pointer;

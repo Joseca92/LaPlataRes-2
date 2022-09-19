@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import MenuCard from "../components/MenuCard";
+import CartProduct from "../components/cartProduct"
 import { CartContext } from "../components/cardContext";
 import "../css/cart.css";
 
@@ -21,7 +21,7 @@ const Cart = () => {
 
   /* Obtenemos el precio total */
   const total = cartItems?.reduce(
-    (previous, current) => previous + current.amount * current.price,
+    (previous, current) => previous + current.amount * current.precio,
     0
   );
 
@@ -82,7 +82,7 @@ const Cart = () => {
           ) : (
             <div className="productsContainer">
               {cartItems.map((item, i) => (
-                <MenuCard key={i} item={item} />
+                <CartProduct key={i} item={item} />
               ))}
             </div>
           )}
