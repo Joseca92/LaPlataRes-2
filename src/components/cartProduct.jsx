@@ -7,7 +7,7 @@ import "../css/cartProduct.css";
   const { deleteItemToCart } = useContext(CartContext);
 
   /* Desestructuramos el item para sacar solo la id */
-  const { _id } = item;
+  const { amount } = item;
 
   return (
     <div className="cartItem divCart">
@@ -16,10 +16,10 @@ import "../css/cartProduct.css";
         <div className="left">
           <p>{item.nombre}</p>
           <div className="buttons">
-            <button onClick={() => deleteItemToCart(item._id, "add", amount)}>
+            <button onClick={() => deleteItemToCart(item, item.amount)}>
               AGREGAR
             </button>
-            <button onClick={() => deleteItemToCart(item._id, "del", amount)}>
+            <button onClick={() => deleteItemToCart(item, item.amount)}>
               SACAR
             </button>
           </div>
