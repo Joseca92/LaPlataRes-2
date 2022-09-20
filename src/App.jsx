@@ -6,9 +6,7 @@ import './css/bg-login-reg.css'
 import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import { CartProvider } from "./components/cardContext";
+import { CartProvider } from "./context/cardContext";
 
 function App() {
   return (
@@ -18,13 +16,9 @@ function App() {
         <Route
           path="/*"
           element={
-            
               <ProtectedRoutes>
-                <Nav/>
                 <RoutesGral />
-                <Footer/>
               </ProtectedRoutes>
-        
           }
         />
         <Route path="/login" element={<LoginScreen />} />
