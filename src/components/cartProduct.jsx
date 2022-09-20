@@ -4,10 +4,10 @@ import "../css/cartProduct.css";
 
  const cartProduct = ({ item }) => {
   /* Traemos del context las funciones para agregar y sacar productos del carrito */
-  const { deleteItemToCart } = useContext(CartContext);
+  const { addItemToCard, deleteItemToCart } = useContext(CartContext);
 
   /* Desestructuramos el item para sacar solo la id */
-  const { amount } = item;
+  const { _id } = item;
 
   return (
     <div className="cartItem divCart">
@@ -16,10 +16,10 @@ import "../css/cartProduct.css";
         <div className="left">
           <p>{item.nombre}</p>
           <div className="buttons">
-            <button onClick={() => deleteItemToCart(item, item.amount)}>
+            <button onClick={() => addItemToCard(item)}>
               AGREGAR
             </button>
-            <button onClick={() => deleteItemToCart(item, item.amount)}>
+            <button onClick={() => deleteItemToCart(item)}>
               SACAR
             </button>
           </div>

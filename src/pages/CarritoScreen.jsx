@@ -88,6 +88,7 @@ const Cart = () => {
           )}
 
           <h2 className="total">Total: ${total}</h2>
+          
         </div>
       )}
     </div>
