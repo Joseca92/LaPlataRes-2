@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { postUsuario } from "../helpers/fetchApp";
-import logo from "../asset/logoBlack.png";
+import logo from "../asset/logo.png";
 import "../css/registro.css";
 import { useNavigate } from "react-router-dom";
 

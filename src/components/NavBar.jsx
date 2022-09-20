@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom'
-import logo from '../asset/logo.png'
 import '../css/navP.css'
 import Cart from './Cart'
+import Logo from './Logo'
 
 const Nav = () => {
   const navigate = useNavigate()
@@ -22,15 +22,16 @@ const Nav = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black"  >
-      <div className="container-fluid navP">
-        <Link className="navbar-brand d-flex align-items-center text-white" to="#">
-          <img src={logo} alt="logo la plata restaurante" width="64" height="64" className="d-inline-block align-text-top" />
+      <div className="container navP">
+        <Link className="navbar-brand d-flex align-items-center text-white" to="/">
+          {/* <img src={logo} alt="logo la plata restaurante" width="64" height="64" className="d-inline-block align-text-top" /> */}
+          <Logo/>
           <h4>La Plata restaurante</h4>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse offset-lg-5 offset-md-4" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
@@ -60,9 +61,9 @@ const Nav = () => {
               <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
             </li>
             }
-            <li>
+            {/* <li>
               <Cart/>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

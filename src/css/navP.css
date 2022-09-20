@@ -1,8 +1,4 @@
-/* #navP{
-    position: fixed;
-    top: 0px;
-    width:100%;
-   background-color: solid black;
-   
-
-} */
+.logo{
+    width: 100px;
+    height: 100px;
+}
