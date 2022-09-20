@@ -3,8 +3,7 @@ import { getCategoria, postMenu, getMenu } from '../helpers/fetchApp';
 import MenuCard from '../components/menuCard';
 import { Link } from 'react-router-dom';
 import '../css/menuScreen.css';
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {} from "@fortawesome/free-solid-svg-icons";
+
 
 const MenuScreen = props => {
   const [mensaje, setMensaje] = useState([]);
@@ -130,22 +129,7 @@ const MenuScreen = props => {
                             detalle={menu.detalle}
                           />
                         </td>
-                        <td>
-                          <button
-                            key={menu._id}
-                            className="btnGral fw-bold p-2 mx-2"
-                          >
-                            Modificar
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            key={menu._id}
-                            className="btnGral fw-bold p-2 mx-2"
-                          >
-                            Eliminar
-                          </button>
-                        </td>
+                        
                       </tr>
                     ))}
                   </tbody>

@@ -1,0 +1,12 @@
+#botones{
+    margin-top: 1rem;
+   
+}
+#botones button{
+    margin: 1rem;
+     padding-right: 1rem;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+}
