@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.btnGral{
+  background-color: #FFD600;
+  border: none;
+  border-radius: 10px;
+}
+.loading{
+  width: 200px;
+  height: 200px;
+}
+.logo{
+  width: 100px;
+  height: 100px;
+}
