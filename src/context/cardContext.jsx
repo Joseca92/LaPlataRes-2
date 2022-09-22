@@ -37,6 +37,13 @@ export const CartProvider = ({ children }) => {
     }
   }
 
+  const total = cartItems?.reduce(
+    (previous, current) => previous + current.amount * current.precio,
+    0
+
+    
+  );
+
 
   /*Eliminamos producto del carrito*/
     const deleteItemToCart = (product) => {
@@ -58,6 +65,7 @@ export const CartProvider = ({ children }) => {
       }
     };
 
+    
    
 
 
