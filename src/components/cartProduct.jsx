@@ -16,10 +16,10 @@ import "../css/cartProduct.css";
         <div className="left">
           <p>{item.nombre}</p>
           <div className="buttons">
-            <button onClick={() => addItemToCard(item)}>
+            <button className="btn btn-warning" onClick={() => addItemToCard(item)}>
               AGREGAR
             </button>
-            <button onClick={() => deleteItemToCart(item)}>
+            <button className="btn btn-warning" onClick={() => deleteItemToCart(item)}>
               SACAR
             </button>
           </div>
@@ -27,7 +27,9 @@ import "../css/cartProduct.css";
         <div className="right">
           <div>{item.amount}</div>
           <p>Total: ${item.amount * item.precio}</p>
+          
         </div>
+       
       </div>
     </div>
   );

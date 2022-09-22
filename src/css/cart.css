@@ -36,10 +36,10 @@ svg {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #fb3939;
+    background-color: #ffcc00;
     font-size: 12px;
     font-weight: bold;
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,8 +58,11 @@ svg {
 h2 {
     text-align: center;
     font-weight: bold;
-    margin-top: 35px;
+    margin-top: 70px;
+    
   }
+
+  
 
   .cartVacio {
     text-align: center;
@@ -70,8 +73,8 @@ h2 {
   .total {
     text-align: center;
     font-weight: bold;
-    margin-top: 15px;
-    padding-bottom: 35px;
+    margin-top: 30px;
+    padding-bottom: 10px;
   }
 
   .productsContainer{
@@ -91,5 +94,17 @@ h2 {
   ::-webkit-scrollbar-thumb {
     background-color: #797979;
     border-radius: 20px;
+  }
+  
+  .btnPedido{
+    background: #222222;
+    border-radius: 20px;
+    color: white;
+  
+    
+  }
+  .btnPedido:hover {
+    background: #ffcc00;
+    color: rgb(37, 42, 42);
   }
   

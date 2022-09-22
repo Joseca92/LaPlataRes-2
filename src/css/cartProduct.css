@@ -1,5 +1,5 @@
 .cartItem {
-    height: 80px;
+    height: 90px;
     background-color: #3a3a3a;
     margin-top: 20px;
     display: flex;
@@ -36,7 +36,8 @@ p {
 
 .buttons {
      display: flex;
-     gap: 5px;
+     gap: 10px;
+     
      
 
      

@@ -3,6 +3,7 @@ import CartProduct from "../components/cartProduct"
 import { CartContext } from "../context/cardContext";
 import "../css/cart.css";
 
+
 const Cart = () => {
   /* Creamos 2 estados, uno para ver si el carrito esta abierto o no 
   y otro para obtener la cantidad de productos que tenemos en el carrito */
@@ -86,11 +87,18 @@ const Cart = () => {
               ))}
             </div>
           )}
-
-          <h2 className="total">Total: ${total}</h2>
+        <div className="btnPedido">
+          <h2 className="total">Realizar pedido ${total}</h2>
+          </div>
+          
+        
+         
           
         </div>
       )}
+      <div>
+      
+      </div>
     </div>
   );
 };
