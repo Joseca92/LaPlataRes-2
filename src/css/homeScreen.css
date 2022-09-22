@@ -4,10 +4,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.logo{
-    width: 100px;
-    height: 100px;
-}
 .bgPresentation{
     background: url(../asset/home.jpg);
     background-position: center;
@@ -22,9 +18,10 @@
     border-radius: 10px;
     height: 60%px;
 }
-/* .cards{
-    width: 100%;
-} */
+.logoBox{
+    width: 200px;
+    height: 200px;
+}
 
 
 

@@ -13,6 +13,7 @@
   import NavBar from "../components/NavBar";
   import Footer from "../components/Footer"
 import SearchMenu from "../pages/SearchMenu";
+import CarritoScreen from "../pages/CarritoScreen"
 
 const RoutesGral = () => {
    return (
@@ -29,9 +30,11 @@ const RoutesGral = () => {
          <Route path="/search/:termino" element={<SearchPedido/>} />
          <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />  
          <Route path="/searchmenu/:termino" element={<SearchMenu/>} />   
+         <Route path="/carrito" element={<CarritoScreen/>}/>
         </Routes>
         <Footer/>
      </>
    );
  };
+
 export default RoutesGral;

@@ -18,6 +18,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("product", JSON.stringify(cartItems));
     console.log(cartItems)
   }, [cartItems]);
+
   /*Agregamos producto al carrito*/
   const addItemToCard = (product) => {
     const inCart = cartItems.find(
@@ -26,7 +27,7 @@ export const CartProvider = ({ children }) => {
     if (inCart) {
       setCartItems(
         cartItems.map((productInCart) => {
-          if (productInCart.id === product._id) {
+          if (productInCart._id === product._id) {
             return { ...inCart, amount: inCart.amount + 1 };
           } else return productInCart;
         })
@@ -35,6 +36,8 @@ export const CartProvider = ({ children }) => {
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
   }
+
+
   /*Eliminamos producto del carrito*/
     const deleteItemToCart = (product) => {
       const inCart = cartItems.find(
@@ -45,13 +48,19 @@ export const CartProvider = ({ children }) => {
           cartItems.filter((productInCart) => productInCart._id !== product._id)
         );
       } else {
-        setCartItems((productInCart) => {
+        setCartItems(
+          cartItems.map((productInCart) => {
           if (productInCart._id === product._id) {
             return { ...inCart, amount: inCart.amount - 1 };
           } else return productInCart;
-        });
+        })
+        );
       }
     };
+
+   
+
+
     return(
         <CartContext.Provider value={{cartItems, addItemToCard, deleteItemToCart }}>
             {children}
