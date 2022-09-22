@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { deleteUsuario, getUsuariosById, putUsuarios , getRoles} from "../helpers/fetchUsuario";
+import { deleteUsuario, putUsuarios , getRoles} from "../helpers/fetchUsuario";
 
 import borradoP from "../asset/borradoP.png";
 import editarU from "../asset/edit1.png";
@@ -9,7 +9,7 @@ import {Button, Modal , ModalHeader, ModalBody, ModalFooter, FormGroup, Input, L
 
 
 
-const Post = ({post }) => {
+const Post = ({post, handleChange }) => {
    
 
   const {uid, nombre, email, role, estado } = post;
@@ -35,6 +35,7 @@ const Post = ({post }) => {
           });
         swal({text: "El Usuario a sido borrado con exito",
         icon:"success"})
+        handleChange();
       }
     });
 
@@ -84,9 +85,10 @@ const Post = ({post }) => {
           icon:"success",
           timer: 3000});
           modificarU();
-          setTimeout(()=>{
+          handleChange();
+          /* setTimeout(()=>{
           window.location.href = window.location.href;
-        },3000);
+        },3000); */
         }
         if(respuesta== null){
           modificarU();
@@ -138,11 +140,22 @@ const Post = ({post }) => {
            
           </div>
           <div className="col-1 editar " title="Modificar Usuario">
-          <img src={editarU} alt="Modificar Usuario" onClick={modificarU} />
+{/*           <img src={editarU} alt="Modificar Usuario" onClick={modificarU} />
+ */}          <lord-icon
+              src="https://cdn.lordicon.com/btnwcdpq.json"
+              trigger="hover"
+              onClick={modificarU}>
+          </lord-icon>
         
            </div>
           <div className="col-1 pedidosI " title="Eliminar Usuario">
-          <img src={borradoP} alt="Eliminar Usuario" onClick={usuarioE}/>
+          {/* <img src={borradoP} alt="Eliminar Usuario" onClick={usuarioE}/> */}
+          <lord-icon
+              src="https://cdn.lordicon.com/qsloqzpf.json"
+              trigger="hover"
+              onClick={usuarioE}
+            /*   style="width:250px;height:250px" */>
+          </lord-icon>
         
            </div>
          </div>

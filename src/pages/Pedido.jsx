@@ -34,7 +34,7 @@ const Pedido = () => {
         setLoading(false);
     
     }});
- 
+    
   }, [actualizar]);
 
   setInterval(()=>{
@@ -43,6 +43,15 @@ const Pedido = () => {
     })
   
   },10000)
+  const handleChange= (e)=>{
+    console.log("handleChange")
+    let cambio=0;
+
+    setActualizar(cambio+1);
+    console.log(cambio+1);
+
+   
+  }
 
   
 
@@ -76,7 +85,8 @@ const Pedido = () => {
             </div>
           ) : (
             <>
-            <div className="container contenedor">
+            <div className="contenedorGeneral">
+              <div className="container contenedor">
                       <div className="row">
                         <div className="col-1">
                           <h5>N°</h5>
@@ -100,7 +110,7 @@ const Pedido = () => {
                 {
                 mostrarP.pedido.map((mostrar) => (
                   
-                   <Post  post={mostrar} key={mostrar.uid} />
+                   <Post  post={mostrar} handleChange={handleChange} key={mostrar.uid} />
                   
                       
                   ))
@@ -109,6 +119,9 @@ const Pedido = () => {
                 
 
               </div>
+              
+            </div>
+            
             
             </>
           )}

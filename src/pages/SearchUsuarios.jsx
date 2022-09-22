@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import PostUsuarios from "../components/PostUsuarios";
-import { buscarUsuario } from "../helpers/fetchUsuario";
+import { buscarUsuario, getUsuarios } from "../helpers/fetchUsuario";
 import '../css/pedido.css'
 import SearchAppUsuarios from "../components/SearchAppUsuarios";
 
 const SearchUsuarios = () => {
   const { termino } = useParams();
   const [usuarios, setUsuarios] = useState([]);
+  const [actualizar, setActualizar] = useState();
 
 
 
@@ -20,13 +21,20 @@ const SearchUsuarios = () => {
      
      
     });
-  }, [termino]);
+  }, [termino,actualizar]);
+
+  const handleChange= (e)=>{
+    console.log("handleChange")
+    getUsuarios().then((respuesta)=>{
+      setActualizar(respuesta.total);
+    })
+  }
 
   return (
-    <div className="container " id="contenedorP">
+    <div className="container d-flex flex-column align-items-center" id="contenedorP">
       <div className="row">
        
-        <div className="col-12 col-md-8 offset-md-2">
+        <div className="col-12 ">
           <SearchAppUsuarios />
           <h3>Resultados de la búsqueda: Usuario "{termino}"</h3>
           <hr />
@@ -51,13 +59,13 @@ const SearchUsuarios = () => {
               </div>
           {usuarios.length > 0 ? (
             usuarios.map((post) => 
-            <PostUsuarios  post={post} key={post.uid} /> )
+            <PostUsuarios  post={post} handleChange={handleChange} key={post.uid} /> )
           ) : (
             <span className="text-muted">No se encontraron registros</span>
           )}
         </div>
       </div>
-      <Link className="btn btn-warning" to="/usuarios">
+      <Link className="btn btn-warning " id="btnVolver" to="/usuarios">
                 Volver
               </Link>
     </div>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getCategoria, postMenu, getMenu } from '../helpers/fetchApp';
+import { getCategoria, postMenu, getMenu } from '../helpers/fetchMenu';
 import MenuCard from '../components/menuCard';
 import { Link } from 'react-router-dom';
 import '../css/menuScreen.css';
+import SearchAppMenu from '../components/SearchAppMenu';
 
 
-const MenuScreen = props => {
+const MenuScreen = () => {
   const [mensaje, setMensaje] = useState([]);
   const [mensajes, setMensajes] = useState('');
   const [nombre, setNombre] = useState('');
@@ -16,12 +17,14 @@ const MenuScreen = props => {
   const [categorias, setCategorias] = useState([]);
   const [imagen, setImagen] = useState('');
   const [loading, setLoading] = useState(true);
+  const [actualizar, setActualizar] = useState([]);
+
 
   //traer lo menus
   const [menus, setMenus] = useState([]);
   useEffect(() => {
     getMenu().then(respuesta => {
-      //console.log(respuesta);
+      console.log(respuesta.total);
       if (respuesta?.msg) {
         setMensajes(respuesta.msg);
       } else {
@@ -29,7 +32,21 @@ const MenuScreen = props => {
       }
       setLoading(false);
     });
-  }, [mensaje]);
+  }, [actualizar]);
+
+  setInterval(()=>{
+    getMenu().then((respuesta)=>{
+      setActualizar(respuesta.total);
+    })
+  
+  },10000)
+
+  const handleChange= (e)=>{
+    console.log("handleChange")
+    getMenu().then((respuesta)=>{
+      setActualizar(respuesta.total);
+    })
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -58,7 +75,7 @@ const MenuScreen = props => {
   };
   useEffect(() => {
     getCategoria().then(respuesta => {
-      console.log(respuesta.categoria);
+    
       setCategorias(respuesta.categoria);
     });
   }, []);
@@ -80,13 +97,15 @@ const MenuScreen = props => {
             <h1>Administración de Menú</h1>
             <hr />
           </div>
+          <SearchAppMenu/>
         </div>
         {/* modalBoton */}
         <div className="row">
           <div className="col-5">
             <button
               type="button"
-              className="btn btn-primary my-3"
+              className="btn btn-secondary my-3"
+              color="dark"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
@@ -116,17 +135,14 @@ const MenuScreen = props => {
             </div>
           ) : (
             <>
-              <div className="col-12 col-md-8 p-3">
+            <div id='contenedorGeneral'>
+              <div className="col-12 col-md-8 p-3 ">
                 <table>
                   <tbody>
-                    {menus.map(menu => (
+                    {menus.map((menu) => (
                       <tr key={menu._id}>
                         <td>
-                          <MenuCard
-                            precio={menu.precio}
-                            nombre={menu.nombre}
-                            img={menu.img}
-                            detalle={menu.detalle}
+                          <MenuCard  post={menu} handleChange={handleChange}
                           />
                         </td>
                         
@@ -135,6 +151,9 @@ const MenuScreen = props => {
                   </tbody>
                 </table>
               </div>
+
+            </div>
+              
             </>
           )}
         </div>
@@ -249,6 +268,14 @@ const MenuScreen = props => {
             </div>
             <div className="modal-footer">
               <button
+                type="submit"
+                form="formulario"
+                className="btn btn-dark"
+            
+              >
+                Crear Menú
+              </button>
+              <button
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
@@ -256,13 +283,7 @@ const MenuScreen = props => {
               >
                 Cancelar
               </button>
-              <button
-                type="submit"
-                form="formulario"
-                className="btn btn-primary"
-              >
-                Crear Menú
-              </button>
+              
             </div>
           </div>
         </div>

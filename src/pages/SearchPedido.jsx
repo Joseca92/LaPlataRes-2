@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Post from "../components/Post";
-import { buscarPedido } from "../helpers/fetchApp";
+import { buscarPedido, getPedido } from "../helpers/fetchApp";
 import '../css/pedido.css'
 import SearchApp from "../components/SearchApp";
 
@@ -36,24 +36,32 @@ const SearchBlogsScreen = () => {
      
      
     });
-  }, [termino]);
+  }, [termino,actualizar]);
+  const handleChange= (e)=>{
+    console.log("handleChange")
+    getPedido().then((respuesta)=>{
+      setActualizar(respuesta.total);
+    })
+  }
 
   return (
     <div className="container " id="contenedorP">
       <div className="row">
-      <SearchApp />
-        <div className="col-12 col-md-8 offset-md-2">
+      
+        <div className="col-12 d-flex  flex-column align-items-center">
+          <SearchApp />
           <h3>Resultados de la búsqueda: Pedido "{pendiente}"</h3>
           <hr />
-          <div className="container contenedor">
+          <div className="contenedorGeneral">
+            <div className="container contenedor">
                       <div className="row">
                         <div className="col-1">
                           <h5>N°</h5>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                            <h5>Cliente</h5>
                         </div>
-                        <div className="col-4">
+                        <div className="col-3">
                            <h5>Menu/s</h5>
                         </div>
                         <div className="col-2">
@@ -69,16 +77,22 @@ const SearchBlogsScreen = () => {
               </div>
           {pedido.length > 0 ? (
             pedido.map((post) => 
-            <Post post={post} key={post._id} />)
+            <Post post={post} handleChange={handleChange} key={post._id} />)
           ) : (
             <span className="text-muted">No se encontraron registros</span>
           )}
         </div>
       </div>
-      <Link className="btn btn-warning" to="/pedido">
+      <div class="btnV d-flex  flex-column align-items-center">
+        <Link className="btn btn-warning " id="btnVolver" to="/pedido">
                 Volver
               </Link>
+      </div>
+      
     </div>
+
+  </div>
+          
   );
 };
 

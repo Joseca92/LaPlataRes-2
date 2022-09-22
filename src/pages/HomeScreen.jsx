@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { getMenu } from "../helpers/fetchApp";
+import { getMenu } from "../helpers/fetchMenu";
 import { Link } from "react-router-dom";
 import logo from "../asset/logo.png";
 import MenuCard from "../components/MenuCard";

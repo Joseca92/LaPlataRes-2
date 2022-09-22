@@ -1,8 +1,14 @@
+body{
+    width: 100%;
+    height: 100%;
+}
 #contenedorP{
     position: relative;
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 80%;
     margin-bottom: 2rem;
     
 }
@@ -21,7 +27,7 @@
     width: 45%;
 }
 .contenedorGeneral{
-    
+  
     width: 100%;
     max-width: 870px;
 
@@ -32,11 +38,11 @@
 }
 
 .contenedor{
-    width: 70%;
+    /* width: 70%; */
     background-color: rgba(13, 14, 13, 0.322);
 }
 .dPedidos{
-    width: 70%;
+    /* width: 70%; */
     border: 2px solid rgba(0, 0, 0, 0.788);
    
  
@@ -102,6 +108,10 @@
     justify-content: center;
     flex-direction: column;
    
+}
+#btnVolver{
+    margin-top: 2rem;
+    width: 10%;
 }
 
 

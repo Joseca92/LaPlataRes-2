@@ -46,6 +46,16 @@ const UsuariosABM = () => {
   
   },10000)
 
+  const handleChange= (e)=>{
+    console.log("handleChange")
+    let cambio=0;
+
+    setActualizar(cambio+1);
+    console.log(cambio+1);
+
+   
+  }
+
   
 
   return (
@@ -95,7 +105,7 @@ const UsuariosABM = () => {
               <div>
                 {
                 mostrarU.usuario.map((mostrar) => (
-                  <PostUsuarios  post={mostrar} key={mostrar.uid} />     
+                  <PostUsuarios  post={mostrar} handleChange={handleChange} key={mostrar.uid} />     
                   ))
     
                 }

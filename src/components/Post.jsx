@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import swal from "sweetalert";
-import { deletePedido, getMenuById, putPedido } from "../helpers/fetchApp";
+import { deletePedido, putPedido } from "../helpers/fetchApp";
+import {getMenuById} from "../helpers/fetchMenu";
 import borradoP from "../asset/borradoP.png";
 
 
-const Post = ({post }) => {
+const Post = ({post, handleChange }) => {
     let envio="";
    
   const {uid, usuario, menu, entrega, nPedido, date, estado } = post;
-
+  
 
   
 
@@ -50,9 +51,7 @@ const Post = ({post }) => {
       swal({text: "El ha sido realizado!!",
       icon:"success",
       timer: 2000});
-      setTimeout(()=>{
-        window.location.href = window.location.href;
-      },3000); 
+      handleChange();
   }
 
   const pedidoE=()=>{
@@ -71,9 +70,11 @@ const Post = ({post }) => {
         swal({text: "El Pedido a sido borrado con exito",
         icon:"success",
         timer:2000});
-        setTimeout(()=>{
+        handleChange();
+
+        /* setTimeout(()=>{
           window.location.href = window.location.href;
-        },2000);
+        },2000); */
         
       }
     });
@@ -117,7 +118,13 @@ const Post = ({post }) => {
             </div>
           </div>
           <div className="col-1 pedidosI " title="Eliminar Pedido">
-            <img src={borradoP} alt="Eliminar Pedido"  onClick={pedidoE}/>   
+            {/* <img src={borradoP} alt="Eliminar Pedido"  onClick={pedidoE}/> */}
+            <lord-icon
+              src="https://cdn.lordicon.com/qsloqzpf.json"
+              trigger="hover"
+              onClick={pedidoE}
+            /*   style="width:250px;height:250px" */>
+          </lord-icon>  
           
           </div> 
          </div>

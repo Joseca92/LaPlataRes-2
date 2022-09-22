@@ -24,7 +24,7 @@ const SearchAppUsuarios = () => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Ingrese lo que desea buscar..."
+                            placeholder="Ingrese el usuario que desea buscar..."
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                           />

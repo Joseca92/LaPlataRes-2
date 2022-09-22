@@ -12,6 +12,7 @@
   import SearchUsuarios from "../pages/SearchUsuarios";
   import NavBar from "../components/NavBar";
   import Footer from "../components/Footer"
+import SearchMenu from "../pages/SearchMenu";
 
 const RoutesGral = () => {
    return (
@@ -26,7 +27,8 @@ const RoutesGral = () => {
         <Route path="/pedido" element={<Pedido/>} />
          <Route path="/usuarios" element={<UsuariosABM/>} />
          <Route path="/search/:termino" element={<SearchPedido/>} />
-         <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />   
+         <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />  
+         <Route path="/searchmenu/:termino" element={<SearchMenu/>} />   
         </Routes>
         <Footer/>
      </>

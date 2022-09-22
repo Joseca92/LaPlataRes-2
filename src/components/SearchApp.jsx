@@ -35,7 +35,7 @@ const SearchApp = () => {
                           <input
                             type="text"
                             className="form-control"
-                            placeholder="Ingrese lo que desea buscar..."
+                            placeholder="Ingrese el numero de pedido que desea buscar..."
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                           />
