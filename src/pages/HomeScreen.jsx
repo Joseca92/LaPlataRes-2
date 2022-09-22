@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import { getMenu } from "../helpers/fetchMenu";
 import { Link } from "react-router-dom";
-import logo from "../asset/logo.png";
-import MenuCard from "../components/MenuCard";
 import "../css/homeScreen.css";
 
 import { CartContext } from "../context/cardContext";
 import CarritoScreen from "../pages/CarritoScreen";
 import Loading from "../components/Loading";
+import PostHome from "../components/PostHome";
+import SearchAppHome from "../components/SearchAppHome";
 
 
 const HomeScreen = () => {
+  const [actualizar, setActualizar] = useState([]);
   const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
@@ -25,8 +26,9 @@ const HomeScreen = () => {
       }
       setLoading(false);
     });
-  }, []);
+  }, [actualizar]);
 
+  
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
 
@@ -72,7 +74,7 @@ const HomeScreen = () => {
       <div className="container">
         <div className="row  d-flex justify-content-center">
           <div className="col-12 buscador mt-5 d-flex aling-items-center justify-content-center">
-            <input type="text" className="fs-5 p-2" placeholder="Buscar..." />
+          <SearchAppHome/>
             <button className="btnGral fw-bold p-2 mx-2">Buscar</button>
           </div>
           <div className="col-12 mt-5  categoria"></div>
@@ -96,11 +98,8 @@ const HomeScreen = () => {
                       {menus.map((menu) => (
                         <tr key={menu._id}>
                           <td>
-                            <MenuCard
-                              precio={menu.precio}
-                              nombre={menu.nombre}
-                              img={menu.img}
-                              detalle={menu.detalle}
+                            <PostHome
+                              post={menu}
                             />
                           </td>
                           <td>
