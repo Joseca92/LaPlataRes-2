@@ -4,7 +4,7 @@ import { CartContext } from "../context/cardContext";
 import "../css/cart.css";
 
 
-const Cart = () => {
+const Cart = ({product}) => {
   /* Creamos 2 estados, uno para ver si el carrito esta abierto o no 
   y otro para obtener la cantidad de productos que tenemos en el carrito */
   const [cartOpen, setCartOpen] = useState(false);
@@ -12,6 +12,8 @@ const Cart = () => {
 
   /* Traemos del context los productos del carrito */
   const { cartItems } = useContext(CartContext);
+
+ 
 
   /* Cada vez que se modifica el carrito, actualizamos la cantidad de productos */
   useEffect(() => {
@@ -24,7 +26,20 @@ const Cart = () => {
   const total = cartItems?.reduce(
     (previous, current) => previous + current.amount * current.precio,
     0
+
+    
   );
+
+  /*funcion para el boton de realizar pedido*/
+  function btnP(product){
+    if(total === 0 ){
+      alert("Tu carrito esta vacio")
+    }else{
+      console.log("Pedido realizado")
+      
+    }
+  }
+ 
 
   return (
     <div className="cartContainer">
@@ -88,7 +103,7 @@ const Cart = () => {
             </div>
           )}
         <div className="btnPedido">
-          <h2 className="total">Realizar pedido ${total}</h2>
+          <h2 className="total" onClick={() => btnP(product)} >Realizar pedido ${total}</h2>
           </div>
           
         
