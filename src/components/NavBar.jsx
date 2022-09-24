@@ -38,12 +38,33 @@ const Nav = () => {
             </li>
             {
             user?.role === "ADMIN_ROLE" && (
+              <ul className="navbar-nav">
+              <li className="nav-item dropdown">
+              <Link className="nav-link dropdown-toogle" id="dropdown-basic" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i className="fa fa-user-circle-o" aria-hidden="true" /> Administración
+              </Link>
+              <ul className="dropdown-menu">
                 <li>
-                  <NavLink className="nav-link" aria-current="page" to="/admin">Administración</NavLink>
+                  <Link className="dropdown-item"to="/menu" onClick={logout}>
+                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Menús 
+                  </Link>
                 </li>
+                <li>
+                  <Link className="dropdown-item"to="/pedido" onClick={logout}>
+                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Pedidos 
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item"to="/usuarios" onClick={logout}>
+                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Usuarios
+                  </Link>
+                </li>
+              </ul>
+              </li>
+            </ul>
                 )}
             {/* dropdown */}
-            {user !== undefined? <ul className="navbar-nav">
+          <ul className="navbar-nav">
               <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toogle" id="dropdown-basic" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i className="fa fa-user-circle-o" aria-hidden="true" /> Hola {user?.nombre}
@@ -51,19 +72,12 @@ const Nav = () => {
               <ul className="dropdown-menu">
                 <li>
                   <Link className="dropdown-item"to="/" onClick={logout}>
-                    <i className="fa fa-sign-out" aria-hidden="true" /> Cerrar sesion
+                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Cerrar sesion
                   </Link>
                 </li>
               </ul>
               </li>
-            </ul> :
-            <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
-            </li>
-            }
-            {/* <li>
-              <Cart/>
-            </li> */}
+            </ul>
           </ul>
         </div>
       </div>

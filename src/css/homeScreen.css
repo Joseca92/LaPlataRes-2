@@ -14,9 +14,12 @@
     width: 70%;
     border-radius: 10px;
 }
+.buscador input::placeholder{
+    color: white !important;
+}
 .menu{
     border-radius: 10px;
-    height: 60%px;
+    height: 450px;
 }
 .logoBox{
     width: 200px;
