@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCategoria, postMenu, getMenu } from '../helpers/fetchMenu';
+import { getCategoria, postMenu, getMenu,getMenuById } from '../helpers/fetchMenu';
 import MenuCard from '../components/menuCard';
 import { Link } from 'react-router-dom';
 import '../css/menuScreen.css';
@@ -17,36 +17,51 @@ const MenuScreen = () => {
   const [categorias, setCategorias] = useState([]);
   const [imagen, setImagen] = useState('');
   const [loading, setLoading] = useState(true);
-  const [actualizar, setActualizar] = useState([]);
+  const [actualizar, setActualizar] = useState(1);
+  const [actualizarM, setActualizarM] = useState();
+
 
 
   //traer lo menus
   const [menus, setMenus] = useState([]);
   useEffect(() => {
     getMenu().then(respuesta => {
-      console.log(respuesta.total);
+      /* console.log(respuesta.total); */
       if (respuesta?.msg) {
         setMensajes(respuesta.msg);
       } else {
         setMenus(respuesta.menu);
       }
+      
       setLoading(false);
     });
   }, [actualizar]);
-
-  setInterval(()=>{
+  /* 
+   setInterval(()=>{
     getMenu().then((respuesta)=>{
       setActualizar(respuesta.total);
+
     })
   
-  },10000)
-
+  },10000) */
+  
   const handleChange= (e)=>{
     console.log("handleChange")
+   /*  let cambio=0; */
+
+    setActualizar(actualizar+5);
+  
+    console.log(actualizar);
+   
+  }
+
+/*   const handleChange= ()=>{
     getMenu().then((respuesta)=>{
       setActualizar(respuesta.total);
-    })
-  }
+
+  })
+    
+  } */
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -87,6 +102,10 @@ const MenuScreen = () => {
     setCategoria('');
     setPrecio(0);
     setImagen('');
+    setTimeout(()=>{
+      handleChange();
+    /* window.location.href = window.location.href; */
+  },4000);
   };
 
   return (
@@ -204,7 +223,7 @@ const MenuScreen = () => {
                   className="form-control"
                   type="text"
                   placeholder="Ingrese una url"
-                  required
+                  
                   value={imagen}
                   onChange={e => setImagen(e.target.value)}
                 />

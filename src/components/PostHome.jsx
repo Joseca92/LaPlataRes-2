@@ -23,7 +23,7 @@ const PostHome = ( {post, handleClick}) => {
                         <p className="card-text">{detalle}</p>
                         <p className="card-text"> $ {precio}</p>
                       </div>
-                    {/*   <button
+                     {/*  <button
             
                          onClick={handleClick}
                          className="btnGral fw-bold p-2 mx-2">

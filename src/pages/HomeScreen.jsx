@@ -44,6 +44,8 @@ const HomeScreen = () => {
     (previous, current) => previous + current.amount * current.precio,
     0
   );
+
+ 
   return (
     <>
     <CarritoScreen/>
@@ -100,6 +102,8 @@ const HomeScreen = () => {
                           <td>
                             <PostHome
                               post={menu}
+                              
+
                             />
                           </td>
                           <td>

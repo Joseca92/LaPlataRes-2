@@ -23,7 +23,6 @@ const MenuCard = ( {post, handleChange}) => {
   }
   useEffect(() => {
     getCategoria().then(respuesta => {
-      console.log(respuesta.categoria);
       setCategorias(respuesta.categoria);
     });
   }, []);
@@ -55,14 +54,20 @@ const MenuCard = ( {post, handleChange}) => {
           putMenu(datos, _id).then((respuesta) => {
             console.log(respuesta.errors);
             console.log(datos); 
- 
+            
           });
           swal({
-          text: "El Usuario a sido modificado con exito",
+          text: "El Menú a sido modificado con exito",
           icon:"success",
           timer: 3000});
+          
           modificarM();
-          handleChange();
+          
+          setTimeout(()=>{
+            handleChange();
+          /* window.location.href = window.location.href; */
+        },4000); 
+          
         }
         if(respuesta== null){
           modificarM();
@@ -88,8 +93,11 @@ const MenuCard = ( {post, handleChange}) => {
           console.log(respuesta.msg);
           });
         swal({text: "El Menú a sido borrado con exito",
-        icon:"success", timer: 3000});
-        handleChange();
+        icon:"success", timer: 2000});
+        setTimeout(()=>{
+          handleChange();
+        /* window.location.href = window.location.href; */
+      },3000); 
       }
     });
 
@@ -176,7 +184,7 @@ const MenuCard = ( {post, handleChange}) => {
                   className="form-control"
                   type="text"
                   placeholder="Ingrese una url"
-                  required
+                  
                   value= {fImg}
                   onChange={e => setFImg(e.target.value)}
                 />
