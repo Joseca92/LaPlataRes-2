@@ -15,7 +15,7 @@ const HomeScreen = () => {
   const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
-  const { addItemToCard } = useContext(CartContext);
+  // const { addItemToCard } = useContext(CartContext);
   useEffect(() => {
     getMenu().then((respuesta) => {
       console.log(respuesta);
@@ -62,25 +62,26 @@ const HomeScreen = () => {
                 ></lottie-player>
               </div>
             </div>
-            <div className=" col-12">
+            <div className=" col-12 animate__animated animate__fadeInDown">
               <h2 className="fw-bold"> LA PLATA RESTAURANTE</h2>
             </div>
             <div className=" col-12 mt-5">
               <h4 className="fw-normal">
-                la mejor cocina mediterranea del NOA
+                Traemos lo mejor del mar a Tucumán y mucho más
               </h4>
             </div>
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container-fluid bg-black">
         <div className="row  d-flex justify-content-center">
-          <div className="col-12 buscador mt-5 d-flex aling-items-center justify-content-center">
+          <div className="col-8 buscador mt-5">
           <SearchAppHome/>
+          </div>
+          <div className="col-4 mt-5 d-flex align-items-center justify-content-start">
             <button className="btnGral fw-bold p-2 mx-2">Buscar</button>
           </div>
-          <div className="col-12 mt-5  categoria"></div>
-          <div className="row menu border border-dark border-2 p-3 mt-5 d-flex justify-content-center">
+          <div className="row menu bg-dark overflow-auto p-3 my-5 d-flex justify-content-center">
             {loading ? (
               <Loading />
             ) : mensaje ? (
@@ -106,15 +107,6 @@ const HomeScreen = () => {
 
                             />
                           </td>
-                          <td>
-                            <button
-                              key={menu._id}
-                              onClick={() => addItemToCard(menu)}
-                              className="btnGral fw-bold p-2 mx-2"
-                            >
-                              Agregar
-                            </button>
-                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -123,9 +115,9 @@ const HomeScreen = () => {
               </>
             )}
           </div>
-          <div className="col-12 col-md-12 d-flex aling-items-center justify-content-center">
+          {/* <div className="col-12 col-md-12 d-flex aling-items-center justify-content-center">
             <button onClick={() => setCartOpen(!cartOpen)} className="btnGral fw-bold p-2 m-2">Ver pedido : ${total}</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

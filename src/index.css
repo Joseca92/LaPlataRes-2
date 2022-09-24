@@ -24,3 +24,6 @@ code {
   width: 100px;
   height: 100px;
 }
+.sombra{ 
+box-shadow: 0px 4px 9px 0px rgba(255,255,255,0.5);
+}
