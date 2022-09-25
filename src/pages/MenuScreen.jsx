@@ -20,6 +20,7 @@ const MenuScreen = () => {
   const [imagen, setImagen] = useState('');
   const [loading, setLoading] = useState(true);
   const [actualizar, setActualizar] = useState(1);
+  
   const [permiso, setPermiso] = useState("");
 
 
@@ -33,6 +34,10 @@ const MenuScreen = () => {
             setPermiso(respuesta.usuario.role);     
           });
 
+    getCategoria().then(respuesta => {
+    
+      setCategorias(respuesta.categoria);
+          });
     getMenu().then(respuesta => {
       /* console.log(respuesta.total); */
       if (respuesta?.msg) {
@@ -112,12 +117,12 @@ const MenuScreen = () => {
       }, 3000);
     });
   };
-  useEffect(() => {
+  /* useEffect(() => {
     getCategoria().then(respuesta => {
     
       setCategorias(respuesta.categoria);
     });
-  }, []);
+  }, []); */
 
   const limpiarCampos = () => {
     setNombre('');
