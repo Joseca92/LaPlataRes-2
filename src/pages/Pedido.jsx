@@ -22,9 +22,9 @@ const Pedido = () => {
  
   
   useEffect(() => {
-    const usuario= JSON.parse(localStorage.getItem("user"))
-        console.log(usuario.uid);    
-         getUsuarioById(usuario.uid).then((respuesta)=>{
+    const id= JSON.parse(localStorage.getItem("user"))
+        console.log(id);    
+         getUsuarioById(id).then((respuesta)=>{
             console.log(respuesta.usuario.role);
             setPermiso(respuesta.usuario.role);     
           }) 

@@ -4,6 +4,7 @@ import MenuCard from '../components/menuCard';
 import { Link } from 'react-router-dom';
 import '../css/menuScreen.css';
 import SearchAppMenu from '../components/SearchAppMenu';
+import Loading from '../components/Loading'
 import { getUsuarioById} from "../helpers/fetchUsuario";
 
 
@@ -27,9 +28,9 @@ const MenuScreen = () => {
   //traer lo menus
   const [menus, setMenus] = useState([]);
   useEffect(() => {
-    const usuario= JSON.parse(localStorage.getItem("user"))
-        console.log(usuario.uid);    
-         getUsuarioById(usuario.uid).then((respuesta)=>{
+    const id= JSON.parse(localStorage.getItem("user"))
+        console.log(id);    
+         getUsuarioById(id).then((respuesta)=>{
             console.log(respuesta.usuario.role);
             setPermiso(respuesta.usuario.role);     
           });
@@ -142,7 +143,7 @@ const MenuScreen = () => {
       <div className="container boxContainer">
         <div className="row mt-5">
           <div className="col">
-            <h1>Administración de Menú</h1>
+            <h1 className='animate__animated animate__fadeInDown'>Administración de Menú</h1>
             <hr />
           </div>
           <SearchAppMenu/>
@@ -161,17 +162,9 @@ const MenuScreen = () => {
             </button>
           </div>
         </div>
-        <div className="row overflow-auto border mb-5 menu border-dark border-2 p-3 mt-3 d-flex justify-content-center">
+        <div className="row overflow-auto mb-5 p-3 mt-3 d-flex justify-content-center">
           {loading ? (
-            <div className="col-12 col-md-8 loading">
-              <lottie-player
-                src="https://assets7.lottiefiles.com/packages/lf20_zakgeffb.json"
-                background="transparent"
-                speed="1"
-                loop
-                autoplay
-              ></lottie-player>
-            </div>
+            <Loading/>
           ) : mensajes ? (
             <div className="col-12 col-md-6 offset-md-3">
               <div className="alert alert-danger" role="alert">
