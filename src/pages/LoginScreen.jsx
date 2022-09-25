@@ -19,8 +19,12 @@ const LoginScreen = () => {
       password,
     };
     postAuth(datos).then((respuesta) => {
-      console.log(respuesta);
-      console.log("entro a la funcion auth")
+
+
+      if(respuesta?.errors){
+        setMessage(respuesta.errors[0]);
+        console.log(respuesta.errors[0].msg);
+      }else{
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
@@ -29,7 +33,8 @@ const LoginScreen = () => {
         console.log("paso por el navigate")
       } else {
         setMessage(respuesta);
-      }
+      } 
+    }
     });
   };
 
