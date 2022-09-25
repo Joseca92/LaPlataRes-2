@@ -4,6 +4,8 @@ import MenuCard from '../components/menuCard';
 import { Link } from 'react-router-dom';
 import '../css/menuScreen.css';
 import SearchAppMenu from '../components/SearchAppMenu';
+import { getUsuarioById} from "../helpers/fetchUsuario";
+
 
 
 const MenuScreen = () => {
@@ -18,13 +20,19 @@ const MenuScreen = () => {
   const [imagen, setImagen] = useState('');
   const [loading, setLoading] = useState(true);
   const [actualizar, setActualizar] = useState(1);
-  const [actualizarM, setActualizarM] = useState();
-
+  const [permiso, setPermiso] = useState("");
 
 
   //traer lo menus
   const [menus, setMenus] = useState([]);
   useEffect(() => {
+    const usuario= JSON.parse(localStorage.getItem("user"))
+        console.log(usuario.uid);    
+         getUsuarioById(usuario.uid).then((respuesta)=>{
+            console.log(respuesta.usuario.role);
+            setPermiso(respuesta.usuario.role);     
+          });
+
     getMenu().then(respuesta => {
       /* console.log(respuesta.total); */
       if (respuesta?.msg) {
@@ -36,6 +44,22 @@ const MenuScreen = () => {
       setLoading(false);
     });
   }, [actualizar]);
+
+  if(permiso != "ADMIN_ROLE"){
+    return(
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div  className="alert alert-danger" role="alert">
+              No tiene permisos para acceder a esta seccion
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+
   /* 
    setInterval(()=>{
     getMenu().then((respuesta)=>{

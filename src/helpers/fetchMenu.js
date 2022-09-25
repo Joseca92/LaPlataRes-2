@@ -6,7 +6,7 @@ export const getMenu = async () => {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-       /*  'x-token': JSON.parse(localStorage.getItem('token')), */
+       'x-token': JSON.parse(localStorage.getItem('token')),
       },
     });
     const data = await resp.json();
@@ -21,7 +21,7 @@ export const getMenu = async () => {
       body: JSON.stringify(datos),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        //'x-token': JSON.parse(localStorage.getItem('token')),
+        'x-token': JSON.parse(localStorage.getItem('token')),
       },
     });
     const data = await resp.json();
@@ -60,7 +60,7 @@ export const getMenuById = async (id) => {
       body: JSON.stringify(datos),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        /* "x-token": JSON.parse(localStorage.getItem("token")), */
+        "x-token": JSON.parse(localStorage.getItem("token")),
       },
     });
     const data = await resp.json();
@@ -74,6 +74,7 @@ export const getMenuById = async (id) => {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "x-token": JSON.parse(localStorage.getItem("token")),
       },
     });
     const data = await resp.json();
@@ -87,7 +88,7 @@ export const getMenuById = async (id) => {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        /* "x-token": JSON.parse(localStorage.getItem("token")), */
+        "x-token": JSON.parse(localStorage.getItem("token")), 
       },
     });
     const data = await resp.json();

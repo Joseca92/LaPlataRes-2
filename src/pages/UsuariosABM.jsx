@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {getUsuarios} from "../helpers/fetchUsuario";
+import {getUsuarios, getUsuarioById} from "../helpers/fetchUsuario";
 import { Link } from "react-router-dom";
 import SearchAppUsuarios from "../components/SearchAppUsuarios";
 import PostUsuarios from "../components/PostUsuarios";
 import '../css/pedido.css'
 
 const UsuariosABM = () => {
+  const [permiso, setPermiso] = useState("");
   
   const [mostrarU, setMostrarU] = useState({
     usuario: [],
@@ -19,6 +20,12 @@ const UsuariosABM = () => {
   
   
   useEffect(() => {
+    const usuario= JSON.parse(localStorage.getItem("user"))
+        console.log(usuario.uid);    
+         getUsuarioById(usuario.uid).then((respuesta)=>{
+            console.log(respuesta.usuario.role);
+            setPermiso(respuesta.usuario.role);     
+          });
     
     getUsuarios().then((respuesta) => {
       console.log(respuesta);
@@ -38,6 +45,20 @@ const UsuariosABM = () => {
     
 
   }, [actualizar]);
+
+  if(permiso != "ADMIN_ROLE"){
+    return(
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div  className="alert alert-danger" role="alert">
+              No tiene permisos para acceder a esta seccion
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
   
   setInterval(()=>{
     getUsuarios().then((respuesta)=>{

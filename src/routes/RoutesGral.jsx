@@ -15,6 +15,7 @@
 import SearchMenu from "../pages/SearchMenu";
 import CarritoScreen from "../pages/CarritoScreen"
 import SearchMenuHome from "../pages/SearchMenuHome";
+import { AdminScreen } from "../pages/AdminScreen";
 
 const RoutesGral = () => {
    return (
@@ -26,13 +27,15 @@ const RoutesGral = () => {
         }/>
         <Route path="*" element={<ErrorScreen/>}/>
         <Route path='/menu' element={<MenuScreen/>}/>
-        <Route path="/pedido" element={<Pedido/>} />
+        <Route path="/pedido" element={<Pedido/>} /> 
          <Route path="/usuarios" element={<UsuariosABM/>} />
          <Route path="/search/:termino" element={<SearchPedido/>} />
          <Route path="/searchusuario/:termino" element={<SearchUsuarios/>} />  
          <Route path="/searchmenu/:termino" element={<SearchMenu/>} />   
          <Route path="/searchhome/:termino" element={<SearchMenuHome/>} />   
          <Route path="/carrito" element={<CarritoScreen/>}/>
+         <Route path="/admin" element={<AdminScreen/>}/>
+      
         </Routes>
         <Footer/>
      </>

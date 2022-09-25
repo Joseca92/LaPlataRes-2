@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { getUsuarioById} from "../helpers/fetchUsuario";
+
 import {getPedido} from "../helpers/fetchApp";
 import { Link } from "react-router-dom";
 import Post from "../components/Post";
@@ -11,7 +13,7 @@ const Pedido = () => {
     total: 0,
   });
 
- 
+  const [permiso, setPermiso] = useState("");
   const [actualizar, setActualizar] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
@@ -20,6 +22,14 @@ const Pedido = () => {
  
   
   useEffect(() => {
+    const usuario= JSON.parse(localStorage.getItem("user"))
+        console.log(usuario.uid);    
+         getUsuarioById(usuario.uid).then((respuesta)=>{
+            console.log(respuesta.usuario.role);
+            setPermiso(respuesta.usuario.role);     
+          }) 
+
+
     
     getPedido().then((respuesta) => {
       console.log(respuesta);
@@ -36,6 +46,22 @@ const Pedido = () => {
     }});
     
   }, [actualizar]);
+
+   if(permiso != "ADMIN_ROLE"){
+    return(
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div  className="alert alert-danger" role="alert">
+              No tiene permisos para acceder a esta seccion
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+
 
   setInterval(()=>{
     getPedido().then((respuesta)=>{

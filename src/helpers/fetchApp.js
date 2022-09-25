@@ -21,6 +21,7 @@ export const postUsuario = async datos => {
     body: JSON.stringify(datos),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
+      
     },
   });
 
@@ -62,6 +63,7 @@ export const getPedido = async (registro = 0) => {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "x-token": JSON.parse(localStorage.getItem("token")),
       },
     });
   
@@ -75,6 +77,7 @@ export const getPedido = async (registro = 0) => {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        "x-token": JSON.parse(localStorage.getItem("token")),
       },
     });
   
@@ -89,7 +92,7 @@ export const buscarPedido = async (termino, terminoP) => {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-      /* "x-token": JSON.parse(localStorage.getItem("token")), */
+      "x-token": JSON.parse(localStorage.getItem("token")),
     },
   });
   const data = await resp.json();
