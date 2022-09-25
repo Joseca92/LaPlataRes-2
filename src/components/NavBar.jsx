@@ -43,20 +43,20 @@ const Nav = () => {
               <Link className="nav-link dropdown-toogle" id="dropdown-basic" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i className="fa fa-user-circle-o" aria-hidden="true" /> Administración
               </Link>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-dark">
                 <li>
-                  <Link className="dropdown-item"to="/menu" onClick={logout}>
-                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Menús 
+                  <Link className="dropdown-item"to="/menu">
+                    Menús 
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item"to="/pedido" onClick={logout}>
-                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Pedidos 
+                  <Link className="dropdown-item"to="/pedido">
+                     Pedidos 
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item"to="/usuarios" onClick={logout}>
-                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Usuarios
+                  <Link className="dropdown-item"to="/usuarios">
+                     Usuarios
                   </Link>
                 </li>
               </ul>
@@ -69,10 +69,10 @@ const Nav = () => {
               <Link className="nav-link dropdown-toogle" id="dropdown-basic" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i className="fa fa-user-circle-o" aria-hidden="true" /> Hola {user?.nombre}
               </Link>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-dark">
                 <li>
-                  <Link className="dropdown-item"to="/" onClick={logout}>
-                    <i className="fa fa-sign-out dropdown-item" aria-hidden="true" /> Cerrar sesion
+                  <Link className="dropdown-item" to="#" onClick={logout}>
+                    Cerrar sesión
                   </Link>
                 </li>
               </ul>
