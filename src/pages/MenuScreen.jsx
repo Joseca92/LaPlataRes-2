@@ -143,7 +143,7 @@ const MenuScreen = () => {
       <div className="container boxContainer">
         <div className="row mt-5">
           <div className="col">
-            <h1>Administración de Menú</h1>
+            <h1 className='animate__animated animate__fadeInDown'>Administración de Menú</h1>
             <hr />
           </div>
           <SearchAppMenu/>
@@ -162,7 +162,7 @@ const MenuScreen = () => {
             </button>
           </div>
         </div>
-        <div className="row overflow-auto border mb-5 menu border-dark border-2 p-3 mt-3 d-flex justify-content-center">
+        <div className="row overflow-auto mb-5 p-3 mt-3 d-flex justify-content-center">
           {loading ? (
             <Loading/>
           ) : mensajes ? (
