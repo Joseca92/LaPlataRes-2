@@ -63,7 +63,6 @@ const Post = ({ post, handleChange }) => {
     });
   };
 
-<<<<<<< HEAD
   return (
     <tr>
       <th scope="row">{nPedido}</th>
@@ -91,58 +90,6 @@ const Post = ({ post, handleChange }) => {
         }
       </td>
     </tr>
-=======
-  }
- 
-  return (
-    <>
-    
-
-    <br></br>
-    <div className="container dPedidos ">
-         <div className="row  columnas">
-           <div className="col-1 d-flex pedidosB">
-             <p className="etiqueta">{nPedido}</p>
-           </div>
-           <div className="col-3 col-md-2 pedidosB">
-              <p className="etiqueta">{usuario.nombre}</p>
-              
-           </div>
-           <div className="col-3 col-md-4 pedidosB">
-           <p className="etiqueta">{menus}</p>
-         
-
-           </div>
-          <div className="col-3 col-md-2 pedidosB">
-           <p className="etiqueta">{moment(date).format("LT l")}</p>
-           </div>
-           <div className="col-3 col-md-2 colEntrega pedidosB">
-           <p className="etiqueta">{envio}</p>
-           <div className="form-check check">
-              <input className="form-check-input checkEntrega" type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
-
-            </div>
-          </div>
-          <div className="col-2 col-md-1  pedidosI " title="Eliminar Pedido">
-            <lord-icon
-              src="https://cdn.lordicon.com/qsloqzpf.json"
-              trigger="hover"
-              onClick={pedidoE}
-            /*   style="width:250px;height:250px" */>
-          </lord-icon>  
-          
-          </div> 
-         </div>
-
-    </div>
-
-  
-    
-
-       
-    
-    </>
->>>>>>> 11da4ffcca67502df6f22b47b34d2e6c68cf5e73
   );
 };
 
