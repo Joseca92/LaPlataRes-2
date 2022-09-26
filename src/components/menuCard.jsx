@@ -143,47 +143,6 @@ const MenuCard = ({ post, handleChange }) => {
         </div>
       </div>
 
-      {/* <div className="col-12 cards">
-
-                <div className="card mb-3">
-                  <div className="row g-0">
-                    <div className="col-md-6">
-                      <img src={img} className="img-fluid rounded-start" alt="..." />
-                    </div>
-                    <div className="col-md-6">
-                      <div className="card-body">
-                        <h5 className="card-title">{nombre}</h5>
-                        <p className="card-text">{detalle}</p>
-                        <p className="card-text"> $ {precio}</p>
-                      </div>
-                      
-                    </div>
-                    
-                    
-                  </div>
-                </div>
-                <div className="col-md-4 d-flex flex-row just" id='botones'>
-                  <div className="btnMod">
-                    <lord-icon
-                      title="Modificar Menú"
-                        src="https://cdn.lordicon.com/btnwcdpq.json"
-                        trigger="hover"
-                        onClick={modificarM}>
-                      </lord-icon>
-                  </div>           
-                  <div className="btnElim">
-                    <lord-icon
-                          title="Eliminar Menú"
-                          src="https://cdn.lordicon.com/qsloqzpf.json"
-                          trigger="hover"
-                          onClick={menuE}>
-                      </lord-icon>
-                  </div>
-                      
-                      
-                    </div>
-      </div> */}
-
       <Modal isOpen={state.abierto}>
         <ModalHeader>Modificar Datos</ModalHeader>
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SearchAppUsuarios from "../components/SearchAppUsuarios";
 import PostUsuarios from "../components/PostUsuarios";
 import '../css/pedido.css'
+import Loading from "../components/Loading";
 
 const UsuariosABM = () => {
   const [permiso, setPermiso] = useState("");
@@ -91,9 +92,7 @@ const UsuariosABM = () => {
           <hr />
 
           {loading ? (
-            <div className="col-12 col-md-8 offset-md-2">
-              <h3>Cargando...</h3>
-            </div>
+            <Loading/>
           ) : mensaje ? (
             <div className="col-12 col-md-6 offset-md-3">
               <div className="alert alert-danger" role="alert">
