@@ -114,10 +114,6 @@ body{
     width: 10%;
 }
 
-
-/* #contenedorPost::-webkit-scrollbar{
-    width: 7px;
+.etiqueta{
+    font-size: 80%;
 }
-#contenedorPost::-webkit-scrollbar-thumb{
-    background-color: #77dd77;
-} */

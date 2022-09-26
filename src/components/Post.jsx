@@ -81,44 +81,36 @@ const Post = ({post, handleChange }) => {
 
   }
  
-
-     
-
-  
-
-
- 
   return (
     <>
     
 
     <br></br>
     <div className="container dPedidos ">
-         <div className="row columnas">
+         <div className="row  columnas">
            <div className="col-1 d-flex pedidosB">
-             <p>{nPedido}</p>
+             <p className="etiqueta">{nPedido}</p>
            </div>
-           <div className="col-2 pedidosB">
-              <p>{usuario.nombre}</p>
+           <div className="col-3 col-md-2 pedidosB">
+              <p className="etiqueta">{usuario.nombre}</p>
               
            </div>
-           <div className="col-4 pedidosB">
-           <p>{menus}</p>
+           <div className="col-3 col-md-4 pedidosB">
+           <p className="etiqueta">{menus}</p>
          
 
            </div>
-          <div className="col-2 pedidosB">
-           <p>{moment(date).format("LT l")}</p>
+          <div className="col-3 col-md-2 pedidosB">
+           <p className="etiqueta">{moment(date).format("LT l")}</p>
            </div>
-           <div className="col-2 colEntrega pedidosB">
-           <p>{envio}</p>
+           <div className="col-3 col-md-2 colEntrega pedidosB">
+           <p className="etiqueta">{envio}</p>
            <div className="form-check check">
               <input className="form-check-input checkEntrega" type="checkbox" value="" id="flexCheckDefault" checked={entrega} onClick={pedidoR}/>
 
             </div>
           </div>
-          <div className="col-1 pedidosI " title="Eliminar Pedido">
-            {/* <img src={borradoP} alt="Eliminar Pedido"  onClick={pedidoE}/> */}
+          <div className="col-2 col-md-1  pedidosI " title="Eliminar Pedido">
             <lord-icon
               src="https://cdn.lordicon.com/qsloqzpf.json"
               trigger="hover"

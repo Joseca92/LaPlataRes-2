@@ -113,21 +113,21 @@ const Pedido = () => {
             <>
             <div className="contenedorGeneral">
               <div className="container contenedor">
-                      <div className="row">
+                      <div className="row table">
                         <div className="col-1">
-                          <h5>N°</h5>
+                          <h5 className="etiqueta">N°</h5>
                         </div>
-                        <div className="col-2">
-                           <h5>Cliente</h5>
+                        <div className="col-3 col-md-2">
+                           <h5 className="etiqueta">Cliente</h5>
                         </div>
-                        <div className="col-4">
-                           <h5>Menu/s</h5>
+                        <div className="col-3 col-md-4">
+                           <h5  className="etiqueta">Menu/s</h5>
                         </div>
-                        <div className="col-2">
-                          <h5>Fecha</h5>
+                        <div className="col-3 col-md-2">
+                          <h5  className="etiqueta">Fecha</h5>
                         </div>
-                        <div className="col-2">
-                          <h5>Entrega</h5>
+                        <div className="col-1 col-md-2">
+                          <h5  className="etiqueta">Entrega</h5>
                         </div>
                       </div>
                     </div>
