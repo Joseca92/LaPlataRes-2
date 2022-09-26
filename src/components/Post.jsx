@@ -90,7 +90,7 @@ const Post = ({ post, handleChange }) => {
         }
       </td>
     </tr>
-  );
+  ); 
 };
 
 export default Post;
