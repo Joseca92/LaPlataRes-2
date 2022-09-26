@@ -22,7 +22,7 @@ const RoutesGral = () => {
     <>
     <NavBar/>
       <Routes>
-        <Route path='/' element={
+        <Route path='/home' element={
             <HomeScreen/>
         }/>
         <Route path="*" element={<ErrorScreen/>}/>

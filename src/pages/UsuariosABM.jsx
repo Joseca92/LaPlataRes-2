@@ -81,64 +81,68 @@ const UsuariosABM = () => {
 
   return (
     <>
-    <div className="container " id="contenedorP">
-      <div className="row">
-        <div className="col">
-          <div className="headUsuario">       
-              <h3 className="text-center">Bienvenido al ABM de Usuarios!</h3> 
-              <SearchAppUsuarios /> 
-            </div>         
-
-          <hr />
-
-          {loading ? (
-            <Loading/>
-          ) : mensaje ? (
-            <div className="col-12 col-md-6 offset-md-3">
-              <div className="alert alert-danger" role="alert">
-                {mensaje}
-              </div>
-              <Link className="btn btn-primary" to="/login">
-                Volver
-              </Link>
+      <div className="container " id="contenedorP">
+        <div className="row">
+          <div className="col">
+            <div className="headUsuario">
+              <h3 className="text-center">Bienvenido al ABM de Usuarios!</h3>
+              <SearchAppUsuarios />
             </div>
-          ) : (
-            <>
-          <div className="contenedorGeneral">
-            <div className="container contenedor">
-                      <div className="row">
-                        <div className="col-3">
-                          <h5>Nombre</h5>
-                        </div>
-                        <div className="col-3">
-                           <h5>Email</h5>
-                        </div>
-                        <div className="col-2">
-                           <h5>Rol</h5>
-                        </div>
-                        <div className="col-2">
-                          <h5>Estado</h5>
-                        </div>
-                      </div>
+
+            <hr />
+
+            {loading ? (
+              <Loading />
+            ) : mensaje ? (
+              <div className="col-12 col-md-6 offset-md-3">
+                <div className="alert alert-danger" role="alert">
+                  {mensaje}
+                </div>
+                <Link className="btn btn-primary" to="/login">
+                  Volver
+                </Link>
+              </div>
+            ) : (
+              <>
+                <div className="contenedorGeneral">
+                  <div className="container contenedor">
+                  <div className="table-responsive">
+                      <table className="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Rol/s</th>
+                            <th scope="col">Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {mostrarP.pedido.map((mostrar) => (
+                        <Post
+                        post={mostrar}
+                        handleChange={handleChange}
+                        key={mostrar.uid}
+                      />
+                    ))}
+                        </tbody>
+                      </table>
                     </div>
-              <div>
-                {
-                mostrarU.usuario.map((mostrar) => (
-                  <PostUsuarios  post={mostrar} handleChange={handleChange} key={mostrar.uid} />     
-                  ))
-    
-                }
-                
-
-              </div>
-            </div>
-            </>
-          )}
-          
-   
+                  </div>
+                  <div>
+                    {mostrarU.usuario.map((mostrar) => (
+                      <PostUsuarios
+                        post={mostrar}
+                        handleChange={handleChange}
+                        key={mostrar.uid}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

@@ -18,6 +18,20 @@ const Pedido = () => {
   const [actualizar, setActualizar] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
+<<<<<<< HEAD
+=======
+  
+  
+ 
+  
+  useEffect(() => {
+    const id= JSON.parse(localStorage.getItem("user"));
+        console.log(id);    
+         getUsuarioById(id).then((respuesta)=>{
+            console.log(respuesta.usuario.role);
+            setPermiso(respuesta.usuario.role);     
+          }) 
+>>>>>>> 11da4ffcca67502df6f22b47b34d2e6c68cf5e73
 
   useEffect(() => {
     const id = JSON.parse(localStorage.getItem("user"));
@@ -91,6 +105,7 @@ const Pedido = () => {
                   Volver
                 </Link>
               </div>
+<<<<<<< HEAD
             ) : (
               <>
                 <div className="contenedorGeneral">
@@ -116,6 +131,33 @@ const Pedido = () => {
                     ))}
                         </tbody>
                       </table>
+=======
+              <Link className="btn btn-primary" to="/login">
+                Volver
+              </Link>
+            </div>
+          ) : (
+            <>
+            <div className="contenedorGeneral">
+              <div className="container contenedor">
+                      <div className="row table">
+                        <div className="col-1">
+                          <h5 className="etiqueta">N°</h5>
+                        </div>
+                        <div className="col-3 col-md-2">
+                           <h5 className="etiqueta">Cliente</h5>
+                        </div>
+                        <div className="col-3 col-md-4">
+                           <h5  className="etiqueta">Menu/s</h5>
+                        </div>
+                        <div className="col-3 col-md-2">
+                          <h5  className="etiqueta">Fecha</h5>
+                        </div>
+                        <div className="col-1 col-md-2">
+                          <h5  className="etiqueta">Entrega</h5>
+                        </div>
+                      </div>
+>>>>>>> 11da4ffcca67502df6f22b47b34d2e6c68cf5e73
                     </div>
                   </div>
                 </div>
