@@ -39,6 +39,7 @@ const MenuCard = ({ post, handleChange }) => {
       nombre: fNombre,
       detalle: fDetalle,
       estado: fEstado,
+      img:fImg,
       precio: fPrecio,
       categoria: categoria,
     };
@@ -46,6 +47,7 @@ const MenuCard = ({ post, handleChange }) => {
       datos.nombre == "" ||
       datos.detalle == "" ||
       datos.estado == "" ||
+      datos.img == "" ||
       datos.precio == "" ||
       datos.categoria == ""
     ) {
@@ -57,11 +59,9 @@ const MenuCard = ({ post, handleChange }) => {
         icon: "warning",
         buttons: ["No", "Si"],
       }).then((respuesta) => {
-        console.log(respuesta);
         if (respuesta) {
           putMenu(datos, _id).then((respuesta) => {
-            console.log(respuesta.errors);
-            console.log(datos);
+           
           });
           swal({
             text: "El Menú a sido modificado con exito",
@@ -90,7 +90,7 @@ const MenuCard = ({ post, handleChange }) => {
       icon: "warning",
       buttons: ["No", "Si"],
     }).then((respuesta) => {
-      console.log(respuesta);
+    
       if (respuesta) {
         deleteMenu(_id).then((respuesta) => {
           console.log(respuesta.msg);
@@ -143,47 +143,6 @@ const MenuCard = ({ post, handleChange }) => {
         </div>
       </div>
 
-      {/* <div className="col-12 cards">
-
-                <div className="card mb-3">
-                  <div className="row g-0">
-                    <div className="col-md-6">
-                      <img src={img} className="img-fluid rounded-start" alt="..." />
-                    </div>
-                    <div className="col-md-6">
-                      <div className="card-body">
-                        <h5 className="card-title">{nombre}</h5>
-                        <p className="card-text">{detalle}</p>
-                        <p className="card-text"> $ {precio}</p>
-                      </div>
-                      
-                    </div>
-                    
-                    
-                  </div>
-                </div>
-                <div className="col-md-4 d-flex flex-row just" id='botones'>
-                  <div className="btnMod">
-                    <lord-icon
-                      title="Modificar Menú"
-                        src="https://cdn.lordicon.com/btnwcdpq.json"
-                        trigger="hover"
-                        onClick={modificarM}>
-                      </lord-icon>
-                  </div>           
-                  <div className="btnElim">
-                    <lord-icon
-                          title="Eliminar Menú"
-                          src="https://cdn.lordicon.com/qsloqzpf.json"
-                          trigger="hover"
-                          onClick={menuE}>
-                      </lord-icon>
-                  </div>
-                      
-                      
-                    </div>
-      </div> */}
-
       <Modal isOpen={state.abierto}>
         <ModalHeader>Modificar Datos</ModalHeader>
 
@@ -216,6 +175,7 @@ const MenuCard = ({ post, handleChange }) => {
                   <FormGroup>
                     <Label for="imagen">Imagen</Label>
                     <input
+                      required
                       id="imagen"
                       className="form-control"
                       type="text"

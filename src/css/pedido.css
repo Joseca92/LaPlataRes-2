@@ -1,6 +1,6 @@
 body{
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 #contenedorP{
     position: relative;
@@ -10,7 +10,7 @@ body{
     align-items: center;
     width: 80%;
     margin-bottom: 2rem;
-    
+    height: 100%;
 }
 
 .pedidosI{
@@ -31,7 +31,7 @@ body{
     width: 100%;
     max-width: 870px;
 
-    height: 20rem;
+    height: 100vh;
     overflow: auto;
 
 
@@ -39,7 +39,7 @@ body{
 
 .contenedor{
     /* width: 70%; */
-    background-color: rgba(13, 14, 13, 0.322);
+    background-color: rgba(13, 14, 13, 0.322)!important;
 }
 .dPedidos{
     /* width: 70%; */
@@ -114,10 +114,6 @@ body{
     width: 10%;
 }
 
-
-/* #contenedorPost::-webkit-scrollbar{
-    width: 7px;
+.etiqueta{
+    font-size: 80%;
 }
-#contenedorPost::-webkit-scrollbar-thumb{
-    background-color: #77dd77;
-} */

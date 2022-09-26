@@ -1,5 +1,6 @@
-const url = 'http://localhost:8080/api';
-// const url = "https://restaurantelp.herokuapp.com"
+//const url = 'http://localhost:8080/api';
+const url = "https://restaurantelp.herokuapp.com/api"
+
 //traer un usuario
 export const validarToken = async () => {
   const resp = await fetch(`${url}/usuarios`, {
@@ -44,6 +45,20 @@ export const postAuth = async datos => {
   return data;
 };
 
+//pedido
+export const postPedido = async datos => {
+  const resp = await fetch(`${url}/pedido`, {
+    method: 'POST',
+    body: JSON.stringify(datos),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+      "x-token": JSON.parse(localStorage.getItem("token")),
+    },
+  });
+  const data = await resp.json();
+
+  return data;
+};
 
 export const getPedido = async (registro = 0) => {
     const resp = await fetch(`${url}/pedido?desde=${registro}`, {
