@@ -28,8 +28,8 @@ const LoginScreen = () => {
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
-        localStorage.setItem("user", JSON.stringify(respuesta.usuario));
-        navigate("/");
+        localStorage.setItem("user", JSON.stringify(respuesta.usuario.uid));
+        navigate("/home");
         console.log("paso por el navigate")
       } else {
         setMessage(respuesta);

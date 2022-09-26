@@ -1,9 +1,25 @@
-import React, { useEffect, useState, useContext } from "react";
-import { CartContext } from "../context/cardContext";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
-const PostHome = ({ post }) => {
+
+
+const PostHomePublic = ({ post }) => {
+    const navigate = useNavigate();
+
   const { _id, precio, nombre, img, detalle } = post;
-  const { addItemToCard } = useContext(CartContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    swal({text: "Debe registrarse para realizar un pedido!!",
+      icon:"warning",
+      timer: 2000});
+      setTimeout(()=>{
+        navigate(`/login`);
+      },2000)
+    
+    
+  };
+  
 
   return (
    
@@ -20,7 +36,7 @@ const PostHome = ({ post }) => {
           <p className="card-text mt-3">
             <button
               key={_id}
-              onClick={() => addItemToCard(post)}
+              onClick={handleSubmit}
               className="btnGral fw-bold p-2 mx-2"
             >
               Agregar
@@ -33,4 +49,4 @@ const PostHome = ({ post }) => {
   );
 };
 
-export default PostHome;
+export default PostHomePublic;

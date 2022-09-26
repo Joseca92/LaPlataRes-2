@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import CartProduct from "../components/cartProduct"
 import { CartContext } from "../context/cardContext";
+import { postPedido } from "../helpers/fetchApp";
 import "../css/cart.css";
+import swal from "sweetalert";
+
 
 
 const Cart = ({product}) => {
@@ -29,12 +32,53 @@ const Cart = ({product}) => {
 
     
   );
+  //guardando localStorage
+
+
+
 
   /*funcion para el boton de realizar pedido*/
   function btnP(product){
     if(total === 0 ){
-      alert("Tu carrito esta vacio")
+      swal({text: "No ha seleccionado ningun menu",
+      icon:"error",
+      timer: 3000});
     }else{
+     let localS=JSON.parse(localStorage.getItem("product"));
+     let arrayM=[]
+     localS.forEach(elem => {
+        if(elem.amount > 1){
+          for (let i = 0; i < elem.amount; i++) {
+            arrayM.push(elem._id);   
+          }
+        }
+        else{
+          arrayM.push(elem._id);
+        }
+        
+     });
+   
+     let usu= JSON.parse(localStorage.getItem("user"));
+
+     
+     let datos={
+      usuario_id: usu,
+      menu:arrayM,
+     }
+
+    postPedido(datos).then((respuesta)=>{
+      console.log(respuesta)
+
+     })
+     localStorage.setItem('product',[])
+     swal({text: "Ha realizado un pedido con exito!!",
+      icon:"success",
+      timer: 3000});
+      setTimeout(()=>{
+        window.location.href = window.location.href;
+      },3000);
+     
+
       console.log("Pedido realizado")
       
     }

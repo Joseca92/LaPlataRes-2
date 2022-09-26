@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { getUsuarioById} from "../helpers/fetchUsuario";
 import '../css/navP.css'
-import Cart from './Cart'
 import Logo from './Logo'
 
 const Nav = () => {
@@ -10,8 +10,12 @@ const Nav = () => {
   const [user, setUser] = useState(null);
   const token = JSON.parse(localStorage.getItem("token")) || null;
   useEffect(()=>{
-    const datos = JSON.parse(localStorage.getItem("user"))
-    setUser(datos);
+    const id = JSON.parse(localStorage.getItem("user"))
+    console.log(id)
+    getUsuarioById(id).then((respuesta)=>{
+      console.log(respuesta.usuario);
+      setUser(respuesta.usuario);     
+    }) 
   },[])
   const logout = () => {
     localStorage.clear();
@@ -24,7 +28,6 @@ const Nav = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-black"  >
       <div className="container navP">
         <Link className="navbar-brand d-flex align-items-center text-white" to="/">
-          {/* <img src={logo} alt="logo la plata restaurante" width="64" height="64" className="d-inline-block align-text-top" /> */}
           <Logo/>
           <h4>La Plata restaurante</h4>
         </Link>
