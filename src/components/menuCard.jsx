@@ -39,6 +39,7 @@ const MenuCard = ({ post, handleChange }) => {
       nombre: fNombre,
       detalle: fDetalle,
       estado: fEstado,
+      img:fImg,
       precio: fPrecio,
       categoria: categoria,
     };
@@ -46,6 +47,7 @@ const MenuCard = ({ post, handleChange }) => {
       datos.nombre == "" ||
       datos.detalle == "" ||
       datos.estado == "" ||
+      datos.img == "" ||
       datos.precio == "" ||
       datos.categoria == ""
     ) {
@@ -57,11 +59,9 @@ const MenuCard = ({ post, handleChange }) => {
         icon: "warning",
         buttons: ["No", "Si"],
       }).then((respuesta) => {
-        console.log(respuesta);
         if (respuesta) {
           putMenu(datos, _id).then((respuesta) => {
-            console.log(respuesta.errors);
-            console.log(datos);
+           
           });
           swal({
             text: "El Menú a sido modificado con exito",
@@ -90,7 +90,7 @@ const MenuCard = ({ post, handleChange }) => {
       icon: "warning",
       buttons: ["No", "Si"],
     }).then((respuesta) => {
-      console.log(respuesta);
+    
       if (respuesta) {
         deleteMenu(_id).then((respuesta) => {
           console.log(respuesta.msg);
@@ -216,6 +216,7 @@ const MenuCard = ({ post, handleChange }) => {
                   <FormGroup>
                     <Label for="imagen">Imagen</Label>
                     <input
+                      required
                       id="imagen"
                       className="form-control"
                       type="text"

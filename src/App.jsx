@@ -6,6 +6,7 @@ import LoginScreen from "./pages/LoginScreen";
 import RegistroScreen from "./pages/RegistroScreen";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import { CartProvider } from "./context/cardContext";
+import HomePublicScreen from "./pages/HomePublicScreen";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               </ProtectedRoutes>
           }
         />
+        <Route path="/" element={<HomePublicScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/registro" element={<RegistroScreen />} />
       </Routes>   

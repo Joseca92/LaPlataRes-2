@@ -22,7 +22,7 @@ const Pedido = () => {
  
   
   useEffect(() => {
-    const id= JSON.parse(localStorage.getItem("user"))
+    const id= JSON.parse(localStorage.getItem("user"));
         console.log(id);    
          getUsuarioById(id).then((respuesta)=>{
             console.log(respuesta.usuario.role);
