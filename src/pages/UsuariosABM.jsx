@@ -116,15 +116,7 @@ const UsuariosABM = () => {
                             <th scope="col">Estado</th>
                           </tr>
                         </thead>
-                        <tbody>
-                        {mostrarP.pedido.map((mostrar) => (
-                        <Post
-                        post={mostrar}
-                        handleChange={handleChange}
-                        key={mostrar.uid}
-                      />
-                    ))}
-                        </tbody>
+                        
                       </table>
                     </div>
                   </div>

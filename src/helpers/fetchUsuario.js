@@ -1,5 +1,5 @@
-/* const url = "http://localhost:8080/api"; */
-const url = "https://restaurantelp.herokuapp.com/api";
+const url = "http://localhost:8080/api";
+//const url = "https://restaurantelp.herokuapp.com/api";
 
 
 //usuarios
@@ -49,6 +49,8 @@ export const deleteUsuario = async (id) => {
     method: "DELETE",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
+      "x-token": JSON.parse(localStorage.getItem("token")),
+
     },
   });
   

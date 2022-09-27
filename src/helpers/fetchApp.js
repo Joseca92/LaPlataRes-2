@@ -1,5 +1,5 @@
-//const url = 'http://localhost:8080/api';
-const url = "https://restaurantelp.herokuapp.com/api"
+const url = 'http://localhost:8080/api';
+//const url = "https://restaurantelp.herokuapp.com/api"
 
 //traer un usuario
 export const validarToken = async () => {
