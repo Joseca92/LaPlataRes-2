@@ -170,17 +170,17 @@ const Post = ({post, handleChange }) => {
 
 
         
-           <div class="container">
-            <div class="row">
+           <div className="container">
+            <div className="row">
             <form onSubmit={handleSubmit}>
-              <div class="col">
+              <div className="col">
                <FormGroup>
                 <Label for="nombre">Nombre</Label>
                 <Input type="text" id="nombre" value={fNombre} onChange={(e) => setFNombre(e.target.value)}/> 
               </FormGroup>
             
               </div>
-              <div class="col">
+              <div className="col">
                 <FormGroup>
                   <Label for="rol">Rol</Label>
                     <select

@@ -6,6 +6,7 @@ import PostUsuarios from "../components/PostUsuarios";
 import '../css/pedido.css'
 import Loading from "../components/Loading";
 
+
 const UsuariosABM = () => {
   const [permiso, setPermiso] = useState("");
   
@@ -14,6 +15,8 @@ const UsuariosABM = () => {
     total: 0,
   });
 
+  
+    
  
   const [actualizar, setActualizar] = useState();
   const [loading, setLoading] = useState(true);
@@ -117,13 +120,8 @@ const UsuariosABM = () => {
                           </tr>
                         </thead>
                         <tbody>
-                        {mostrarP.pedido.map((mostrar) => (
-                        <Post
-                        post={mostrar}
-                        handleChange={handleChange}
-                        key={mostrar.uid}
-                      />
-                    ))}
+                        
+                   
                         </tbody>
                       </table>
                     </div>

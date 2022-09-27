@@ -54,7 +54,7 @@ const MenuCard = ({ post, handleChange }) => {
       swal({ text: "Los campos no deben estar vacio", icon: "error" });
     } else {
       swal({
-        title: "Modificar usuario",
+        title: "Modificar menu",
         text: "¿Esta seguro que quiere modificar el menú?",
         icon: "warning",
         buttons: ["No", "Si"],

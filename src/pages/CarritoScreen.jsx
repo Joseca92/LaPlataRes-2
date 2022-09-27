@@ -8,31 +8,30 @@ import swal from "sweetalert";
 
 
 const Cart = ({product}) => {
-  /* Creamos 2 estados, uno para ver si el carrito esta abierto o no 
-  y otro para obtener la cantidad de productos que tenemos en el carrito */
+  /*Estado para ver si el carrito esta abierto y para ver cuantos productos hay */
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
 
-  /* Traemos del context los productos del carrito */
+  /* Productos del carrito */
   const { cartItems } = useContext(CartContext);
 
  
 
-  /* Cada vez que se modifica el carrito, actualizamos la cantidad de productos */
+  /* Amount del carrito */
   useEffect(() => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
     );
   }, [cartItems]);
 
-  /* Obtenemos el precio total */
+  /* Precio total */
   const total = cartItems?.reduce(
     (previous, current) => previous + current.amount * current.precio,
     0
 
     
   );
-  //guardando localStorage
+  
 
 
 
