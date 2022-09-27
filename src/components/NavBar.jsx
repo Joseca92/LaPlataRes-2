@@ -37,7 +37,7 @@ const Nav = () => {
         <div className="collapse navbar-collapse offset-lg-5 offset-md-4" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
             </li>
             {
             user?.role === "ADMIN_ROLE" && (

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import CartProduct from "../components/cartProduct"
 import { CartContext } from "../context/cardContext";
 import { postPedido } from "../helpers/fetchApp";
@@ -14,6 +15,7 @@ const Cart = ({product}) => {
 
   /* Productos del carrito */
   const { cartItems } = useContext(CartContext);
+  
 
  
 
@@ -22,19 +24,17 @@ const Cart = ({product}) => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
     );
+   
+    
   }, [cartItems]);
 
   /* Precio total */
   const total = cartItems?.reduce(
     (previous, current) => previous + current.amount * current.precio,
     0
-
+  
     
   );
-  
-
-
-
 
   /*funcion para el boton de realizar pedido*/
   function btnP(product){
@@ -74,7 +74,8 @@ const Cart = ({product}) => {
       icon:"success",
       timer: 3000});
       setTimeout(()=>{
-        window.location.href = window.location.href;
+       /*  window.location.href = window.location.href; */
+       window.location.reload();
       },3000);
      
 
@@ -145,9 +146,11 @@ const Cart = ({product}) => {
               ))}
             </div>
           )}
-        <div className="btnPedido">
+          <div className="btnPedido">
           <h2 className="total" onClick={() => btnP(product)} >Realizar pedido ${total}</h2>
           </div>
+          
+        
           
         
          
