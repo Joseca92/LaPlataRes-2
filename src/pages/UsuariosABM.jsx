@@ -6,6 +6,7 @@ import PostUsuarios from "../components/PostUsuarios";
 import '../css/pedido.css'
 import Loading from "../components/Loading";
 
+
 const UsuariosABM = () => {
   const [permiso, setPermiso] = useState("");
   
@@ -14,6 +15,8 @@ const UsuariosABM = () => {
     total: 0,
   });
 
+  
+    
  
   const [actualizar, setActualizar] = useState();
   const [loading, setLoading] = useState(true);
@@ -116,7 +119,10 @@ const UsuariosABM = () => {
                             <th scope="col">Estado</th>
                           </tr>
                         </thead>
+                        <tbody>
                         
+                   
+                        </tbody>
                       </table>
                     </div>
                   </div>

@@ -3,10 +3,10 @@ import { CartContext } from "../context/cardContext";
 import "../css/cartProduct.css";
 
  const cartProduct = ({ item }) => {
-  /* Traemos del context las funciones para agregar y sacar productos del carrito */
+ 
   const { addItemToCard, deleteItemToCart } = useContext(CartContext);
 
-  /* Desestructuramos el item para sacar solo la id */
+  
   const { _id } = item;
 
   return (

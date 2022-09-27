@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCategoria, postMenu, getMenu,getMenuById } from '../helpers/fetchMenu';
+import { getCategoria, postMenu, getMenu, getMenuById } from '../helpers/fetchMenu';
 import MenuCard from '../components/menuCard';
 import { Link } from 'react-router-dom';
 import '../css/menuScreen.css';
@@ -25,7 +25,7 @@ const MenuScreen = () => {
   const [permiso, setPermiso] = useState("");
 
 
-  //traer lo menus
+  //traer los menus
   const [menus, setMenus] = useState([]);
   useEffect(() => {
     const id= JSON.parse(localStorage.getItem("user"))
@@ -66,14 +66,7 @@ const MenuScreen = () => {
   }
 
 
-  /* 
-   setInterval(()=>{
-    getMenu().then((respuesta)=>{
-      setActualizar(respuesta.total);
-
-    })
   
-  },10000) */
   
   const handleChange= (e)=>{
     console.log("handleChange")
@@ -85,13 +78,6 @@ const MenuScreen = () => {
    
   }
 
-/*   const handleChange= ()=>{
-    getMenu().then((respuesta)=>{
-      setActualizar(respuesta.total);
-
-  })
-    
-  } */
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -118,12 +104,7 @@ const MenuScreen = () => {
       }, 3000);
     });
   };
-  /* useEffect(() => {
-    getCategoria().then(respuesta => {
-    
-      setCategorias(respuesta.categoria);
-    });
-  }, []); */
+  
 
   const limpiarCampos = () => {
     setNombre('');

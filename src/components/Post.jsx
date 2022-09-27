@@ -34,7 +34,7 @@ const Post = ({ post, handleChange }) => {
     putPedido(uid).then((respuesta) => {
       console.log(respuesta.msg);
     });
-    swal({ text: "El ha sido realizado!!", icon: "success", timer: 2000 });
+    swal({ text: "El Pedido ha sido realizado!!", icon: "success", timer: 2000 });
     handleChange();
   };
 
@@ -50,7 +50,7 @@ const Post = ({ post, handleChange }) => {
           console.log(respuesta.msg);
         });
         swal({
-          text: "El Pedido a sido borrado con exito",
+          text: "El Pedido ha sido borrado con exito",
           icon: "success",
           timer: 2000,
         });
