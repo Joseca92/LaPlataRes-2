@@ -3,7 +3,7 @@ import {getUsuarios, getUsuarioById} from "../helpers/fetchUsuario";
 import { Link } from "react-router-dom";
 import SearchAppUsuarios from "../components/SearchAppUsuarios";
 import PostUsuarios from "../components/PostUsuarios";
-import '../css/pedido.css'
+
 import Loading from "../components/Loading";
 
 

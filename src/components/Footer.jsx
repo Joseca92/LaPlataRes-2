@@ -4,8 +4,8 @@ import '../css/footer.css'
 import Logo from './Logo'
 const Footer = () => {
     return (
-        <div className="container-fluid bg-black">
-            <div className="container">
+        <div className="container-fluid bg-black ">
+            <div className="container ">
                 <div className="row">
                     <div className="col-12 col-md-4 text-white text-center">
                         <Link className="navbar-brand text-white d-flex align-items-center justify-content-center " to="/">
