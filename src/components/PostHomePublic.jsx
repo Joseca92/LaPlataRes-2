@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import "../css/menuCard.css"
 
 
 
@@ -26,7 +27,7 @@ const PostHomePublic = ({ post }) => {
     <div className="card text-white bg-black sombra mb-3">
     <div className="row g-0">
       <div className="col-md-4">
-        <img src={img} className="img-fluid rounded-start" alt="..." />
+        <img src={img} className=" rounded-start imgd" alt="..." />
       </div>
       <div className="col-md-8">
         <div className="card-body">

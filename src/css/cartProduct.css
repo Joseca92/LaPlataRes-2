@@ -9,9 +9,12 @@
     /*position: fixed;*/
   }
 
-  img {
+  /*imagenes de el carrito*/
+  .imgb {
     height: 65px;
+    width: 65px;
     border-radius: 5px;
+    object-fit: cover;
   }
 
   .dataContainer {
@@ -60,19 +63,15 @@ button {
   justify-content: space-between;
   align-items: flex-end;
 }
-  /*.divCart {
-      background-color: #FB3939;
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: bold;
-  } */
 
   p {
       font-weight: bold;
   }
   
+  @media all and (min-width:300px) and (max-width:539px){
+
+  
+    .miniCart{
+      display: none;
+    }
+  }

@@ -11,7 +11,7 @@ import "../css/cartProduct.css";
 
   return (
     <div className="cartItem divCart">
-      <img className="img" src={item.img} alt={item.nombre} />
+      <img className="imgb" src={item.img} alt={item.nombre} />
       <div className="dataContainer">
         <div className="left">
           <p>{item.nombre}</p>
@@ -24,7 +24,7 @@ import "../css/cartProduct.css";
             </button>
           </div>
         </div>
-        <div className="right">
+        <div className="right miniCart">
           <div>{item.amount}</div>
           <p>Total: ${item.amount * item.precio}</p>
           

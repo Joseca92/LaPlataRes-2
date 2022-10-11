@@ -84,7 +84,7 @@ const LoginScreen = () => {
                     <button className="btnGral fw-bold p-2" onClick={validarDatos}>Iniciar Sesión</button>
                   </div>
                   <div className="col-6 d-flex justify-content-center ">
-                  <Link className="btn btn-primary" to="/Registro">Registrarse</Link>
+                  <Link className="btn btnGral fw-bold" to="/Registro">Registrarse</Link>
                   </div>
                 </div>
             
