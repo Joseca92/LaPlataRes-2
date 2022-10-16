@@ -108,4 +108,19 @@ h2 {
     background: #ffcc00;
     color: rgb(37, 42, 42);
   }
+
+  @media all and (min-width:279px) and (max-width:539px){
+
+    .cartContainer {
+      width: 100vw;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      position: fixed;
+      z-index: 10;
+      
+     }
+
+  }
+
   

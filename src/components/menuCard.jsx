@@ -10,6 +10,7 @@ import {
   Input,
   Label,
 } from "reactstrap";
+import "../css/menuCard.css"
 
 const MenuCard = ({ post, handleChange }) => {
   const { _id, precio, nombre, img, detalle, estado } = post;
@@ -113,7 +114,7 @@ const MenuCard = ({ post, handleChange }) => {
       <div className="card shadow mb-3">
         <div className="row g-0">
           <div className="col-md-4">
-            <img src={img} className="img-fluid rounded-start" alt="..." />
+            <img src={img} className=" rounded-start imgc" alt="..." />
           </div>
           <div className="col-md-8">
             <div className="card-body">

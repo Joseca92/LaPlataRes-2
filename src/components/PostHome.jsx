@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { CartContext } from "../context/cardContext";
+import "../css/menuCard.css"
+
 
 const PostHome = ({ post }) => {
   const { _id, precio, nombre, img, detalle } = post;
@@ -10,7 +12,7 @@ const PostHome = ({ post }) => {
     <div className="card text-white bg-black sombra mb-3">
     <div className="row g-0">
       <div className="col-md-4">
-        <img src={img} className="img-fluid rounded-start" alt="..." />
+        <img src={img} className=" rounded-start imgd" alt="..." />
       </div>
       <div className="col-md-8">
         <div className="card-body">

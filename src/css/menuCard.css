@@ -1,0 +1,20 @@
+/*estilo para las imagenes de las cards*/
+.imgc {
+
+    height: 200px;
+    
+    width: 100%;
+    
+    object-fit: cover;
+    
+    }
+/*estilo para las imagenes en el home*/
+ .imgd {
+
+        height: 200px;
+        
+        width: 100%;
+        
+        object-fit: cover;
+        
+        }

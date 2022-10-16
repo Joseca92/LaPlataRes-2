@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
       const productoEnLoscalS = localStorage.getItem("product");
       return productoEnLoscalS ? JSON.parse(productoEnLoscalS) : [];
     } catch (error) {
-      return[];
+      return[]; 
     }
   },[]);
   const [actualizar, setActualizar] = useState([]);
