@@ -14,10 +14,9 @@ const Post = ({post, handleChange }) => {
 
   const {uid, nombre, email, role, estado } = post;
   let activo="Usuario Activo";
-  let usuAct=true;
-  if(!estado){
-    usuAct=false;
-  }
+  
+  const [usuAct, setusuAct] = useState(true);
+  
 
 
   const usuarioE=()=>{
@@ -201,7 +200,7 @@ const Post = ({post, handleChange }) => {
                 </FormGroup>
                 <FormGroup>
                   <Label for="estado">Estado</Label>                
-                 <select class="form-select" aria-label="Default select example" value={usuAct} onChange={(e) => setFEstado(e.target.value)}>
+                 <select class="form-select" aria-label="Default select example" value={fEstado} onChange={(e) => setFEstado(e.target.value)}>
                     <option value="true">Activo</option>
                     <option value="false">Cancelado</option>
                   </select>  

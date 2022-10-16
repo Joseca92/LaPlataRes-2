@@ -100,8 +100,9 @@ h2 {
     background: #222222;
     border-radius: 20px;
     color: white;
-  
-    
+  }
+  .btnPedido h2{
+    cursor: pointer;
   }
   .btnPedido:hover {
     background: #ffcc00;

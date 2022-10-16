@@ -15,10 +15,13 @@ const HomeScreen = () => {
   const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
-  // const { addItemToCard } = useContext(CartContext);
+  const [productsLength, setProductsLength] = useState(0);
+
+  const { cartItems } = useContext(CartContext);
+  
   useEffect(() => {
     getMenu().then((respuesta) => {
-      console.log(respuesta);
+      
       if (respuesta?.msg) {
         setMensaje(respuesta.msg);
       } else {
@@ -26,29 +29,20 @@ const HomeScreen = () => {
       }
       setLoading(false);
     });
-  }, [actualizar]);
 
-  
-  const [cartOpen, setCartOpen] = useState(false);
-  const [productsLength, setProductsLength] = useState(0);
-
-  const { cartItems } = useContext(CartContext);
-
-  useEffect(() => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
     );
-  }, [cartItems]);
+  }, [actualizar]);
+ 
 
   const total = cartItems?.reduce(
     (previous, current) => previous + current.amount * current.precio,
     0
   );
-
- 
   return (
     <>
-    <CarritoScreen/>
+    <CarritoScreen />
       <div className="bgPresentation">
         <div className="container-fluid m-0 p-0 fondo1">
           <div className="row text-center text-white p-5 mx-5">

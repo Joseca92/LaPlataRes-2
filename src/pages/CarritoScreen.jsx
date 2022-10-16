@@ -14,9 +14,9 @@ const Cart = ({product}) => {
   const [productsLength, setProductsLength] = useState(0);
 
   /* Productos del carrito */
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, deleteItemToCart,reiniciarToCard } = useContext(CartContext);
   
-
+  
  
 
   /* Amount del carrito */
@@ -24,6 +24,7 @@ const Cart = ({product}) => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
     );
+ 
    
     
   }, [cartItems]);
@@ -44,6 +45,8 @@ const Cart = ({product}) => {
       timer: 3000});
     }else{
      let localS=JSON.parse(localStorage.getItem("product"));
+  
+
      let arrayM=[]
      localS.forEach(elem => {
         if(elem.amount > 1){
@@ -52,6 +55,7 @@ const Cart = ({product}) => {
           }
         }
         else{
+
           arrayM.push(elem._id);
         }
         
@@ -64,23 +68,22 @@ const Cart = ({product}) => {
       usuario_id: usu,
       menu:arrayM,
      }
+     
 
     postPedido(datos).then((respuesta)=>{
       console.log(respuesta)
 
      })
-     localStorage.setItem('product',[])
+
+     
+     
      swal({text: "Ha realizado un pedido con exito!!",
       icon:"success",
       timer: 3000});
-      setTimeout(()=>{
-       /*  window.location.href = window.location.href; */
-       window.location.reload();
-      },3000);
-     
-
       console.log("Pedido realizado")
-      
+      setTimeout(() => {
+        reiniciarToCard();
+     }, 3000);
     }
   }
  

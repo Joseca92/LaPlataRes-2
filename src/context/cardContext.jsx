@@ -13,11 +13,20 @@ export const CartProvider = ({ children }) => {
       return[];
     }
   },[]);
+  const [actualizar, setActualizar] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("product", JSON.stringify(cartItems));
     console.log(cartItems)
+    
   }, [cartItems]);
+
+  /* reiniciar card */
+  const reiniciarToCard = () => {
+      setCartItems([]);
+    
+  }
+
 
   /*Agregar productos al carrito*/
   const addItemToCard = (product) => {
@@ -70,7 +79,7 @@ export const CartProvider = ({ children }) => {
 
 
     return(
-        <CartContext.Provider value={{cartItems, addItemToCard, deleteItemToCart }}>
+        <CartContext.Provider value={{cartItems, addItemToCard, deleteItemToCart, reiniciarToCard }}>
             {children}
         </CartContext.Provider>
     )

@@ -85,7 +85,7 @@ const SearchMenuHome = () => {
         </div>
 
       </div>
-      <Link className="btn btn-warning " id="btnVolver" to="/">
+      <Link className="btn btn-warning " id="btnVolver" to="/home">
                 Volver
               </Link>
     </div>
