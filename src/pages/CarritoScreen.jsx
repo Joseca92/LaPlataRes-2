@@ -9,17 +9,17 @@ import swal from "sweetalert";
 
 
 const Cart = ({product}) => {
-  /*Estado para ver si el carrito esta abierto y para ver cuantos productos hay */
+  
   const [cartOpen, setCartOpen] = useState(false);
   const [productsLength, setProductsLength] = useState(0);
 
-  /* Productos del carrito */
+
   const { cartItems, deleteItemToCart,reiniciarToCard } = useContext(CartContext);
   
   
  
 
-  /* Amount del carrito */
+ 
   useEffect(() => {
     setProductsLength(
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
@@ -29,7 +29,6 @@ const Cart = ({product}) => {
     
   }, [cartItems]);
 
-  /* Precio total */
   const total = cartItems?.reduce(
     (previous, current) => previous + current.amount * current.precio,
     0
@@ -37,7 +36,6 @@ const Cart = ({product}) => {
     
   );
 
-  /*funcion para el boton de realizar pedido*/
   function btnP(product){
     if(total === 0 ){
       swal({text: "No ha seleccionado ningun menu",
@@ -80,7 +78,7 @@ const Cart = ({product}) => {
      swal({text: "Ha realizado un pedido con exito!!",
       icon:"success",
       timer: 3000});
-      console.log("Pedido realizado")
+      
       setTimeout(() => {
         reiniciarToCard();
      }, 3000);

@@ -7,7 +7,7 @@ export const AdminScreen = () => {
 
     useEffect(() => {
         const usuario= JSON.parse(localStorage.getItem("user"))
-        console.log(usuario.uid);    
+           
          getUsuarioById(usuario.uid).then((respuesta)=>{
             console.log(respuesta.usuario.role);
             setPermiso(respuesta.usuario.role);     

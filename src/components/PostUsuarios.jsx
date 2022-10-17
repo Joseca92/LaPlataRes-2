@@ -77,7 +77,7 @@ const Post = ({post, handleChange }) => {
           putUsuarios(datos, uid).then((respuesta) => {
             console.log(respuesta.errors);
             console.log(datos); 
-          /*   setFNombre(nombre); */
+          
           });
           swal({
           text: "El Usuario a sido modificado con exito",
@@ -85,9 +85,7 @@ const Post = ({post, handleChange }) => {
           timer: 3000});
           modificarU();
           handleChange();
-          /* setTimeout(()=>{
-          window.location.href = window.location.href;
-        },3000); */
+         
         }
         if(respuesta== null){
           modificarU();
@@ -139,8 +137,7 @@ const Post = ({post, handleChange }) => {
            
           </div>
           <div className="col-1 editar " title="Modificar Usuario">
-{/*           <img src={editarU} alt="Modificar Usuario" onClick={modificarU} />
- */}          <lord-icon
+{}          <lord-icon
               src="https://cdn.lordicon.com/btnwcdpq.json"
               trigger="hover"
               onClick={modificarU}>
@@ -148,12 +145,12 @@ const Post = ({post, handleChange }) => {
         
            </div>
           <div className="col-1 pedidosI " title="Eliminar Usuario">
-          {/* <img src={borradoP} alt="Eliminar Usuario" onClick={usuarioE}/> */}
+          {}
           <lord-icon
               src="https://cdn.lordicon.com/qsloqzpf.json"
               trigger="hover"
               onClick={usuarioE}
-            /*   style="width:250px;height:250px" */>
+           >
           </lord-icon>
         
            </div>

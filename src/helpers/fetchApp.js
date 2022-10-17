@@ -1,7 +1,7 @@
-//const url = 'http://localhost:8080/api';
+
 const url = "https://restaurantelp.herokuapp.com/api"
 
-//traer un usuario
+
 export const validarToken = async () => {
   const resp = await fetch(`${url}/usuarios`, {
     method: 'GET',
@@ -15,7 +15,7 @@ export const validarToken = async () => {
   return data;
 };
 
-//REgistrar un usuario
+
 export const postUsuario = async datos => {
   const resp = await fetch(`${url}/usuarios`, {
     method: 'POST',
@@ -31,7 +31,7 @@ export const postUsuario = async datos => {
   return data;
 };
 
-//Login de usuario
+
 export const postAuth = async datos => {
   const resp = await fetch(`${url}/auth/login`, {
     method: 'POST',
@@ -45,7 +45,7 @@ export const postAuth = async datos => {
   return data;
 };
 
-//pedido
+
 export const postPedido = async datos => {
   const resp = await fetch(`${url}/pedido`, {
     method: 'POST',
@@ -101,7 +101,7 @@ export const getPedido = async (registro = 0) => {
     return data;
   };
 
-  //Buscar pedido por título--------------
+  
 export const buscarPedido = async (termino, terminoP) => {
   const resp = await fetch(`${url}/buscarp?search=${termino}`, {
     method: "GET",

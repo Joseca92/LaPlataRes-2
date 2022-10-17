@@ -25,11 +25,11 @@ const MenuScreen = () => {
   const [permiso, setPermiso] = useState("");
 
 
-  //traer los menus
+ 
   const [menus, setMenus] = useState([]);
   useEffect(() => {
     const id= JSON.parse(localStorage.getItem("user"))
-        console.log(id);    
+          
          getUsuarioById(id).then((respuesta)=>{
             console.log(respuesta.usuario.role);
             setPermiso(respuesta.usuario.role);     
@@ -40,7 +40,7 @@ const MenuScreen = () => {
       setCategorias(respuesta.categoria);
           });
     getMenu().then(respuesta => {
-      /* console.log(respuesta.total); */
+     
       if (respuesta?.msg) {
         setMensajes(respuesta.msg);
       } else {
@@ -69,12 +69,12 @@ const MenuScreen = () => {
   
   
   const handleChange= (e)=>{
-    console.log("handleChange")
-   /*  let cambio=0; */
+    
+  
 
     setActualizar(actualizar+5);
   
-    console.log(actualizar);
+    
    
   }
 
@@ -92,7 +92,7 @@ const MenuScreen = () => {
     };
 
     postMenu(datos).then(respuesta => {
-      //console.log(respuesta.errors);
+      
       if (respuesta?.errors) {
         setMensaje(respuesta.errors);
       } else {
@@ -115,7 +115,7 @@ const MenuScreen = () => {
     setImagen('');
     setTimeout(()=>{
       handleChange();
-    /* window.location.href = window.location.href; */
+    
   },4000);
   };
 
@@ -129,7 +129,7 @@ const MenuScreen = () => {
           </div>
           <SearchAppMenu/>
         </div>
-        {/* modalBoton */}
+        {}
         <div className="row">
           <div className="col-5">
             <button
@@ -180,11 +180,11 @@ const MenuScreen = () => {
           )}
         </div>
       </div>
-      {/* modal */}
+      {}
       <div
         className="modal fade"
         id="exampleModal"
-        // tabindex="-1"
+       
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -266,9 +266,7 @@ const MenuScreen = () => {
                   value={precio}
                   onChange={e => setPrecio(e.target.value)}
                 />
-                {/* <button className="btn btn-primary mt-3 float-end">
-                    Guardar
-                  </button> */}
+                {}
               </form>
               {mensaje.length > 0 && (
                 <div className="my-3">

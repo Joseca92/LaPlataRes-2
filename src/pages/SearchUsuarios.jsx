@@ -14,7 +14,7 @@ const SearchUsuarios = () => {
 
   useEffect(() => {
     buscarUsuario(termino).then((respuesta) => {
-      console.log(respuesta.results);
+      
       setUsuarios(respuesta.results);
    
       
@@ -24,7 +24,7 @@ const SearchUsuarios = () => {
   }, [termino,actualizar]);
 
   const handleChange= (e)=>{
-    console.log("handleChange")
+  
     getUsuarios().then((respuesta)=>{
       setActualizar(respuesta.total);
     })

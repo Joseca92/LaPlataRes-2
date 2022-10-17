@@ -1,4 +1,4 @@
-//Aqui van las rutas de las paginas/////
+
   import React from "react";
   import { Routes, Route } from "react-router-dom";
 

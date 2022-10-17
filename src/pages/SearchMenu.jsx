@@ -20,7 +20,7 @@ const SearchMenu = () => {
   }, [termino, actualizar]);
 
   const handleChange= (e)=>{
-    console.log("handleChange")
+    
     getMenu().then((respuesta)=>{
       setActualizar(respuesta.total);
     })

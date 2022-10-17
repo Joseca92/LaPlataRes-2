@@ -1,10 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 
-/* Context creado */
+
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  /* estado para el carrito */
+  
   const [cartItems, setCartItems] = useState(()=>{
     try {
       const productoEnLoscalS = localStorage.getItem("product");
@@ -17,18 +17,18 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("product", JSON.stringify(cartItems));
-    console.log(cartItems)
+    
     
   }, [cartItems]);
 
-  /* reiniciar card */
+  
   const reiniciarToCard = () => {
       setCartItems([]);
     
   }
 
 
-  /*Agregar productos al carrito*/
+  
   const addItemToCard = (product) => {
     const inCart = cartItems.find(
       (productInCart) => productInCart._id === product._id
@@ -54,7 +54,7 @@ export const CartProvider = ({ children }) => {
   );
 
 
-  /*Eliminar productos del carrito*/
+  
     const deleteItemToCart = (product) => {
       const inCart = cartItems.find(
         (productInCart) => productInCart._id === product._id

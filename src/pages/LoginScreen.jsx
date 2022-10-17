@@ -23,14 +23,14 @@ const LoginScreen = () => {
 
       if(respuesta?.errors){
         setMessage(respuesta.errors[0]);
-        console.log(respuesta.errors[0].msg);
+        
       }else{
       if (respuesta?.token) {
         setMessage({ ok: true, msg: "Login ok" });
         localStorage.setItem("token", JSON.stringify(respuesta.token));
         localStorage.setItem("user", JSON.stringify(respuesta.usuario.uid));
         navigate("/home");
-        console.log("paso por el navigate")
+        
       } else {
         setMessage(respuesta);
       } 

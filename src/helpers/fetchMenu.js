@@ -1,6 +1,6 @@
-//const url = "http://localhost:8080/api";
+
 const url = "https://restaurantelp.herokuapp.com/api";
-//traer menu
+
 export const getMenu = async () => {
     const resp = await fetch(`${url}/menu`, {
       method: 'GET',
@@ -14,7 +14,7 @@ export const getMenu = async () => {
     return data;
   };
   
-  //Crear nuevo menu
+
   export const postMenu = async (datos) => {
     const resp = await fetch(`${url}/menu`, {
       method: 'POST',
@@ -40,7 +40,7 @@ export const getMenu = async () => {
   
     return data;
   }
-   //Traer una entrada de menu por su id
+ 
 export const getMenuById = async (id) => {
     const resp = await fetch(`${url}/menu/${id}`, {
       method: "GET",
@@ -53,7 +53,7 @@ export const getMenuById = async (id) => {
   
     return data;
   };
-  //modificar menu
+ 
   export const putMenu = async (datos,id) => {
     const resp = await fetch(`${url}/menu/${id}`, {
       method: "PUT",
@@ -68,7 +68,7 @@ export const getMenuById = async (id) => {
     return data;
   };
   
-  //borrar menu de la lista
+
   export const deleteMenu = async (id) => {
     const resp = await fetch(`${url}/menu/${id}`, {
       method: "DELETE",
@@ -82,7 +82,7 @@ export const getMenuById = async (id) => {
     return data;
   };
 
-  //Search menu
+
   export const buscarMenu = async (termino) => {
     const resp = await fetch(`${url}/buscarm?search=${termino}`, {
       method: "GET",

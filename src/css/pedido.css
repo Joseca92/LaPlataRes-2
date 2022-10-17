@@ -38,11 +38,11 @@ body{
 }
 
 .contenedor{
-    /* width: 70%; */
+    
     background-color: rgba(13, 14, 13, 0.322)!important;
 }
 .dPedidos{
-    /* width: 70%; */
+   
     border: 2px solid rgba(0, 0, 0, 0.788);
    
  

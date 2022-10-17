@@ -11,9 +11,9 @@ const Nav = () => {
   const token = JSON.parse(localStorage.getItem("token")) || null;
   useEffect(()=>{
     const id = JSON.parse(localStorage.getItem("user"))
-    console.log(id)
+   
     getUsuarioById(id).then((respuesta)=>{
-      console.log(respuesta.usuario);
+      
       setUser(respuesta.usuario);     
     }) 
   },[])
@@ -66,7 +66,7 @@ const Nav = () => {
               </li>
             </ul>
                 )}
-            {/* dropdown */}
+           
           <ul className="navbar-nav">
               <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toogle" id="dropdown-basic" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -35,7 +35,7 @@ const NavBarPublic = () => {
                Iniciar Sesion </button> </NavLink>
             </li>
               
-            {/* dropdown */}
+           
           
           </ul>
         </div>

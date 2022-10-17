@@ -22,7 +22,7 @@ const Post = ({ post, handleChange }) => {
     let arreglo = [];
     menu.forEach((m) => {
       getMenuById(m).then((respuesta) => {
-        console.log(respuesta);
+        
 
         arreglo.push(respuesta.menu.nombre, ", ");
         setMenus([...arreglo]);
@@ -56,9 +56,7 @@ const Post = ({ post, handleChange }) => {
         });
         handleChange();
 
-        /* setTimeout(()=>{
-          window.location.href = window.location.href;
-        },2000); */
+      
       }
     });
   };

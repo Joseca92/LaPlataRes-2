@@ -21,7 +21,7 @@ const Pedido = () => {
 
   useEffect(() => {
     const id = JSON.parse(localStorage.getItem("user"));
-    console.log(id);
+    
     getUsuarioById(id).then((respuesta) => {
       console.log(respuesta.usuario.role);
       setPermiso(respuesta.usuario.role);
@@ -61,11 +61,11 @@ const Pedido = () => {
     });
   }, 10000);
   const handleChange = (e) => {
-    console.log("handleChange");
+   
     let cambio = 0;
 
     setActualizar(cambio + 1);
-    console.log(cambio + 1);
+    
   };
 
   return (

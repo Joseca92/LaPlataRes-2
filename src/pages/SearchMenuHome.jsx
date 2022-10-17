@@ -68,14 +68,7 @@ const SearchMenuHome = () => {
 
               
             </div>
-           {/*  <div class="col-2">
-           <button
-                key={menu._id}
-                onClick={() => addItemToCard(menu)}
-                className="btnGral fw-bold p-2 mx-2">
-                Agregar
-                </button>
-            </div> */}
+           {}
           
           </div>
         </div>

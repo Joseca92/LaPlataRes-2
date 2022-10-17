@@ -1,8 +1,8 @@
-//const url = "http://localhost:8080/api";
+
 const url = "https://restaurantelp.herokuapp.com/api";
 
 
-//usuarios
+
 
 export const getUsuarios = async (registro = 0) => {
   const resp = await fetch(`${url}/usuarios?desde=${registro}`, {
@@ -60,13 +60,13 @@ export const deleteUsuario = async (id) => {
   return data;
 };
 
-//roles
+
 export const getRoles = async () => {
   const resp = await fetch(`${url}/roles`, {
     method: "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
-     /*  "x-token": JSON.parse(localStorage.getItem("token")), */
+     
     },
   });
   const data = await resp.json();

@@ -17,7 +17,7 @@ const HomePublicScreen = () => {
   const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mensaje, setMensaje] = useState("");
-  // const { addItemToCard } = useContext(CartContext);
+  
   useEffect(() => {
     getMenu().then((respuesta) => {
       console.log(respuesta);

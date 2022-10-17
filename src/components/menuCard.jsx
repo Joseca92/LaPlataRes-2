@@ -74,7 +74,7 @@ const MenuCard = ({ post, handleChange }) => {
 
           setTimeout(() => {
             handleChange();
-            /* window.location.href = window.location.href; */
+            
           }, 4000);
         }
         if (respuesta == null) {
@@ -94,7 +94,7 @@ const MenuCard = ({ post, handleChange }) => {
     
       if (respuesta) {
         deleteMenu(_id).then((respuesta) => {
-          console.log(respuesta.msg);
+         
         });
         swal({
           text: "El Menú a sido borrado con exito",
@@ -103,7 +103,7 @@ const MenuCard = ({ post, handleChange }) => {
         });
         setTimeout(() => {
           handleChange();
-          /* window.location.href = window.location.href; */
+          
         }, 3000);
       }
     });

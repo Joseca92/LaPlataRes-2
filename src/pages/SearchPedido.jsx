@@ -38,7 +38,7 @@ const SearchBlogsScreen = () => {
     });
   }, [termino,actualizar]);
   const handleChange= (e)=>{
-    console.log("handleChange")
+    
     getPedido().then((respuesta)=>{
       setActualizar(respuesta.total);
     })

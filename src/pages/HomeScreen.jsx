@@ -109,9 +109,7 @@ const HomeScreen = () => {
               </>
             )}
           </div>
-          {/* <div className="col-12 col-md-12 d-flex aling-items-center justify-content-center">
-            <button onClick={() => setCartOpen(!cartOpen)} className="btnGral fw-bold p-2 m-2">Ver pedido : ${total}</button>
-          </div> */}
+          {}
         </div>
       </div>
     </>

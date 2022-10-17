@@ -71,11 +71,11 @@ const UsuariosABM = () => {
   },10000)
 
   const handleChange= (e)=>{
-    console.log("handleChange")
+    
     let cambio=0;
 
     setActualizar(cambio+1);
-    console.log(cambio+1);
+    
 
    
   }
